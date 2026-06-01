@@ -1,20 +1,20 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useInView } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useInView, Variants } from "framer-motion";
 
 /* ──────────────────────────────────────────────
    Framer variants
 ────────────────────────────────────────────── */
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
 };
-const wordVariants = {
+const wordVariants: Variants = {
   hidden:  { opacity: 0, y: 80, rotateX: -25 },
   visible: { opacity: 1, y: 0,  rotateX: 0,  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
 };
-const fadeUp = {
+const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 30 },
   visible: (d: number) => ({ opacity: 1, y: 0, transition: { duration: 0.8, delay: d, ease: [0.22, 1, 0.36, 1] } }),
 };
@@ -186,6 +186,7 @@ function Diamond3DCanvas({ size = 520 }: { size?: number }) {
 
     // --- Render Loop ---
     function render(now: number) {
+      if (!ctx) return;
       ctx.clearRect(0, 0, size, size);
       const t = (now - t0) / 1000;
 
@@ -620,7 +621,7 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
         <span className="text-[10px] font-bold tracking-[0.3em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Scroll</span>
         <motion.div className="w-px h-12 rounded-full"
-          style={{ background: "background: linear-gradient(to bottom,rgba(160,50,220,0.78),transparent)" }}
+          style={{ background: "linear-gradient(to bottom,rgba(160,50,220,0.78),transparent)" }}
           animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
       </motion.div>
