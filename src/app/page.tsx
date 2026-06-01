@@ -1,6 +1,6 @@
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
-import WorkingRoadmapSection from "@/components/sections/WorkingRoadmapSection";
+import WhatWeDoAccordionSection from "@/components/sections/WhatWeDoAccordionSection";
 import TechSolutionSection from "@/components/sections/TechSolutionSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import WorkShowcaseSection from "@/components/sections/WorkShowcaseSection";
@@ -12,10 +12,10 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
-      <WorkingRoadmapSection />
+      <WhatWeDoAccordionSection />
       <TechSolutionSection />
-      <TestimonialSection />
       <WorkShowcaseSection />
+      <TestimonialSection />
       <CTASection />
       <WhyChooseSection />
     </>

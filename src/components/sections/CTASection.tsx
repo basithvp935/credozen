@@ -83,16 +83,6 @@ export default function CTASection() {
               </svg>
             </div>
             
-            {/* Floating tiny circle (from screenshot) */}
-            <motion.div 
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.5, type: "spring" }}
-              className="absolute top-12 right-0 md:-right-12 w-8 h-8 border border-gray-400 rounded-full flex items-center justify-center z-20"
-            >
-              <div className="w-1 h-1 bg-gray-800 rounded-full"></div>
-            </motion.div>
 
           </div>
 

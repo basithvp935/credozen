@@ -91,6 +91,17 @@ export default function WhyChooseSection() {
     <section className="py-24 relative bg-gradient-to-br from-[#962f92] to-[#7e51a1] text-white overflow-hidden">
       <div className="container mx-auto px-4 max-w-[1400px] relative z-10">
         
+        {/* Section Heading */}
+        <div className="flex justify-start mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block bg-[#d4439c] text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md uppercase tracking-widest"
+          >
+            Why Choose Us
+          </motion.div>
+        </div>
         {/* Mobile View: Standard Vertical Timeline */}
         <div className="md:hidden flex flex-col gap-12 relative">
           <div className="absolute left-8 top-0 bottom-0 w-1 bg-white/30 rounded-full"></div>

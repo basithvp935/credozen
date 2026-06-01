@@ -80,13 +80,6 @@ export default function Footer() {
             &copy; {currentYear} <span className="text-blue-500 font-medium">Credozen</span> - IT Services. All rights reserved.
           </p>
           
-          {/* Scroll to top circle */}
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="absolute left-1/2 -top-[52px] -translate-x-1/2 w-10 h-10 rounded-full border border-gray-700 bg-black flex items-center justify-center hover:bg-gray-900 transition-colors cursor-pointer z-10 shadow-lg shadow-black"
-          >
-            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-          </button>
 
           <div className="flex items-center gap-8">
             <Link href="#" className="text-blue-600 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">

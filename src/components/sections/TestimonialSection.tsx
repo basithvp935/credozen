@@ -1,126 +1,131 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Star } from "lucide-react";
 
+const REVIEWS = [
+  {
+    id: 1,
+    quote: "AIXOR truly understands the power of storytelling and strategic marketing",
+    author: "Michael Richards",
+    company: "GreenWave Energy",
+    avatar: "/images/testimonial_james.png" 
+  },
+  {
+    id: 2,
+    quote: "Working with AIXOR has been a transformative experience for our business",
+    author: "Sarah Jenkins",
+    company: "TechNova Solutions",
+    avatar: "/images/testimonial_john.png" 
+  },
+  {
+    id: 3,
+    quote: "We partnered with AIXOR to design our mobile app, and the results were phenomenal magic",
+    author: "David Lee",
+    company: "Innovate Finance",
+    avatar: "/images/testimonial_webcly.png" 
+  },
+  {
+    id: 4,
+    quote: "Their incredible attention to detail elevated our entire brand identity beyond expectations.",
+    author: "Emily Chen",
+    company: "Stellar Dynamics",
+    avatar: "/images/testimonial_james.png" 
+  },
+  {
+    id: 5,
+    quote: "AIXOR's team brings both creative vision and technical excellence to every project.",
+    author: "Marcus Johnson",
+    company: "Quantum Logistics",
+    avatar: "/images/testimonial_john.png" 
+  }
+];
+
+// Duplicate the reviews array 4 times to ensure it covers even ultra-wide displays
+// If there are 4 sets, one full cycle requires shifting by -25% of the total track width
+const MARQUEE_ITEMS = [...REVIEWS, ...REVIEWS, ...REVIEWS, ...REVIEWS];
+
 export default function TestimonialSection() {
   return (
-    <section className="py-24 bg-[#b3b3b3] relative overflow-hidden" id="testimonials">
-      <div className="container mx-auto px-4 md:px-8 max-w-[1400px] relative z-10">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block bg-white/50 text-gray-800 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6 uppercase shadow-sm border border-gray-400"
-          >
-            Work Showcase
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-medium text-gray-900 leading-tight"
-          >
-            What <span className="font-bold">Our Client</span> Say <span className="font-bold">About Us</span>
-          </motion.h2>
+    <section className="py-24 bg-[#000000] relative overflow-hidden" id="testimonials">
+      
+      {/* Inline styles for the marquee animation */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes custom-marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-25%); } 
+        }
+        .animate-custom-marquee {
+          animation: custom-marquee 25s linear infinite;
+          display: flex;
+          width: max-content;
+        }
+        .animate-custom-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}} />
+
+      <div className="container mx-auto px-4 md:px-8 max-w-[1600px] mb-12">
+        {/* Header */}
+        <div className="flex items-center gap-4">
+          <div className="flex gap-1.5 items-center h-5">
+            <div className="w-1.5 h-full bg-white"></div>
+            <div className="w-1 h-[80%] bg-white/70"></div>
+            <div className="w-0.5 h-[60%] bg-white/40"></div>
+          </div>
+          <h2 className="text-white text-lg md:text-xl font-bold tracking-[0.2em] uppercase">
+            Our Reviews
+          </h2>
         </div>
+      </div>
 
-        <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 lg:gap-8">
-          
-          {/* Left Card: Webcly */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex-1 max-w-[350px] flex flex-col items-center"
-          >
-            <div className="bg-white border border-gray-200 rounded-[32px] p-4 w-full shadow-lg mb-6 flex-1 flex items-end justify-center relative overflow-hidden min-h-[380px]">
-              <Image 
-                src="/images/testimonial_webcly.png" 
-                alt="Webcly jhonson" 
-                fill
-                className="object-cover object-bottom"
-              />
-            </div>
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-gray-900 mb-1">Webcly jhonson</h4>
-              <p className="text-sm text-gray-700">Tung Phan - Ceo and Founder</p>
-            </div>
-          </motion.div>
+      {/* Marquee Track Container */}
+      <div className="w-full relative flex overflow-hidden py-4 group cursor-grab active:cursor-grabbing">
+        
+        {/* Gradient edge fades for a seamless disappearance effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-          {/* Center Card: Testimonial Text */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex-[1.5] max-w-[600px]"
-          >
-            <div className="bg-white border border-gray-200 rounded-[32px] p-10 lg:p-12 w-full shadow-xl h-full flex flex-col">
-              
-              {/* Stars */}
-              <div className="flex gap-1 mb-8">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <div key={star} className="w-8 h-8 bg-[#00b67a] rounded-sm flex items-center justify-center text-white">
-                    <Star className="w-5 h-5 fill-current" />
-                  </div>
-                ))}
+        {/* The Animated Track */}
+        <div className="animate-custom-marquee gap-6 pl-6">
+          {MARQUEE_ITEMS.map((review, idx) => (
+            <div 
+              key={`${review.id}-${idx}`}
+              className="flex-shrink-0 w-[320px] h-[400px] md:w-[380px] md:h-[450px] bg-gradient-to-b from-[#1a1a1a] to-[#111111] rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-white/5 hover:border-white/10 transition-colors shadow-2xl"
+            >
+              <div>
+                {/* 5 Stars */}
+                <div className="flex gap-2 mb-8 md:mb-10">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-5 h-5 fill-white text-white" />
+                  ))}
+                </div>
+
+                {/* Quote Text */}
+                <p className="text-white text-xl md:text-2xl font-light leading-snug tracking-wide">
+                  "{review.quote}"
+                </p>
               </div>
 
-              {/* Text */}
-              <p className="text-gray-900 text-xl lg:text-[22px] leading-relaxed font-medium mb-12 flex-1">
-                "Credozen hires great people from a widely variety of backgrounds, which simply makes our compan stronger, and we couldn't be prouder of that. elevating your optimizing Business Growth."
-              </p>
-
               {/* Author */}
-              <div className="flex items-center gap-4 pt-8 border-t border-gray-200">
-                <div className="w-14 h-14 rounded-full overflow-hidden relative shadow-md bg-purple-600">
+              <div className="flex items-center gap-4 mt-8">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden relative shadow-lg bg-gray-800 border border-white/10">
                   <Image 
-                    src="/images/testimonial_james.png" 
-                    alt="James anderson" 
+                    src={review.avatar} 
+                    alt={review.author} 
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div>
-                  <h4 className="text-lg font-bold text-gray-900">James anderson</h4>
-                  <p className="text-sm">
-                    <span className="text-blue-600 font-bold">CEO</span> <span className="text-gray-600">and Founder</span>
-                  </p>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium text-base md:text-lg italic tracking-wide">{review.author}</span>
+                  <span className="text-white/50 text-xs md:text-sm">{review.company}</span>
                 </div>
               </div>
-
             </div>
-          </motion.div>
-
-          {/* Right Card: John */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="flex-1 max-w-[350px] flex flex-col items-center"
-          >
-            <div className="bg-white border border-gray-200 rounded-[32px] p-4 w-full shadow-lg mb-6 flex-1 flex items-end justify-center relative overflow-hidden min-h-[380px]">
-              <Image 
-                src="/images/testimonial_john.png" 
-                alt="John Doe" 
-                fill
-                className="object-cover object-bottom"
-              />
-            </div>
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-gray-900 mb-1">John Doe</h4>
-              <p className="text-sm text-gray-700">Developer - Web Developer</p>
-            </div>
-          </motion.div>
-
+          ))}
         </div>
+
       </div>
     </section>
   );

@@ -50,10 +50,6 @@ export default function TechSolutionSection() {
               Tech Solution
             </motion.div>
             
-            {/* Small circular icon top right of text */}
-            <div className="absolute top-1/2 -right-8 md:-right-16 w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center pointer-events-none hidden md:flex">
-              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-            </div>
 
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
