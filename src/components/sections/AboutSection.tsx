@@ -5,7 +5,7 @@ import { Smile, CheckCircle, Smartphone, Layout, Image as ImageIcon } from "luci
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-[#b3b3b3] overflow-hidden text-slate-800">
+    <section id="about" className="py-24 bg-white overflow-hidden text-slate-800">
       
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         

@@ -51,7 +51,7 @@ export default function WhatWeDoAccordionSection() {
                 background: isActive ? "linear-gradient(90deg, #141414 0%, #0a0a0a 60%, #000000 100%)" : "#000000",
               }}
             >
-              <div className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 flex flex-col md:flex-row items-start md:items-center py-12 md:py-16 min-h-[220px]">
+              <div className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 flex flex-col md:flex-row items-start md:items-center py-6 md:py-10 min-h-[160px]">
                 
                 {/* Left: Radio Button & Title */}
                 <div className="flex-1 flex items-center gap-6 mb-8 md:mb-0">
@@ -109,7 +109,7 @@ export default function WhatWeDoAccordionSection() {
                     <motion.div 
                       animate={{ y: [0, -20, 0] }}
                       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                      className="relative w-[260px] h-[260px] xl:w-[360px] xl:h-[360px]"
+                      className="relative w-[200px] h-[200px] xl:w-[280px] xl:h-[280px]"
                     >
                       <Image
                         src={service.image}
