@@ -5,7 +5,7 @@ import { Smile, CheckCircle, Smartphone, Layout, Image as ImageIcon } from "luci
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-white overflow-hidden text-slate-800">
+    <section id="about" className="py-24 bg-slate-50 overflow-hidden text-slate-800 transition-colors duration-300">
       
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         
@@ -37,16 +37,16 @@ export default function AboutSection() {
             className="flex flex-col items-start lg:pl-10"
           >
             {/* About Us Badge */}
-            <div className="bg-[#e8effd] text-brand-blue font-bold px-6 py-2.5 rounded-full mb-8 text-sm">
+            <div className="bg-white shadow-sm text-blue-600 font-bold px-6 py-2.5 rounded-full mb-8 text-sm border border-slate-100">
               About Us
             </div>
             
             {/* Main Heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-black mb-10 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-slate-900 mb-10 tracking-tight">
               <span className="font-bold">Comprehensive </span>
-              <span className="font-light text-slate-400">IT </span>
+              <span className="font-light text-[#f47721]">IT </span>
               <span className="font-bold">Solution</span><br className="hidden md:block" />
-              <span className="font-light text-slate-500">Growth </span>
+              <span className="font-light text-[#f47721]">Growth </span>
               <span className="font-bold">& Efficiency</span>
             </h2>
 

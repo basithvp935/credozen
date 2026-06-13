@@ -33,7 +33,7 @@ function TimelineStep({ step, idx, isRightCurve }: { step: any, idx: number, isR
         <motion.div 
           style={{ clipPath }}
           className={`
-            absolute top-0 bottom-0 border-white border-[8px] pointer-events-none
+            absolute top-0 bottom-0 border-[#f47721] border-[8px] pointer-events-none
             ${isRightCurve 
               ? 'left-1/2 right-0 border-l-0 rounded-r-[150px]' 
               : 'left-0 right-1/2 border-r-0 rounded-l-[150px]'}
@@ -42,15 +42,15 @@ function TimelineStep({ step, idx, isRightCurve }: { step: any, idx: number, isR
 
         {/* Text Block */}
         <div className={`w-1/2 px-8 lg:px-16 flex flex-col justify-center ${isRightCurve ? 'items-end text-right' : 'items-start text-left'}`}>
-          <h4 className="text-lg font-bold uppercase mb-4 tracking-wide">{step.subtitle}</h4>
-          <p className="text-base text-white/90 whitespace-pre-line leading-relaxed max-w-md">{step.desc}</p>
+          <h4 className="text-lg font-bold uppercase mb-4 tracking-wide text-slate-900">{step.subtitle}</h4>
+          <p className="text-base text-slate-700 whitespace-pre-line leading-relaxed max-w-md">{step.desc}</p>
         </div>
 
         {/* Pill Block */}
         <div className="w-1/2 px-8 lg:px-12 flex justify-center">
           <div className="flex items-center gap-6 relative z-20">
-            <span className="text-7xl lg:text-8xl font-black text-[#1f1427] leading-none">{step.num}</span>
-            <span className="text-3xl lg:text-4xl font-bold leading-tight whitespace-pre-line">{step.title}</span>
+            <span className="text-7xl lg:text-8xl font-black text-[#f47721] leading-none">{step.num}</span>
+            <span className="text-3xl lg:text-4xl font-bold leading-tight whitespace-pre-line text-slate-900">{step.title}</span>
           </div>
         </div>
 
@@ -88,7 +88,7 @@ export default function WhyChooseSection() {
   ];
 
   return (
-    <section className="py-24 relative bg-gradient-to-br from-[#962f92] to-[#7e51a1] text-white overflow-hidden">
+    <section className="py-24 relative bg-white text-slate-900 overflow-hidden">
       <div className="container mx-auto px-4 max-w-[1400px] relative z-10">
         
         {/* Section Heading */}
@@ -97,14 +97,14 @@ export default function WhyChooseSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block bg-[#d4439c] text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md uppercase tracking-widest"
+            className="inline-block bg-black text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md uppercase tracking-widest"
           >
             Why Choose Us
           </motion.div>
         </div>
         {/* Mobile View: Standard Vertical Timeline */}
         <div className="md:hidden flex flex-col gap-12 relative">
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-white/30 rounded-full"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-[#f47721]/30 rounded-full"></div>
           {steps.map((step, idx) => (
             <motion.div 
               key={idx}
@@ -113,12 +113,12 @@ export default function WhyChooseSection() {
               viewport={{ once: true }}
               className="relative pl-20"
             >
-              <div className="absolute left-0 top-2 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#962f92]">
-                <span className="text-3xl font-black text-[#1f1427]">{step.num}</span>
+              <div className="absolute left-0 top-2 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#f47721]">
+                <span className="text-3xl font-black text-[#f47721]">{step.num}</span>
               </div>
-              <h3 className="text-3xl font-bold leading-tight mb-6 whitespace-pre-line">{step.title}</h3>
-              <h4 className="text-lg font-bold uppercase mb-3 text-white/90">{step.subtitle}</h4>
-              <p className="text-white/80 whitespace-pre-line leading-relaxed">{step.desc}</p>
+              <h3 className="text-3xl font-bold leading-tight mb-6 whitespace-pre-line text-slate-900">{step.title}</h3>
+              <h4 className="text-lg font-bold uppercase mb-3 text-slate-800">{step.subtitle}</h4>
+              <p className="text-slate-600 whitespace-pre-line leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}
         </div>

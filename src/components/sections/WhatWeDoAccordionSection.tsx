@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const services = [
   {
@@ -35,9 +36,31 @@ const romanNumerals = ["I.", "II.", "III.", "IV."];
 
 export default function WhatWeDoAccordionSection() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? (theme === 'dark' || resolvedTheme === 'dark') : true;
 
   return (
-    <section className="bg-black text-white py-0 border-y border-white/10 overflow-hidden" id="services">
+    <section className="bg-white dark:bg-black text-slate-900 dark:text-white pt-24 pb-0 border-y border-slate-200 dark:border-white/10 overflow-hidden transition-colors duration-300" id="services">
+      {/* Header Area */}
+      <div className="container mx-auto px-6 md:px-12 max-w-[1400px] mb-12">
+        <h4 className="text-sm md:text-sm uppercase tracking-widest text-[#ea612a] mb-4 font-medium">
+          EMPOWERING YOUR BRAND JOURNEY
+        </h4>
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter">
+          We innovate <span className="text-[#f47721]">digital</span><br className="hidden md:block" /> experiences
+        </h2>
+      </div>
+
+      <div className="container mx-auto px-6 md:px-12 max-w-[1400px]">
+        <div className="w-full h-px bg-slate-300 dark:bg-white/30" />
+      </div>
+
       <div className="w-full flex flex-col">
         {services.map((service, index) => {
           const isActive = activeIndex === index;
@@ -46,9 +69,11 @@ export default function WhatWeDoAccordionSection() {
             <div
               key={service.id}
               onMouseEnter={() => setActiveIndex(index)}
-              className="relative w-full border-b border-white/5 last:border-none transition-all duration-500 cursor-pointer"
+              className="relative w-full border-b border-slate-200 dark:border-white/5 last:border-none transition-all duration-500 cursor-pointer"
               style={{
-                background: isActive ? "linear-gradient(90deg, #141414 0%, #0a0a0a 60%, #000000 100%)" : "#000000",
+                background: isActive 
+                  ? (isDark ? "linear-gradient(90deg, #141414 0%, #0a0a0a 60%, #000000 100%)" : "linear-gradient(90deg, #f8fafc 0%, #ffffff 60%, #f1f5f9 100%)")
+                  : (isDark ? "#000000" : "#ffffff"),
               }}
             >
               <div className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 flex flex-col md:flex-row items-start md:items-center py-6 md:py-10 min-h-[160px]">
@@ -57,11 +82,12 @@ export default function WhatWeDoAccordionSection() {
                 <div className="flex-1 flex items-center gap-6 mb-8 md:mb-0">
                   {/* Custom Radio Button */}
                   <div 
-                    className="flex items-center justify-center w-6 h-6 rounded-full border border-white/30 transition-colors duration-300"
-                    style={{ borderColor: isActive ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)" }}
+                    className="flex items-center justify-center w-6 h-6 rounded-full border transition-colors duration-300"
+                    style={{ borderColor: isActive ? (isDark ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.8)") : (isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)") }}
                   >
                     <motion.div 
-                      className="w-2.5 h-2.5 rounded-full bg-white"
+                      className="w-2.5 h-2.5 rounded-full"
+                      style={{ backgroundColor: isDark ? "#ffffff" : "#0f172a" }}
                       initial={false}
                       animate={{ scale: isActive ? 1 : 0, opacity: isActive ? 1 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -70,7 +96,7 @@ export default function WhatWeDoAccordionSection() {
 
                   <h3 
                     className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight transition-colors duration-500"
-                    style={{ color: isActive ? "#ffffff" : "rgba(255,255,255,0.4)" }}
+                    style={{ color: isActive ? (isDark ? "#ffffff" : "#0f172a") : (isDark ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
                   >
                     {service.title}
                   </h3>
@@ -82,7 +108,7 @@ export default function WhatWeDoAccordionSection() {
                     <div 
                       key={i} 
                       className="flex items-center gap-2 text-sm tracking-wide transition-colors duration-500"
-                      style={{ color: isActive ? "#ffffff" : "rgba(255,255,255,0.3)" }}
+                      style={{ color: isActive ? (isDark ? "#ffffff" : "#0f172a") : (isDark ? "rgba(255,255,255,0.3)" : "rgba(15,23,42,0.4)") }}
                     >
                       <span className="font-medium">{romanNumerals[i]}</span>
                       <span className="font-light">{item}</span>

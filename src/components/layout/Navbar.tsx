@@ -1,137 +1,136 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Code, ChevronDown, Sun, Moon, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("HOME");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const topLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Consultancy", href: "#about" },
-    { name: "Implementation", href: "#services" },
-    { name: "Case Studies", href: "#portfolio" },
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  type NavLink = { name: string; href: string; hasDropdown?: boolean };
+  const navLinks: NavLink[] = [
+    { name: "HOME", href: "#home" },
+    { name: "ABOUT", href: "#about" },
+    { name: "SERVICE", href: "#services" },
+    { name: "TECH SOLUTION", href: "#tech-solution" },
+    { name: "OUR WORKS", href: "#portfolio" },
+    { name: "CONTACT", href: "#contact" },
   ];
-
-  const bottomLinks = [
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Careers", href: "#careers" },
-    { name: "Community", href: "#community" },
-    { name: "Insights", href: "#insights" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const menuVariants: import("framer-motion").Variants = {
-    closed: { opacity: 0, x: "100%" },
-    open: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] as const } }
-  };
-
-  const linkVariants: import("framer-motion").Variants = {
-    closed: { opacity: 0, y: 30 },
-    open: (i: number) => ({
-      opacity: 1, 
-      y: 0,
-      transition: { delay: 0.3 + (i * 0.05), duration: 0.4, ease: [0.76, 0, 0.24, 1] as const }
-    })
-  };
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[100] py-6 px-6 md:px-12 flex justify-between items-center text-white">
-        {/* Logo */}
-        <Link href="/" className="z-[110]" onClick={() => setIsMenuOpen(false)}>
-          <img 
-            src="/logo.png" 
-            alt="Credozen Logo" 
-            className="h-8 md:h-10 w-auto object-contain"
-          />
-        </Link>
+      {/* Desktop Navbar (Pill style) */}
+      <nav className="fixed top-6 left-0 right-0 z-[100] hidden lg:flex justify-center items-center gap-6 px-4 w-full">
+        
+        {/* Left Pill - Logo */}
+        <div className="flex items-center rounded-full px-6 py-2.5 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/logo.png" alt="Credozen Logo" className="h-8 w-auto transition-all duration-300" />
+          </Link>
+        </div>
 
-        {/* Menu Toggle */}
+        {/* Center Pill - Navigation */}
+        <div className="flex items-center gap-2 rounded-full p-1.5 pr-4 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
+          {/* Code Icon Circle */}
+          <div className="bg-[#f47721] text-white rounded-full w-9 h-9 flex items-center justify-center shadow-sm shrink-0 ml-0.5">
+            <Code size={16} strokeWidth={2.5} />
+          </div>
+
+          <div className="flex items-center gap-2 md:gap-3 ml-3">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setActiveLink(link.name)}
+                className={`
+                  flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest transition-all
+                  ${activeLink === link.name 
+                    ? "bg-[#f47721] text-white shadow-sm" 
+                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 border border-transparent"
+                  }
+                `}
+              >
+                {link.name}
+                {link.hasDropdown && <ChevronDown size={14} className="ml-1" />}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Pill - Socials & Theme Toggle */}
+        <div className="flex items-center gap-4 rounded-full px-5 py-2 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 h-12 transition-colors duration-300">
+          <a href="#" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <a href="#" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <div className="w-px h-5 bg-slate-300 dark:bg-white/20 mx-1 transition-colors duration-300"></div>
+          <button 
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all"
+          >
+            {mounted ? (
+              theme === "dark" ? <Sun size={20} strokeWidth={2.5} /> : <Moon size={20} strokeWidth={2.5} />
+            ) : (
+              <Sun size={20} strokeWidth={2.5} />
+            )}
+          </button>
+        </div>
+
+      </nav>
+
+      {/* Mobile Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-[100] lg:hidden flex justify-between items-center px-6 py-4 bg-white dark:bg-[#0a192f] shadow-md border-b border-slate-200 dark:border-white/5 text-slate-900 dark:text-white transition-colors duration-300">
+        <Link href="/" className="flex items-center gap-2">
+          <img src="/logo.png" alt="Credozen Logo" className="h-8 w-auto transition-all duration-300" />
+        </Link>
         <button 
-          className="z-[110] relative w-10 h-10 flex flex-col justify-center items-end gap-2 group"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-slate-900 dark:text-white p-2 transition-colors duration-300"
         >
-          <span className={`h-1 bg-white transition-all duration-300 ease-out ${isMenuOpen ? "w-8 rotate-45 translate-y-[12px]" : "w-10 group-hover:w-8"}`}></span>
-          <span className={`h-1 bg-white transition-all duration-300 ease-out ${isMenuOpen ? "opacity-0" : "w-8 group-hover:w-10"}`}></span>
-          <span className={`h-1 bg-white transition-all duration-300 ease-out ${isMenuOpen ? "w-8 -rotate-45 -translate-y-[12px]" : "w-6 group-hover:w-10"}`}></span>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Sidebar Overlay Menu */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {isMobileMenuOpen && (
           <motion.div
-            variants={menuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-            className="fixed top-0 right-0 bottom-0 w-full sm:w-[450px] z-[90] bg-[#b3b3b3] flex flex-col justify-center px-12 md:px-16 shadow-2xl border-l border-white/10"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-[60px] left-0 right-0 z-[90] bg-white dark:bg-[#0a192f] lg:hidden flex flex-col p-6 shadow-2xl border-b border-slate-200 dark:border-white/5 transition-colors duration-300"
           >
-            {/* Border Element for Menu */}
-            <div className="absolute inset-4 border-4 border-white/20 rounded-3xl pointer-events-none"></div>
-
-            <div className="flex flex-col relative z-10 w-full">
-              
-              {/* Top Links */}
-              <div className="flex flex-col space-y-5 mb-8">
-                {topLinks.map((link, i) => (
-                  <motion.div 
-                    custom={i} 
-                    variants={linkVariants} 
-                    initial="closed" 
-                    animate="open" 
-                    exit="closed"
-                    key={link.name}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-2xl md:text-3xl font-black text-white hover:text-brand-cyan transition-colors uppercase tracking-wide block w-max"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Dashed Separator */}
-              <motion.div 
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="w-full flex gap-3 mb-8 opacity-60"
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => {
+                  setActiveLink(link.name);
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`
+                  flex items-center justify-between py-3 px-4 rounded-lg font-bold tracking-widest text-sm mb-2 transition-colors duration-300
+                  ${activeLink === link.name ? "bg-[#f47721] text-white" : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"}
+                `}
               >
-                {[...Array(6)].map((_, i) => (
-                  <div key={i} className="h-1 w-8 bg-white rounded-full"></div>
-                ))}
-              </motion.div>
-
-              {/* Bottom Links */}
-              <div className="flex flex-col space-y-4">
-                {bottomLinks.map((link, i) => (
-                  <motion.div 
-                    custom={i + topLinks.length} 
-                    variants={linkVariants} 
-                    initial="closed" 
-                    animate="open" 
-                    exit="closed"
-                    key={link.name}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-xl md:text-2xl font-black text-white hover:text-brand-cyan transition-colors uppercase tracking-wide block w-max"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-            </div>
+                {link.name}
+                {link.hasDropdown && <ChevronDown size={16} />}
+              </Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

@@ -17,18 +17,6 @@ const features = [
     title: "Cutting-edge technology", 
     desc: "Leveraging the latest in technology to deliver smarter, faster solutions. Stay ahead of the curve with future-ready digital innovations.",
     image: "/images/tech_cutting_edge.png"
-  },
-  { 
-    id: "discovery", 
-    title: "Discovery & Analysis", 
-    desc: "Leveraging the latest in technology to deliver smarter, faster solutions. Stay ahead of the curve with future-ready digital innovations.",
-    image: "/images/tech_discovery.png"
-  },
-  { 
-    id: "deployment", 
-    title: "Deployment & Support", 
-    desc: "Leveraging the latest in technology to deliver smarter, faster solutions. Stay ahead of the curve with future-ready digital innovations.",
-    image: "/images/tech_deployment.png"
   }
 ];
 
@@ -38,7 +26,7 @@ export default function TechSolutionSection() {
   const [showDashboard, setShowDashboard] = useState(false);
 
   return (
-    <section className="py-16 lg:py-20 bg-white relative overflow-hidden" id="tech-solution">
+    <section className="py-16 lg:py-20 bg-slate-50 dark:bg-[#0a0a0a] relative overflow-hidden transition-colors duration-300" id="tech-solution">
       {/* Subtle background decorations */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600 rounded-full blur-[120px] opacity-20 -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
 
@@ -51,7 +39,7 @@ export default function TechSolutionSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block bg-[#e8effd] text-blue-600 px-5 py-2 rounded-full text-sm font-bold shadow-sm mb-8"
+              className="inline-block bg-[#e8effd] dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-5 py-2 rounded-full text-sm font-bold shadow-sm mb-8"
             >
               Tech Solution
             </motion.div>
@@ -62,9 +50,9 @@ export default function TechSolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-8"
             >
-              The Complete <span className="font-light text-slate-500">Platform</span> <span className="font-bold">To Power Your Operations</span>
+              The Complete <span className="font-light text-slate-500 dark:text-slate-400">Platform</span> <br className="hidden md:block"/><span className="font-bold">To Power Your <span className="text-[#f47721]">Operations</span></span>
             </motion.h2>
 
             <motion.p 
@@ -72,7 +60,7 @@ export default function TechSolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-slate-600 text-lg leading-relaxed max-w-lg"
+              className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-lg"
             >
               In today's competitive business, the demand for efficient and cost-effective IT solutions has never been more critical.
             </motion.p>
@@ -93,12 +81,12 @@ export default function TechSolutionSection() {
                   onClick={() => setActiveFeature(feature.id)}
                   className={`
                     cursor-pointer transition-all duration-300 rounded-2xl overflow-hidden border border-transparent
-                    ${isActive ? 'bg-white border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)]' : 'hover:bg-gray-50'}
+                    ${isActive ? 'bg-white dark:bg-white/5 border-gray-100 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.08)]' : 'hover:bg-gray-50 dark:hover:bg-white/5'}
                   `}
                 >
-                  <div className={`p-6 md:p-8 flex items-start gap-4 ${isActive ? 'border-l-4 border-blue-600' : 'border-l-4 border-transparent'}`}>
+                  <div className={`p-6 md:p-8 flex items-start gap-4 ${isActive ? 'border-l-4 border-[#f47721]' : 'border-l-4 border-transparent'}`}>
                     <div className="flex-1">
-                      <h3 className={`text-2xl font-bold transition-colors ${isActive ? 'text-black mb-4' : 'text-slate-500'}`}>
+                      <h3 className={`text-2xl font-bold transition-colors ${isActive ? 'text-slate-900 dark:text-white mb-4' : 'text-slate-500 dark:text-slate-400'}`}>
                         {feature.title}
                       </h3>
                       
@@ -111,7 +99,7 @@ export default function TechSolutionSection() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                           >
-                            <p className="text-slate-600 leading-relaxed text-base pr-4">
+                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base pr-4">
                               {feature.desc}
                             </p>
                           </motion.div>
@@ -125,7 +113,7 @@ export default function TechSolutionSection() {
           </div>
 
           {/* Right: Animated Laptop Graph (3D) */}
-          <div className="w-full lg:w-[55%] relative flex justify-center items-center py-10 -mt-12 lg:-mt-20" style={{ perspective: "1500px" }}>
+          <div className="w-full lg:w-[55%] relative flex justify-center items-center py-10 -mt-20 lg:-mt-40" style={{ perspective: "1500px" }}>
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, y: 50 }}

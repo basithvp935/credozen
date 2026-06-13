@@ -16,21 +16,25 @@ export const metadata: Metadata = {
   description: "Credozen delivers modern websites, web applications, eCommerce solutions, and digital services for businesses across the globe.",
 };
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} dark antialiased scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-[#090b10] text-slate-200">
-        <Preloader />
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <ChatWidget />
+    <html lang="en" className={`${outfit.variable} antialiased scroll-smooth`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col dark:bg-[#090b10] dark:text-slate-200 bg-slate-50 text-slate-900 transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Preloader />
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <ChatWidget />
+        </ThemeProvider>
       </body>
     </html>
   );

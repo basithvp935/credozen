@@ -441,9 +441,8 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[85vh] flex items-center overflow-hidden dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 bg-gradient-to-br from-indigo-50 via-white to-purple-50 transition-colors duration-300"
       id="home"
-      style={{ background: "linear-gradient(140deg,#06000f 0%,#0c0518 45%,#04040c 100%)" }}
     >
       {/* Grain */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.030]"
@@ -484,7 +483,7 @@ export default function HeroSection() {
       <motion.div
         className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 pt-32 pb-20"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 w-full min-h-[80vh]">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 w-full min-h-[60vh]">
 
           {/* LEFT — Text */}
           <motion.div style={{ x: textX, y: textY }} className="flex-1 flex flex-col justify-center lg:pr-8">
@@ -492,17 +491,17 @@ export default function HeroSection() {
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible"
               className="inline-flex items-center gap-2 mb-8 self-start">
               <span className="px-4 py-1.5 text-xs font-bold tracking-[0.25em] uppercase rounded-full"
-                style={{ background: "rgba(150,47,210,0.14)", border: "1px solid rgba(150,47,210,0.36)", color: "#c97ec7" }}>
+                style={{ background: "rgba(244,119,33,0.14)", border: "1px solid rgba(244,119,33,0.36)", color: "#f47721" }}>
                 IT Solutions
               </span>
-              <motion.div className="w-2 h-2 rounded-full bg-[#962f92]"
+              <motion.div className="w-2 h-2 rounded-full bg-[#f47721]"
                 animate={{ scale: [1, 1.5, 1], opacity: [1, 0.4, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }} />
             </motion.div>
 
             <div style={{ perspective: "1000px", overflow: "hidden" }}>
               <motion.h1 variants={containerVariants} initial="hidden" animate="visible"
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-black tracking-tighter text-white leading-none mb-3">
+                className="text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-none mb-3">
                 {headingWords.map(w => (
                   <motion.span key={w} variants={wordVariants} className="inline-block mr-4"
                     style={{ transformOrigin: "bottom center" }}>{w}</motion.span>
@@ -518,10 +517,7 @@ export default function HeroSection() {
                     style={{
                       fontStyle: i === 1 ? "italic" : "normal",
                       fontFamily: i === 1 ? "Georgia, serif" : undefined,
-                      background: i === 1 ? "linear-gradient(90deg,#962f92,#b85ab5,#7e51a1)" : undefined,
-                      WebkitBackgroundClip: i === 1 ? "text" : undefined,
-                      WebkitTextFillColor: i === 1 ? "transparent" : "white",
-                      backgroundClip: i === 1 ? "text" : undefined,
+                      color: i === 1 ? "#f47721" : "inherit",
                     }}>{w}</motion.span>
                 ))}
               </motion.div>
@@ -532,10 +528,10 @@ export default function HeroSection() {
             <motion.div custom={2.0} variants={fadeUp} initial="hidden" animate="visible" className="flex gap-10 mt-14">
               {[{ to: 200, suffix: "+", label: "Projects" }, { to: 98, suffix: "%", label: "Satisfaction" }, { to: 12, suffix: "+", label: "Years" }].map(s => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="text-3xl font-black text-white">
+                  <span className="text-3xl font-black text-slate-900 dark:text-white">
                     <AnimatedCounter to={s.to} suffix={s.suffix} />
                   </span>
-                  <span className="text-xs uppercase tracking-widest text-white/40 mt-1">{s.label}</span>
+                  <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/40 mt-1">{s.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -591,16 +587,15 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.p custom={1.4} variants={fadeUp} initial="hidden" animate="visible"
-                className="text-base md:text-lg leading-relaxed mb-10 font-light"
-                style={{ color: "rgba(255,255,255,0.45)" }}>
+                className="text-base md:text-lg leading-relaxed mb-10 font-light text-slate-600 dark:text-white/45">
                 We craft powerful digital experiences — transforming ideas into
                 intelligent, user-centric technology solutions.
               </motion.p>
 
               <motion.div custom={1.7} variants={fadeUp} initial="hidden" animate="visible" className="flex w-full justify-between items-center gap-2">
                 <motion.a href="#about"
-                  className="relative group inline-flex items-center gap-3 px-8 py-4 font-semibold text-sm tracking-widest uppercase overflow-hidden rounded-full text-white"
-                  style={{ background: "linear-gradient(135deg,#962f92,#7e51a1)" }}
+                  className="relative group inline-flex items-center gap-3 px-8 py-3 font-semibold text-sm tracking-widest uppercase overflow-hidden rounded-full text-white"
+                  style={{ background: "#f47721" }}
                   whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                   <span className="relative z-10">Explore Work</span>
                   <motion.span className="relative z-10 text-lg"
@@ -611,9 +606,9 @@ export default function HeroSection() {
                     transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }} />
                 </motion.a>
                 <motion.a href="#contact"
-                  className="inline-flex items-center gap-3 px-8 py-4 font-semibold text-sm tracking-widest uppercase rounded-full"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.66)" }}
-                  whileHover={{ scale: 1.04, borderColor: "rgba(160,50,220,0.6)", color: "#fff" }}
+                  className="inline-flex items-center gap-3 px-8 py-3 font-semibold text-sm tracking-widest uppercase rounded-full border border-slate-300 dark:border-white/10 text-slate-700 dark:text-white/66"
+                  style={{ background: "rgba(150,150,150,0.04)" }}
+                  whileHover={{ scale: 1.04, borderColor: "rgba(160,50,220,0.6)" }}
                   whileTap={{ scale: 0.97 }}>
                   Get in Touch
                 </motion.a>
@@ -627,19 +622,22 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div custom={2.5} variants={fadeUp} initial="hidden" animate="visible"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-        <span className="text-[10px] font-bold tracking-[0.3em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Scroll</span>
-        <motion.div className="w-px h-12 rounded-full"
-          style={{ background: "linear-gradient(to bottom,rgba(160,50,220,0.78),transparent)" }}
-          animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
+        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-slate-500 dark:text-white/25">Scroll</span>
+        <div className="w-6 h-10 border-2 border-slate-400 dark:border-white/30 rounded-full flex justify-center p-1">
+          <motion.div 
+            className="w-1.5 h-1.5 bg-slate-500 dark:bg-white/60 rounded-full"
+            animate={{ y: [0, 16, 0], opacity: [1, 0, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
       </motion.div>
 
       {/* Corner meta */}
-      <div className="absolute top-36 right-8 hidden xl:flex flex-col items-end gap-1 z-10 pointer-events-none" style={{ opacity: 0.15 }}>
+      <div className="absolute top-36 right-8 hidden xl:flex flex-col items-end gap-1 z-10 pointer-events-none" style={{ opacity: 0.25 }}>
         {["CREDOZEN", "©2024", "v2.0"].map((t, i) => (
           <motion.span key={t} custom={2 + i * 0.2} variants={fadeUp} initial="hidden" animate="visible"
-            className="text-[9px] font-bold tracking-[0.4em] uppercase text-white">{t}</motion.span>
+            className="text-[9px] font-bold tracking-[0.4em] uppercase text-slate-900 dark:text-white">{t}</motion.span>
         ))}
       </div>
 
