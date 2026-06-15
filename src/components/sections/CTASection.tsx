@@ -8,14 +8,14 @@ export default function CTASection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-[#1a1a1a] relative overflow-hidden transition-colors duration-300" id="cta-section">
+    <section className="py-0 bg-slate-50 dark:bg-[#1e1e1e] relative overflow-hidden text-slate-900 dark:text-white transition-colors duration-300" id="cta-section">
       
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-[50%] h-[120%] bg-gradient-to-bl from-pink-100/40 via-transparent to-transparent -rotate-12 transform origin-top-right"></div>
-      <div className="absolute bottom-0 left-0 w-[60%] h-[100%] bg-gradient-to-tr from-blue-100/60 via-transparent to-transparent rotate-6 transform origin-bottom-left"></div>
+      <div className="absolute top-0 left-0 w-full lg:w-[60%] h-[100%] bg-gradient-to-r from-gray-200 dark:from-gray-500/30 via-transparent to-transparent pointer-events-none transition-colors duration-300"></div>
 
-      <div className="container mx-auto px-4 md:px-8 max-w-[1400px] relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
+
+      <div className="container mx-auto px-4 md:px-8 max-w-[1200px] relative z-10 pt-16 lg:pt-24 pb-24">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
           
           {/* Left: Image with Animated SVGs */}
           <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end">
@@ -25,9 +25,9 @@ export default function CTASection() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative z-10 w-[300px] h-[400px] md:w-[400px] md:h-[500px] rounded-[40px] overflow-hidden shadow-xl bg-white/50"
-            >
+            transition={{ duration: 0.6 }}
+            className="relative z-10 w-[280px] h-[350px] md:w-[350px] md:h-[450px] rounded-[30px] overflow-hidden bg-white shadow-2xl border border-gray-100 dark:border-none"
+          >
               <Image
                 src="/images/cta_woman.png"
                 alt="Speak with our expert"
@@ -38,7 +38,7 @@ export default function CTASection() {
 
             {/* SVG Animations Overlay */}
             <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
-              <svg viewBox="0 0 500 600" className="w-full h-full absolute transform scale-[1.2] md:scale-[1.4] -translate-x-4 md:-translate-x-12">
+              <svg viewBox="0 0 500 600" className="w-full h-full absolute transform scale-[1.2] md:scale-[1.5] -translate-x-12">
                 
                 {/* Orange Curved Arrow */}
                 <motion.path
@@ -46,9 +46,9 @@ export default function CTASection() {
                   whileInView={{ pathLength: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
-                  d="M 280 150 C 150 140, 50 250, 60 380 L 50 350 M 60 380 L 90 370"
+                  d="M 220 100 C 100 120, 20 250, 40 400 L 40 420 L 70 410 M 40 420 L 30 380"
                   fill="none"
-                  stroke="#ff8800"
+                  stroke="#f47721"
                   strokeWidth="8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -60,25 +60,11 @@ export default function CTASection() {
                   whileInView={{ pathLength: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
-                  d="M 120 580 C 350 550, 380 300, 250 150"
+                  d="M 120 580 C 180 550, 220 480, 250 400"
                   fill="none"
                   stroke="#66cc00"
                   strokeWidth="6"
                   strokeLinecap="round"
-                />
-
-                {/* Light Blue Arrow pointing Right */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, ease: "easeInOut", delay: 1 }}
-                  d="M 330 300 C 400 240, 480 260, 530 300 L 490 300 M 530 300 L 510 260"
-                  fill="none"
-                  stroke="#a3b8ff"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -93,7 +79,7 @@ export default function CTASection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block bg-[#f47721] text-white px-5 py-1.5 rounded-full text-sm font-bold mb-6 shadow-md"
+              className="inline-block bg-[#f47721] text-white px-5 py-2 rounded-full text-sm font-bold mb-6 shadow-md"
             >
               Have A Projects?
             </motion.div>
@@ -103,9 +89,9 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-[54px] font-medium text-gray-900 dark:text-white leading-[1.1] mb-6 transition-colors duration-300"
+              className="text-4xl md:text-5xl lg:text-[54px] font-medium text-slate-900 dark:text-white leading-[1.1] mb-6 transition-colors duration-300"
             >
-              Have <span className="font-bold text-[#f47721]">A Project?</span> <span className="font-bold">Speak With Our</span> expert.
+              Have <span className="text-[#f47721] font-bold">A Project?</span> <span className="font-bold">Speak With Our expert.</span>
             </motion.h2>
 
             <motion.p 
@@ -113,7 +99,7 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-gray-700 dark:text-gray-300 text-lg mb-12 max-w-lg transition-colors duration-300"
+              className="text-slate-600 dark:text-gray-300 text-[17px] mb-12 max-w-lg transition-colors duration-300"
             >
               Leave your contacts and get a free consultation from
             </motion.p>
@@ -122,17 +108,33 @@ export default function CTASection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ delay: 0.3 }}
               onClick={() => setIsModalOpen(true)}
-              className="bg-[#f47721] text-white font-semibold py-4 px-12 lg:w-[80%] rounded-md shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-[#f47721] text-white font-semibold py-4 px-12 w-full lg:w-[80%] rounded-lg shadow-lg hover:bg-[#e06616] transition-all duration-300"
             >
               Get Started Today
             </motion.button>
 
           </div>
         </div>
+      </div>
+
+      {/* Animated Marquee */}
+      <div className="w-full overflow-hidden flex whitespace-nowrap pt-8 pb-16 relative z-10">
+        <motion.div
+          className="flex items-center gap-8 md:gap-12 px-4"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+        >
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8 md:gap-12 text-[60px] md:text-[90px] lg:text-[140px] font-bold tracking-tight leading-none">
+              <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(150,150,150,0.5)" }}>Contact Us</span>
+              <span className="text-slate-900 dark:text-white transition-colors duration-300">Get In Touch</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Modal Form */}

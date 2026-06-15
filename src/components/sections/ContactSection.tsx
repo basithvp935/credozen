@@ -1,157 +1,116 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, MessageCircle } from "lucide-react";
-import Link from "next/link";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#050810]">
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+    <section id="contact" className="py-8 lg:py-16 relative overflow-hidden bg-slate-50 dark:bg-[#1e1e1e] transition-colors duration-300">
       
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px] -z-10"></div>
-      
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-sm font-bold text-cyan-400 tracking-widest uppercase mb-3"
-          >
-            Get In Touch
-          </motion.h2>
-          <motion.h3 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-6"
-          >
-            Let's Build Your Next <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Digital Project
-            </span>
-          </motion.h3>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h4 className="text-2xl font-semibold text-white mb-6">Contact Information</h4>
-            <p className="text-slate-400 mb-10 leading-relaxed">
-              Ready to start your project? Reach out to us for a free consultation. Our international team is available to discuss your requirements and provide the best digital solutions.
-            </p>
-            
-            <div className="space-y-6 mb-10">
-              <div className="flex items-start gap-4 p-4 rounded-xl glass border border-white/5">
-                <div className="p-3 rounded-full bg-cyan-500/10 text-cyan-400">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h5 className="text-white font-medium mb-1">Our Headquarters</h5>
-                  <p className="text-slate-400 text-sm">123 Tech Boulevard, Digital City, Global Hub 10012</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 p-4 rounded-xl glass border border-white/5">
-                <div className="p-3 rounded-full bg-blue-500/10 text-blue-400">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h5 className="text-white font-medium mb-1">Phone Number</h5>
-                  <p className="text-slate-400 text-sm">+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl glass border border-white/5">
-                <div className="p-3 rounded-full bg-purple-500/10 text-purple-400">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h5 className="text-white font-medium mb-1">Email Address</h5>
-                  <p className="text-slate-400 text-sm">hello@credozen.com</p>
-                </div>
-              </div>
+      {/* Animated Marquee */}
+      <div className="w-full overflow-hidden flex whitespace-nowrap pb-16 lg:pb-24 relative z-10">
+        <motion.div
+          className="flex items-center gap-8 md:gap-12 px-4"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+        >
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8 md:gap-12 text-[60px] md:text-[90px] lg:text-[140px] font-bold tracking-tight leading-none">
+              <span className="text-[#f47721]">Contact Us</span>
+              <span className="text-slate-900 dark:text-white transition-colors duration-300">Get In Touch</span>
             </div>
+          ))}
+        </motion.div>
+      </div>
 
-            <Link 
-              href="#"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-medium hover:bg-[#1ebd5a] transition-colors shadow-lg shadow-[#25D366]/20"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Chat on WhatsApp
-            </Link>
-
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-8 rounded-3xl border border-white/10 relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      <div className="container mx-auto px-4 md:px-8 max-w-[1200px] relative z-10">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-black border border-[#2a2a2a] rounded-[32px] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl"
+        >
+          {/* Form Side */}
+          <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-semibold text-white leading-tight mb-8">
+              Ready to Start <br className="hidden md:block" />
+              Your Project?
+            </h2>
             
-            <h4 className="text-2xl font-semibold text-white mb-8 relative z-10">Send us a Message</h4>
-            
-            <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-slate-400 mb-2">Full Name</label>
-                  <input 
-                    type="text" 
-                    placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
-                  <input 
-                    type="email" 
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600"
-                  />
-                </div>
-              </div>
-              
+            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label className="block text-sm font-medium text-slate-400 mb-2">Subject</label>
                 <input 
                   type="text" 
-                  placeholder="How can we help?"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600"
+                  placeholder="Name"
+                  className="w-full bg-[#111] border border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
                 />
               </div>
               
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
+                  <input 
+                    type="tel" 
+                    placeholder="Phone"
+                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
+                  />
+                </div>
+                <div className="w-full md:w-1/2">
+                  <input 
+                    type="email" 
+                    placeholder="Email"
+                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
+                  />
+                </div>
+              </div>
+
               <div>
-                <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
                 <textarea 
-                  rows={4}
-                  placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600 resize-none"
+                  placeholder="Message"
+                  rows={3}
+                  className="w-full bg-[#111] border border-[#2a2a2a] rounded-3xl px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors resize-none"
                 ></textarea>
               </div>
-              
-              <button 
-                type="submit"
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all flex items-center justify-center gap-2"
-              >
-                Send Message <Send className="w-5 h-5" />
-              </button>
-            </form>
-          </motion.div>
 
-        </div>
+              <div className="mt-2">
+                <button 
+                  type="submit" 
+                  className="bg-[#f47721] hover:bg-[#e06616] text-white font-semibold py-3.5 px-8 rounded-full shadow-lg transition-all duration-300"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* Graphic Side */}
+          <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-black flex items-center justify-center overflow-hidden">
+            
+            {/* SVG Greenscreen Keyer */}
+            <svg className="absolute w-0 h-0">
+              <filter id="green-key">
+                <feColorMatrix type="matrix" values="
+                  1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  4 -5 4 0 1
+                " />
+              </filter>
+            </svg>
+            
+            {/* Video Graphic */}
+            <video 
+              src="/images/VIDEO/3D11.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              style={{ filter: "url(#green-key)" }}
+              className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] lg:h-[80%] w-auto object-contain"
+            ></video>
+          </div>
+
+        </motion.div>
       </div>
     </section>
   );

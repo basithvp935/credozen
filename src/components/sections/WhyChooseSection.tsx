@@ -1,139 +1,198 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Target, Lightbulb, UserRound, Lock } from "lucide-react";
+import Image from "next/image";
 
-function TimelineStep({ step, idx, isRightCurve }: { step: any, idx: number, isRightCurve: boolean }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start center", "end center"]
-  });
-  
-  // Animate from top to bottom
-  const clipPath = useTransform(scrollYProgress, [0, 1], ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"]);
+function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (inView) {
+      const end = value;
+      const duration = 2000;
+      let startTime: number | null = null;
+
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        
+        setCount(Math.floor(easeProgress * end));
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      
+      window.requestAnimationFrame(step);
+    }
+  }, [inView, value]);
 
   return (
-    <div
-      ref={ref}
-      className={`
-        relative w-full 
-        ${idx > 0 ? '-mt-[8px]' : ''}
-      `}
-    >
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
-        className={`relative z-10 flex items-center justify-between py-16 lg:py-24 h-full ${isRightCurve ? 'flex-row' : 'flex-row-reverse'}`}
-      >
-        
-        {/* Animated Border Line - Absolute positioned to cover the correct half */}
-        <motion.div 
-          style={{ clipPath }}
-          className={`
-            absolute top-0 bottom-0 border-[#f47721] border-[8px] pointer-events-none
-            ${isRightCurve 
-              ? 'left-1/2 right-0 border-l-0 rounded-r-[150px]' 
-              : 'left-0 right-1/2 border-r-0 rounded-l-[150px]'}
-          `}
-        />
-
-        {/* Text Block */}
-        <div className={`w-1/2 px-8 lg:px-16 flex flex-col justify-center ${isRightCurve ? 'items-end text-right' : 'items-start text-left'}`}>
-          <h4 className="text-lg font-bold uppercase mb-4 tracking-wide text-slate-900">{step.subtitle}</h4>
-          <p className="text-base text-slate-700 whitespace-pre-line leading-relaxed max-w-md">{step.desc}</p>
-        </div>
-
-        {/* Pill Block */}
-        <div className="w-1/2 px-8 lg:px-12 flex justify-center">
-          <div className="flex items-center gap-6 relative z-20">
-            <span className="text-7xl lg:text-8xl font-black text-[#f47721] leading-none">{step.num}</span>
-            <span className="text-3xl lg:text-4xl font-bold leading-tight whitespace-pre-line text-slate-900">{step.title}</span>
-          </div>
-        </div>
-
-      </motion.div>
-    </div>
+    <span ref={ref}>
+      {count}{suffix}
+    </span>
   );
 }
 
 export default function WhyChooseSection() {
-  const steps = [
+  const leftFeatures = [
     {
-      num: "1",
-      title: "generate\nmore leads",
-      subtitle: "MARKETING ON STEROIDS",
-      desc: "Reach your audience at the right time, right place and in the right way. Lead them from unaware to wanting your services, without losing them in between.\n\nUsing psychology to understand how the human mind works, we tap into the decision making centre of the brain to create desire and drive action."
+      title: "Technical Expertise",
+      desc: "A reputable IT company should possess a high level of technical expertise.",
+      icon: Target,
     },
     {
-      num: "2",
-      title: "convert more\ninto customers",
-      subtitle: "NEW LEADS ARE HOT TO TROT",
-      desc: "No more cold calling or following-up with disinterested leads. Generate leads who are already educated and have built trust with your brand. Combine that with sales psychology optimisation (process, pricing, packaging & pitching). Boost your sales conversion rate resulting in more leads turning into happy customers."
-    },
-    {
-      num: "3",
-      title: "increase\naverage spend",
-      subtitle: "THE PSYCHOLOGY OF VALUE",
-      desc: "Improve the way that people perceive your brand and service, so they are willing to pay more to acquire it.\n\nStop competing on price and charge what you're worth, because prospects are now willing to pay for it."
-    },
-    {
-      num: "4",
-      title: "keep them\ncoming back",
-      subtitle: "10X MORE THAN THE FIRST TRANSACTION",
-      desc: "Are your customers staying with you long-term? Or are you losing them as fast as you're winning them?\n\nCustomers that are retained are worth 10X more than their initial transaction. Ensure that they stay loyal to you and keep coming back for more."
+      title: "Innovation & Adaptability",
+      desc: "A reputable IT company should possess a high level of technical expertise.",
+      icon: Lightbulb,
     }
   ];
 
+  const rightFeatures = [
+    {
+      title: "Effective Communication",
+      desc: "A reputable IT company should possess a high level of technical expertise.",
+      icon: UserRound,
+    },
+    {
+      title: "Security And Compliance",
+      desc: "An IT company must prioritize cybersecurity and data protection.",
+      icon: Lock,
+    }
+  ];
+
+  const stats = [
+    { value: 15, suffix: "+", label: "Years of Experience" },
+    { value: 120, suffix: "+", label: "Expert Team" },
+    { value: 15, suffix: "K", label: "Client" },
+    { value: 20, suffix: "+", label: "Branch Office" },
+  ];
+
   return (
-    <section className="py-24 relative bg-white text-slate-900 overflow-hidden">
-      <div className="container mx-auto px-4 max-w-[1400px] relative z-10">
+    <section className="pt-8 lg:pt-10 pb-16 lg:pb-24 relative bg-white dark:bg-[#0b0615] text-slate-900 dark:text-white overflow-hidden font-sans transition-colors duration-300">
+      <div className="container mx-auto px-4 max-w-[1300px] relative z-10">
         
         {/* Section Heading */}
-        <div className="flex justify-start mb-16">
+        <div className="flex flex-col items-center justify-center mb-8 lg:mb-10 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block bg-black text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md uppercase tracking-widest"
+            className="inline-block border border-slate-300 dark:border-white/20 rounded-full px-6 py-2 text-sm font-medium mb-4 transition-colors duration-300"
           >
             Why Choose Us
           </motion.div>
-        </div>
-        {/* Mobile View: Standard Vertical Timeline */}
-        <div className="md:hidden flex flex-col gap-12 relative">
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-[#f47721]/30 rounded-full"></div>
-          {steps.map((step, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative pl-20"
-            >
-              <div className="absolute left-0 top-2 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#f47721]">
-                <span className="text-3xl font-black text-[#f47721]">{step.num}</span>
-              </div>
-              <h3 className="text-3xl font-bold leading-tight mb-6 whitespace-pre-line text-slate-900">{step.title}</h3>
-              <h4 className="text-lg font-bold uppercase mb-3 text-slate-800">{step.subtitle}</h4>
-              <p className="text-slate-600 whitespace-pre-line leading-relaxed">{step.desc}</p>
-            </motion.div>
-          ))}
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-[54px] font-medium mb-4 tracking-tight"
+          >
+            Magic Behind Our <span className="text-[#f47721]">IT Solutions</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-600 dark:text-slate-300 max-w-3xl mx-auto text-[17px] leading-relaxed transition-colors duration-300"
+          >
+            We begin by conducting a comprehensive needs assessment to understand your specific requirements, challenges, and goals.
+          </motion.p>
         </div>
 
-        {/* Desktop View: Snake Timeline */}
-        <div className="hidden md:block w-full max-w-6xl mx-auto py-12">
-          {steps.map((step, idx) => (
-            <TimelineStep 
-              key={idx} 
-              step={step} 
-              idx={idx} 
-              isRightCurve={idx % 2 === 0} 
-            />
-          ))}
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_1fr] gap-6 lg:gap-8 items-stretch mb-16 lg:mb-20">
+          
+          {/* Left Cards */}
+          <div className="flex flex-col gap-6 justify-center">
+            {leftFeatures.map((feature, idx) => (
+              <motion.div 
+                key={`left-${idx}`}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-slate-50 dark:bg-[#11091f] border border-purple-200 dark:border-purple-800/80 rounded-2xl p-6 lg:p-8 flex items-center justify-between gap-6 hover:border-purple-400 dark:hover:border-purple-500 transition-colors duration-300 group cursor-pointer"
+              >
+                <div className="flex-1 pr-4">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-[15px] leading-relaxed transition-colors duration-300">{feature.desc}</p>
+                </div>
+                <div className="flex-shrink-0 text-[#f47721] group-hover:text-purple-600 dark:group-hover:text-[#a716a5] group-active:text-purple-700 dark:group-active:text-[#75269f] transition-colors duration-300">
+                  <feature.icon size={48} strokeWidth={1} />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Center Image */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center h-[400px] lg:h-[480px] w-full"
+          >
+            <div className="relative w-full h-full rounded-[32px] overflow-hidden">
+              <Image 
+                src="/images/whychoose.jpg" 
+                alt="IT Solutions" 
+                fill 
+                className="object-cover"
+              />
+              {/* Overlay gradient to blend nicely */}
+              <div className="absolute inset-0 bg-blue-950/40 mix-blend-multiply"></div>
+            </div>
+          </motion.div>
+
+          {/* Right Cards */}
+          <div className="flex flex-col gap-6 justify-center">
+            {rightFeatures.map((feature, idx) => (
+              <motion.div 
+                key={`right-${idx}`}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-slate-50 dark:bg-[#11091f] border border-purple-200 dark:border-purple-800/80 rounded-2xl p-6 lg:p-8 flex items-center justify-between gap-6 hover:border-purple-400 dark:hover:border-purple-500 transition-colors duration-300 group cursor-pointer"
+              >
+                <div className="flex-1 pr-4">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-[15px] leading-relaxed transition-colors duration-300">{feature.desc}</p>
+                </div>
+                <div className="flex-shrink-0 text-[#f47721] group-hover:text-purple-600 dark:group-hover:text-[#a716a5] group-active:text-purple-700 dark:group-active:text-[#75269f] transition-colors duration-300">
+                  <feature.icon size={48} strokeWidth={1} />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
+
+        {/* Stats Banner */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-[#46399c] via-[#75269f] to-[#a716a5] rounded-full py-1.5 lg:py-2 px-8 lg:px-16"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 text-center">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-center">
+                <span className="text-2xl md:text-3xl lg:text-[32px] font-medium leading-none mb-0.5">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </span>
+                <span className="text-white/90 text-xs md:text-sm">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
       </div>
     </section>

@@ -45,14 +45,14 @@ export default function Navbar() {
             <Code size={16} strokeWidth={2.5} />
           </div>
 
-          <div className="flex items-center gap-2 md:gap-3 ml-3">
+          <div className="flex items-center gap-3 md:gap-4 ml-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setActiveLink(link.name)}
                 className={`
-                  flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest transition-all
+                  flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold tracking-widest transition-all
                   ${activeLink === link.name 
                     ? "bg-[#f47721] text-white shadow-sm" 
                     : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 border border-transparent"

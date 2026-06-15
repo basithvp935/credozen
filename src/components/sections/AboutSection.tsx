@@ -5,9 +5,13 @@ import { Smile, CheckCircle, Smartphone, Layout, Image as ImageIcon } from "luci
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-slate-50 overflow-hidden text-slate-800 transition-colors duration-300">
+    <section 
+      id="about" 
+      className="py-24 bg-cover bg-center bg-no-repeat overflow-hidden text-white transition-colors duration-300 relative bg-[#0a192f]/95 bg-blend-overlay"
+      style={{ backgroundImage: "url('/images/about.jpg')" }}
+    >
       
-      <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1400px] relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
@@ -37,12 +41,12 @@ export default function AboutSection() {
             className="flex flex-col items-start lg:pl-10"
           >
             {/* About Us Badge */}
-            <div className="bg-white shadow-sm text-blue-600 font-bold px-6 py-2.5 rounded-full mb-8 text-sm border border-slate-100">
+            <div className="bg-white/10 backdrop-blur-md shadow-sm text-white font-bold px-6 py-2.5 rounded-full mb-8 text-sm border border-white/20">
               About Us
             </div>
             
             {/* Main Heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-slate-900 mb-10 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-white mb-10 tracking-tight">
               <span className="font-bold">Comprehensive </span>
               <span className="font-light text-[#f47721]">IT </span>
               <span className="font-bold">Solution</span><br className="hidden md:block" />
@@ -51,7 +55,7 @@ export default function AboutSection() {
             </h2>
 
             {/* Paragraph Text */}
-            <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl font-medium">
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl font-medium">
               Welcome to our company, a leading provider of website development, mobile app development, branding and digital marketing services, e-commerce expertise, and LMS solutions. At CREDOZEN LLP we specialize in empowering businesses with cutting-edge technology solutions to enhance their online presence and drive growth. With a team of highly skilled professionals, we bring together creativity, technical expertise, and industry knowledge to deliver exceptional results for our clients.
             </p>
           </motion.div>

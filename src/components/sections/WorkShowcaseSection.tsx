@@ -147,7 +147,8 @@ export default function WorkShowcaseSection() {
 
   return (
     <section
-      className="py-16 lg:py-20 bg-slate-50 relative overflow-hidden transition-colors duration-300"
+      className="py-16 lg:py-20 bg-cover bg-center bg-no-repeat relative overflow-hidden transition-colors duration-300 bg-[#0a192f]/95 bg-blend-overlay"
+      style={{ backgroundImage: "url('/images/workshowcase.jpg')" }}
       id="work-showcase"
     >
       {/* ── Decorative blobs ── */}
@@ -166,7 +167,7 @@ export default function WorkShowcaseSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 md:mb-6"
+              className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4 md:mb-6"
             >
               WORK SHOWCASE
             </motion.div>
@@ -177,11 +178,11 @@ export default function WorkShowcaseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-slate-900"
+              className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-white"
             >
-              <span className="text-slate-900">We develop & create</span>
+              <span className="text-white">We develop & create</span>
               <br />
-              <span className="text-slate-900">digital </span>
+              <span className="text-white">digital </span>
               <span className="text-[#f47721]">future</span>
             </motion.h2>
           </div>
@@ -193,7 +194,7 @@ export default function WorkShowcaseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-slate-600 text-lg md:text-xl leading-relaxed mb-12 max-w-xl"
+              className="text-gray-300 text-lg md:text-xl leading-relaxed mb-12 max-w-xl"
             >
               From custom software to secure cloud, we ensure you get the right tools to lead in today's digital world. Our experts create tailored digital solutions that help your business grow and adapt.
             </motion.p>
@@ -208,10 +209,10 @@ export default function WorkShowcaseSection() {
             >
               {stats.map((s, i) => (
                 <div key={i} className="text-left">
-                  <p className="text-3xl md:text-4xl font-medium text-slate-900 mb-1">
+                  <p className="text-3xl md:text-4xl font-medium text-white mb-1">
                     <CountUp to={s.value} suffix={s.suffix} />
                   </p>
-                  <p className="text-slate-500 text-[11px] md:text-xs font-semibold tracking-wider uppercase">{s.label}</p>
+                  <p className="text-gray-400 text-[11px] md:text-xs font-semibold tracking-wider uppercase">{s.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -222,8 +223,8 @@ export default function WorkShowcaseSection() {
       {/* ── Marquee Slider ── */}
       <div className="relative w-full flex overflow-hidden">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-36 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-36 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-36 bg-gradient-to-r from-[#0a192f] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-36 bg-gradient-to-l from-[#0a192f] to-transparent z-10 pointer-events-none" />
 
         <motion.div
           className="flex gap-6 md:gap-8 px-6"
@@ -258,7 +259,7 @@ export default function WorkShowcaseSection() {
           Start Your Project
           <ArrowUpRight size={20} strokeWidth={2.5} />
         </a>
-        <p className="text-slate-500 text-sm mt-4">
+        <p className="text-gray-400 text-sm mt-4">
           Free consultation · No commitment required
         </p>
       </motion.div>
