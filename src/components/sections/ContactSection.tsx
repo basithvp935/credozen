@@ -105,7 +105,7 @@ export default function ContactSection() {
               loop 
               muted 
               playsInline 
-              style={{ filter: "url(#green-key)" }}
+              style={{ filter: "url(#green-key)", WebkitFilter: "url(#green-key)" }}
               className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] lg:h-[80%] w-auto object-contain"
             ></video>
           </div>

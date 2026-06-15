@@ -65,7 +65,7 @@ export default function ServicesTabSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-slate-950 transition-colors duration-300">
+    <section className="py-16 lg:py-24 bg-[#0a192f] transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px]">
         
         {/* Tabs */}
@@ -91,7 +91,7 @@ export default function ServicesTabSection() {
         </div>
 
         {/* Content Card */}
-        <div className="bg-slate-900 border border-slate-800 rounded-[32px] overflow-hidden relative shadow-2xl">
+        <div className="bg-black border border-[#222] rounded-[32px] overflow-hidden relative shadow-2xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -110,7 +110,7 @@ export default function ServicesTabSection() {
             >
               
               {/* Video Side (Left) */}
-              <div className="w-full lg:w-1/2 relative min-h-[250px] lg:min-h-full flex items-center justify-center p-6 lg:p-8 bg-slate-900/50">
+              <div className="w-full lg:w-1/2 relative min-h-[250px] lg:min-h-full flex items-center justify-center p-6 lg:p-8 bg-transparent">
                 <video 
                   src="/images/VIDEO/3D.mp4" 
                   autoPlay 
