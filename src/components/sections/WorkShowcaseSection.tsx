@@ -62,7 +62,7 @@ function FeaturedCard({ work }: { work: (typeof works)[0] }) {
       <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full flex items-center justify-center overflow-hidden">
         <Image
           src={work.image}
-          alt={work.title}
+          alt={typeof work.title === 'string' ? work.title : 'Project Image'}
           fill
           className="object-cover lg:object-contain lg:object-right transition-transform duration-700 group-hover:scale-105 opacity-90 z-10 hue-rotate-30"
         />
@@ -80,7 +80,7 @@ function SmallCard({ work }: { work: (typeof works)[0] }) {
       {/* Background Image filling the entire card */}
       <Image
         src={work.image}
-        alt={work.title}
+        alt={typeof work.title === 'string' ? work.title : 'Project Image'}
         fill
         className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100"
       />
