@@ -592,9 +592,9 @@ export default function HeroSection() {
                 intelligent, user-centric technology solutions.
               </motion.p>
 
-              <motion.div custom={1.7} variants={fadeUp} initial="hidden" animate="visible" className="flex w-full justify-between items-center gap-2">
+              <motion.div custom={1.7} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-col sm:flex-row w-full justify-start items-stretch sm:items-center gap-4">
                 <motion.a href="#about"
-                  className="relative group inline-flex items-center gap-3 px-8 py-3 font-semibold text-sm tracking-widest uppercase overflow-hidden rounded-full text-white"
+                  className="relative group inline-flex justify-center items-center gap-3 px-8 py-4 sm:py-3 font-semibold text-sm tracking-widest uppercase overflow-hidden rounded-full text-white"
                   style={{ background: "#f47721" }}
                   whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                   <span className="relative z-10">Explore Work</span>
@@ -606,7 +606,7 @@ export default function HeroSection() {
                     transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }} />
                 </motion.a>
                 <motion.a href="#contact"
-                  className="inline-flex items-center gap-3 px-8 py-3 font-semibold text-sm tracking-widest uppercase rounded-full border border-slate-300 dark:border-white/10 text-slate-700 dark:text-white/66"
+                  className="inline-flex justify-center items-center gap-3 px-8 py-4 sm:py-3 font-semibold text-sm tracking-widest uppercase rounded-full border border-slate-300 dark:border-white/10 text-slate-700 dark:text-white/66"
                   style={{ background: "rgba(150,150,150,0.04)" }}
                   whileHover={{ scale: 1.04, borderColor: "rgba(160,50,220,0.6)" }}
                   whileTap={{ scale: 0.97 }}>

@@ -1,7 +1,40 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { Smile, CheckCircle, Smartphone, Layout, Image as ImageIcon } from "lucide-react";
+
+/* ──────────────────────────────────────────────
+   Animated Counter Component
+────────────────────────────────────────────── */
+function AnimatedCounter({ to, suffix }: { to: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (!inView) return;
+
+    let startTimestamp: number;
+    const duration = 2000; // 2 seconds
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // easeOutExpo for a very satisfying slow-down at the end
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(ease * to));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }, [inView, to]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 export default function AboutSection() {
   return (
@@ -58,6 +91,28 @@ export default function AboutSection() {
             <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl font-medium">
               Welcome to our company, a leading provider of website development, mobile app development, branding and digital marketing services, e-commerce expertise, and LMS solutions. At CREDOZEN LLP we specialize in empowering businesses with cutting-edge technology solutions to enhance their online presence and drive growth. With a team of highly skilled professionals, we bring together creativity, technical expertise, and industry knowledge to deliver exceptional results for our clients.
             </p>
+
+            {/* Stats */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-wrap gap-8 md:gap-12 mt-12"
+            >
+              {[
+                { to: 200, suffix: "+", label: "Projects" }, 
+                { to: 98, suffix: "%", label: "Satisfaction" }, 
+                { to: 12, suffix: "+", label: "Years" }
+              ].map(s => (
+                <div key={s.label} className="flex flex-col">
+                  <span className="text-3xl md:text-4xl font-black text-white">
+                    <AnimatedCounter to={s.to} suffix={s.suffix} />
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 mt-1">{s.label}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
         </div>

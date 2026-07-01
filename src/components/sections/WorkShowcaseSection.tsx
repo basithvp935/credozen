@@ -1,113 +1,118 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import { motion, animate, useInView } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight, Sparkles } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const works = [
   {
     id: 1,
-    title: "Digital Marketing",
-    tag: "Growth & Strategy",
-    image: "/images/digital_marketing.png",
-    accent: "from-violet-500/30 to-fuchsia-500/10",
-    glow: "rgba(139,92,246,0.35)",
+    title: <>Frontend Engineering <br className="hidden lg:block" /><span className="text-[#f47721]">& UI</span></>,
+    description: "Crafting pixel-perfect, highly responsive interfaces that deliver exceptional digital experiences across all devices.",
+    image: "/images/smart_analytics_hand.png",
   },
   {
     id: 2,
-    title: "E-Commerce Solutions",
-    tag: "Sales & Conversion",
-    image: "/images/ecommerce_solutions.png",
-    accent: "from-blue-500/30 to-cyan-500/10",
-    glow: "rgba(59,130,246,0.35)",
+    title: "Enterprise Workflow Platform",
+    description: "Streamlines operations and automates key workflows for enterprise teams.",
+    image: "/images/dummy_dashboard.png",
   },
   {
     id: 3,
-    title: "Branding & UI/UX",
-    tag: "Design & Identity",
-    image: "/images/branding_uiux.png",
-    accent: "from-pink-500/30 to-rose-500/10",
-    glow: "rgba(236,72,153,0.35)",
+    title: "Enterprise Workflow Platform",
+    description: "Streamlines operations and automates key workflows for enterprise teams.",
+    image: "/images/dummy_ecommerce.png",
   },
   {
     id: 4,
-    title: "ERP Solutions",
-    tag: "Enterprise & Scale",
-    image: "/images/team_working_office.png",
-    accent: "from-emerald-500/30 to-teal-500/10",
-    glow: "rgba(16,185,129,0.35)",
+    title: "Digital Marketing Solutions",
+    description: "Drive growth and elevate your brand with data-driven marketing strategies.",
+    image: "/images/dummy_marketing.png",
+  },
+  {
+    id: 5,
+    title: "Brand Identity & UI/UX",
+    description: "Craft stunning visual identities and intuitive user interfaces.",
+    image: "/images/dummy_branding.png",
   },
 ];
 
-/* ─── Single Card ──────────────────────────────────────────────────────────── */
-function ShowcaseCard({ work }: { work: (typeof works)[0] }) {
-  const [hovered, setHovered] = useState(false);
+/* ─── Bento Cards ──────────────────────────────────────────────────────────── */
 
+function FeaturedCard({ work }: { work: (typeof works)[0] }) {
   return (
-    <div
-      className="flex-shrink-0 w-[300px] md:w-[400px] lg:w-[440px] group cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Card shell */}
-      <div
-        className="relative rounded-[32px] overflow-hidden border border-slate-100 transition-all duration-500 bg-white p-4 md:p-5"
-        style={{
-          boxShadow: hovered
-            ? `0 12px 40px -12px ${work.glow}`
-            : "0 4px 20px -8px rgba(0,0,0,0.05)",
-          transform: hovered ? "translateY(-6px) scale(1.01)" : "none",
-          transition: "box-shadow 0.5s ease, transform 0.4s ease",
-        }}
-      >
-        {/* Image Container */}
-        <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden mb-5">
-          <Image
-            src={work.image}
-            alt={work.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+    <div className="col-span-1 lg:col-span-2 relative rounded-[2rem] overflow-hidden border border-white/10 transition-all duration-500 bg-[#0a0300] hover:border-white/20 hover:-translate-y-2 shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(244,119,33,0.15)] group flex flex-col lg:flex-row min-h-[400px]">
+      
+      {/* Background Orange Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a0800] via-[#994000] to-[#f47721] opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 pointer-events-none" />
 
-          {/* Colour accent on hover */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-br ${work.accent} transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
-          />
+      {/* Text Content */}
+      <div className="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10">
+        <h3 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-white leading-[1.1] mb-6">
+          {work.title}
+        </h3>
+        <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed max-w-sm">
+          {work.description}
+        </p>
+      </div>
 
-          {/* Top badges row */}
-          <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-            {/* Category tag */}
-            <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md border border-slate-200/50 text-slate-800 text-xs font-semibold px-4 py-2 rounded-full shadow-sm">
-              <Sparkles size={11} className="text-[#f47721]" />
-              {work.tag}
-            </span>
+      {/* Image Content */}
+      <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full flex items-center justify-center overflow-hidden">
+        <Image
+          src={work.image}
+          alt={work.title}
+          fill
+          className="object-cover lg:object-contain lg:object-right transition-transform duration-700 group-hover:scale-105 opacity-90 z-10 hue-rotate-30"
+        />
+        {/* Color overlay to help blend the image's original red into orange */}
+        <div className="absolute inset-0 bg-[#f47721] mix-blend-color opacity-40 pointer-events-none z-15" />
+      </div>
+    </div>
+  );
+}
 
-            {/* Arrow icon */}
-            <div
-              className="w-10 h-10 flex items-center justify-center border border-slate-200/50 backdrop-blur-md transition-all duration-300 rounded-full shadow-sm"
-              style={{
-                background: hovered ? "#f47721" : "rgba(255,255,255,0.9)",
-                borderColor: hovered ? "#f47721" : "rgba(226,232,240,0.5)",
-                transform: hovered ? "rotate(45deg)" : "rotate(0deg)",
-              }}
-            >
-              <ArrowUpRight size={18} className={hovered ? "text-white" : "text-slate-800"} strokeWidth={2.5} />
+function SmallCard({ work }: { work: (typeof works)[0] }) {
+  return (
+    <div className="col-span-1 relative rounded-[2rem] overflow-hidden border border-white/10 transition-all duration-500 hover:border-[#f47721]/50 hover:-translate-y-2 shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(244,119,33,0.2)] min-h-[400px] group cursor-pointer block">
+      
+      {/* Background Image filling the entire card */}
+      <Image
+        src={work.image}
+        alt={work.title}
+        fill
+        className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+      />
+
+      {/* Gradient overlay to ensure text is readable */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
+      
+      {/* Subtle Orange Tint Overlay to match the theme */}
+      <div className="absolute inset-0 bg-[#f47721] mix-blend-overlay opacity-10 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
+
+      {/* Text Content (Floating at bottom) */}
+      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 flex flex-col justify-end z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+        
+        {/* Floating Glass Box for Text */}
+        <div className="backdrop-blur-xl bg-black/40 border border-white/10 rounded-2xl p-5 transition-all duration-500 group-hover:bg-black/60 group-hover:border-[#f47721]/30">
+          <div className="flex justify-between items-start gap-4">
+            <div>
+              <h3 className="text-xl md:text-[22px] font-bold text-white leading-tight mb-2 group-hover:text-[#f47721] transition-colors duration-300">
+                {work.title}
+              </h3>
+              <p className="text-gray-300 text-[14px] md:text-[15px] leading-relaxed line-clamp-2">
+                {work.description}
+              </p>
+            </div>
+            
+            {/* Arrow Icon */}
+            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center shrink-0 group-hover:bg-[#f47721] group-hover:border-[#f47721] transition-all duration-300">
+              <ArrowUpRight size={18} className="text-white" />
             </div>
           </div>
         </div>
-
-        {/* Text Content */}
-        <div className="px-2 pb-2 flex flex-col items-center text-center">
-          <h3 className="text-2xl md:text-[26px] font-extrabold text-slate-900 leading-tight">
-            {work.title}
-          </h3>
-          {/* Animated underline */}
-          <div
-            className="mt-3 h-[3px] rounded-full bg-gradient-to-r from-violet-400 to-fuchsia-400 transition-all duration-500"
-            style={{ width: hovered ? "40%" : "0%" }}
-          />
-        </div>
+        
       </div>
     </div>
   );
@@ -115,8 +120,6 @@ function ShowcaseCard({ work }: { work: (typeof works)[0] }) {
 
 /* ─── Section ──────────────────────────────────────────────────────────────── */
 export default function WorkShowcaseSection() {
-  const scrollItems = [...works, ...works, ...works];
-
   /* Animated counter for stats */
   const CountUp = ({ to, suffix = "" }: { to: number; suffix?: string }) => {
     const ref = useRef<HTMLSpanElement>(null);
@@ -147,13 +150,13 @@ export default function WorkShowcaseSection() {
 
   return (
     <section
-      className="py-16 lg:py-20 bg-cover bg-center bg-no-repeat relative overflow-hidden transition-colors duration-300 bg-[#0a192f]/95 bg-blend-overlay"
+      className="py-16 lg:py-24 bg-cover bg-center bg-no-repeat relative overflow-hidden transition-colors duration-300 bg-[#0a192f]/95 bg-blend-overlay"
       style={{ backgroundImage: "url('/images/workshowcase.jpg')" }}
       id="work-showcase"
     >
       {/* ── Decorative blobs ── */}
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-fuchsia-600/10 blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-orange-600/15 blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[200px] rounded-full bg-blue-800/5 blur-[100px] pointer-events-none" />
 
       {/* ── Split Header ── */}
@@ -220,25 +223,20 @@ export default function WorkShowcaseSection() {
         </div>
       </div>
 
-      {/* ── Marquee Slider ── */}
-      <div className="relative w-full flex overflow-hidden">
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-36 bg-gradient-to-r from-[#0a192f] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-36 bg-gradient-to-l from-[#0a192f] to-transparent z-10 pointer-events-none" />
+      {/* ── Bento Grid ── */}
+      <div className="container mx-auto px-4 md:px-12 max-w-[1200px] relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          {/* Top Full Width Featured Card */}
+          <FeaturedCard work={works[0]} />
+          
+          {/* Middle Two Half Width Cards */}
+          <SmallCard work={works[1]} />
+          <SmallCard work={works[2]} />
 
-        <motion.div
-          className="flex gap-6 md:gap-8 px-6"
-          animate={{ x: ["0%", "-33.33%"] }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 40,
-          }}
-        >
-          {scrollItems.map((work, index) => (
-            <ShowcaseCard key={`${work.id}-${index}`} work={work} />
-          ))}
-        </motion.div>
+          {/* Bottom Two Half Width Cards */}
+          <SmallCard work={works[3]} />
+          <SmallCard work={works[4]} />
+        </div>
       </div>
 
       {/* ── Bottom CTA ── */}
@@ -247,7 +245,7 @@ export default function WorkShowcaseSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
-        className="text-center mt-16 relative z-10"
+        className="text-center mt-20 relative z-10"
       >
         <a
           href="#contact"
@@ -259,9 +257,6 @@ export default function WorkShowcaseSection() {
           Start Your Project
           <ArrowUpRight size={20} strokeWidth={2.5} />
         </a>
-        <p className="text-gray-400 text-sm mt-4">
-          Free consultation · No commitment required
-        </p>
       </motion.div>
     </section>
   );

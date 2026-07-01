@@ -119,16 +119,7 @@ export default function ElevatesSection() {
 
           {/* PANEL 4: OPEN SOURCE & COLLABORATION */}
           <div className="w-[100vw] h-full flex items-center justify-center relative bg-slate-100 dark:bg-[#1c1c1f] text-slate-900 dark:text-white shrink-0 overflow-hidden transition-colors duration-300">
-            {/* Orange separator line on the left */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#ea612a] z-10"></div>
-            
-            {/* Olive background slice mimicking the previous section continuing */}
-            <div className="absolute left-1 top-0 bottom-0 w-32 bg-slate-50 dark:bg-[#0a192f] z-0 transition-colors duration-300">
-               {/* Grid on the olive slice */}
-               <div className="absolute inset-0 opacity-20 mix-blend-overlay" 
-                  style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
-                </div>
-            </div>
+
             
             {/* Orange detail circle */}
             <div className="absolute bottom-1/4 left-1/3 flex items-center justify-center z-10">

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ChromaKeyVideo from "@/components/ui/ChromaKeyVideo";
 
 export default function ContactSection() {
   return (
@@ -85,29 +86,10 @@ export default function ContactSection() {
 
           {/* Graphic Side */}
           <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-black flex items-center justify-center overflow-hidden">
-            
-            {/* SVG Greenscreen Keyer */}
-            <svg className="absolute w-0 h-0">
-              <filter id="green-key">
-                <feColorMatrix type="matrix" values="
-                  1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  4 -5 4 0 1
-                " />
-              </filter>
-            </svg>
-            
-            {/* Video Graphic */}
-            <video 
+            <ChromaKeyVideo 
               src="/images/VIDEO/3D11.mp4" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              style={{ filter: "url(#green-key)", WebkitFilter: "url(#green-key)" }}
               className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] lg:h-[80%] w-auto object-contain"
-            ></video>
+            />
           </div>
 
         </motion.div>
