@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Code, ChevronDown, Sun, Moon, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState("HOME");
@@ -12,18 +13,29 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  const pathname = usePathname();
+
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (pathname?.includes("/about")) {
+      setActiveLink("ABOUT");
+    } else if (pathname?.includes("/contact")) {
+      setActiveLink("CONTACT");
+    } else if (pathname?.includes("/services")) {
+      setActiveLink("SERVICE");
+    } else if (pathname === "/") {
+      setActiveLink("HOME");
+    }
+  }, [pathname]);
 
   type NavLink = { name: string; href: string; hasDropdown?: boolean };
   const navLinks: NavLink[] = [
-    { name: "HOME", href: "#home" },
-    { name: "ABOUT", href: "#about" },
-    { name: "SERVICE", href: "#services" },
-    { name: "TECH SOLUTION", href: "#tech-solution" },
-    { name: "OUR WORKS", href: "#portfolio" },
-    { name: "CONTACT", href: "#contact" },
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "SERVICE", href: "/services" },
+    { name: "TECH SOLUTION", href: "/#tech-solution" },
+    { name: "OUR WORKS", href: "/#portfolio" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   return (

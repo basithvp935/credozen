@@ -8,15 +8,15 @@ export default function Footer() {
 
   return (
     <footer 
-      className="text-white pt-24 pb-8 border-t border-white/10 font-sans transition-colors duration-300 bg-cover bg-center bg-no-repeat relative bg-[#0a192f]/95 bg-blend-overlay"
-      style={{ backgroundImage: "url('/images/contactus.jpg')" }}
+      className="text-white pt-10 pb-6 border-t border-white/10 font-sans transition-colors duration-300 bg-cover bg-center bg-no-repeat relative bg-[#0a192f]/60 bg-blend-overlay"
+      style={{ backgroundImage: "url('/images/foot.jpg')" }}
     >
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px] relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 mb-8">
           
           {/* Column 1: Logo & Subscription (Left) */}
           <div className="lg:col-span-5 flex flex-col items-start pr-0 lg:pr-12">
-            <Link href="/" className="mb-12 flex items-center">
+            <Link href="/" className="mb-8 flex items-center">
               <img src="/logo.png" alt="Credozen Logo" className="h-10 w-auto object-contain" />
             </Link>
             
