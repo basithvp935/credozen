@@ -23,6 +23,12 @@ export default function Navbar() {
       setActiveLink("CONTACT");
     } else if (pathname?.includes("/services")) {
       setActiveLink("SERVICE");
+    } else if (pathname?.includes("/clients")) {
+      setActiveLink("CLIENTS");
+    } else if (pathname?.includes("/blog")) {
+      setActiveLink("BLOG");
+    } else if (pathname?.includes("/career")) {
+      setActiveLink("CAREERS");
     } else if (pathname === "/") {
       setActiveLink("HOME");
     }
@@ -33,15 +39,16 @@ export default function Navbar() {
     { name: "HOME", href: "/" },
     { name: "ABOUT", href: "/about" },
     { name: "SERVICE", href: "/services" },
-    { name: "TECH SOLUTION", href: "/#tech-solution" },
-    { name: "OUR WORKS", href: "/#portfolio" },
+    { name: "CAREERS", href: "/career" },
+    { name: "CLIENTS", href: "/clients" },
+    { name: "BLOG", href: "/blog" },
     { name: "CONTACT", href: "/contact" },
   ];
 
   return (
     <>
       {/* Desktop Navbar (Pill style) */}
-      <nav className="fixed top-6 left-0 right-0 z-[100] hidden lg:flex justify-center items-center gap-6 px-4 w-full">
+      <nav className="fixed top-6 left-0 right-0 z-[100] hidden xl:flex justify-center items-center gap-6 px-4 w-full">
         
         {/* Left Pill - Logo */}
         <div className="flex items-center rounded-full px-6 py-2.5 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
@@ -105,7 +112,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] lg:hidden flex justify-between items-center px-6 py-4 bg-white dark:bg-[#0a192f] shadow-md border-b border-slate-200 dark:border-white/5 text-slate-900 dark:text-white transition-colors duration-300">
+      <nav className="fixed top-0 left-0 right-0 z-[100] xl:hidden flex justify-between items-center px-6 py-4 bg-white dark:bg-[#0a192f] shadow-md border-b border-slate-200 dark:border-white/5 text-slate-900 dark:text-white transition-colors duration-300">
         <Link href="/" className="flex items-center gap-2">
           <img src="/logo.png" alt="Credozen Logo" className="h-8 w-auto transition-all duration-300" />
         </Link>
@@ -124,7 +131,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-[60px] left-0 right-0 z-[90] bg-white dark:bg-[#0a192f] lg:hidden flex flex-col p-6 shadow-2xl border-b border-slate-200 dark:border-white/5 transition-colors duration-300"
+            className="fixed top-[60px] left-0 right-0 z-[90] bg-white dark:bg-[#0a192f] xl:hidden flex flex-col p-6 shadow-2xl border-b border-slate-200 dark:border-white/5 transition-colors duration-300"
           >
             {navLinks.map((link) => (
               <Link

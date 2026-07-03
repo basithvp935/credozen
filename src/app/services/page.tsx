@@ -167,9 +167,12 @@ export default function ServicesPage() {
                   
                   <Link 
                     href={`/services/${service.id}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#f47721] uppercase tracking-wider group-hover:gap-4 transition-all duration-300 mt-auto"
+                    className="group/btn inline-flex items-center text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-[#f47721] dark:hover:text-[#f47721] uppercase tracking-wider transition-all duration-500 mt-auto overflow-hidden"
                   >
-                    Read More <ArrowRight size={16} />
+                    <span className="max-w-0 opacity-0 -translate-x-4 group-hover/btn:max-w-[100px] group-hover/btn:opacity-100 group-hover/btn:translate-x-0 group-hover/btn:mr-2 transition-all duration-500 ease-out whitespace-nowrap">
+                      Read More
+                    </span>
+                    <ArrowRight size={18} className="text-[#f47721] transform group-hover/btn:translate-x-1 transition-transform duration-500" />
                   </Link>
                 </div>
               </motion.div>

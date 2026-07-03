@@ -483,10 +483,10 @@ export default function HeroSection() {
       <motion.div
         className="container mx-auto px-6 md:px-12 max-w-[1400px] relative z-10 pt-32 pb-20"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 w-full min-h-[60vh]">
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-0 w-full min-h-[60vh]">
 
           {/* LEFT — Text */}
-          <motion.div style={{ x: textX, y: textY }} className="flex-1 flex flex-col justify-center lg:pr-8">
+          <motion.div style={{ x: textX, y: textY }} className="flex-1 flex flex-col justify-center xl:pr-8">
 
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible"
               className="inline-flex items-center gap-2 mb-8 self-start">
@@ -538,10 +538,10 @@ export default function HeroSection() {
           </motion.div>
 
           {/* RIGHT — Diamond & Text */}
-          <div className="flex-1 flex flex-col items-center justify-center relative lg:items-end">
+          <div className="flex-1 flex flex-col items-center justify-center relative xl:items-end">
 
             {/* 3D Animation Section (Moved upper side via -mt-12) */}
-            <div className="relative flex justify-center items-center w-full lg:justify-end -mt-12 lg:-mt-24">
+            <div className="relative flex justify-center items-center w-full xl:justify-end -mt-12 xl:-mt-24">
               {/* Ambient halo */}
               <motion.div className="absolute rounded-full pointer-events-none"
                 style={{
@@ -578,7 +578,7 @@ export default function HeroSection() {
             </div>
 
             {/* Text Section (Moved below the shape) */}
-            <div className="w-full max-w-md mt-4 lg:mt-8 flex flex-col items-start text-left z-10 lg:pr-12">
+            <div className="w-full max-w-md mt-4 xl:mt-8 flex flex-col items-start text-left z-10 xl:pr-12">
               <motion.div custom={1.1} variants={fadeUp} initial="hidden" animate="visible" className="mb-6 overflow-hidden w-full">
                 <motion.div className="h-px w-full"
                   style={{ background: "linear-gradient(90deg,rgba(160,50,220,0.8),transparent)" }}

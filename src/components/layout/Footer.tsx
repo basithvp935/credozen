@@ -29,7 +29,7 @@ export default function Footer() {
                 placeholder="Email Address" 
                 className="bg-transparent border-none outline-none text-sm px-4 py-4 w-full text-white placeholder-gray-400 focus:ring-0 transition-colors duration-300"
               />
-              <button className="bg-[#f47721] px-8 py-4 text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+              <button className="bg-[#f47721] px-4 md:px-8 py-4 text-white font-bold text-sm flex flex-shrink-0 items-center justify-center gap-2 hover:opacity-90 transition-opacity whitespace-nowrap">
                 Sign Up <span className="text-lg leading-none">&rsaquo;</span>
               </button>
             </div>

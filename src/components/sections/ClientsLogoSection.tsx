@@ -27,7 +27,7 @@ const row2 = [
 
 export default function ClientsLogoSection() {
   return (
-    <section className="py-24 overflow-hidden bg-[#050505] border-y border-white/5 relative" id="clients">
+    <section className="pt-10 pb-20 overflow-hidden bg-[#050505] border-y border-white/5 relative" id="clients">
       
       {/* Pure CSS Animation Styles */}
       <style>{`

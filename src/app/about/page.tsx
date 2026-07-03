@@ -416,15 +416,15 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1 */}
-          <div className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8]">
+          <div tabIndex={0} className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8] focus:outline-none">
             <img 
               src="/images/employee.jpg" 
               alt="Arif Nugroho" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
             {/* Social Icons Hover */}
-            <div className="absolute right-4 bottom-[7.5rem] flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-20">
+            <div className="absolute right-4 bottom-[7.5rem] flex flex-col gap-3 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 group-focus:translate-x-0 z-20">
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Facebook size={18} /></a>
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Twitter size={18} /></a>
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Linkedin size={18} /></a>
@@ -446,15 +446,15 @@ export default function AboutPage() {
           </div>
 
           {/* Card 2 */}
-          <div className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8]">
+          <div tabIndex={0} className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8] focus:outline-none">
             <img 
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
               alt="Dina Maharani" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
             {/* Social Icons Hover */}
-            <div className="absolute right-4 bottom-[7.5rem] flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-20">
+            <div className="absolute right-4 bottom-[7.5rem] flex flex-col gap-3 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 group-focus:translate-x-0 z-20">
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Facebook size={18} /></a>
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Twitter size={18} /></a>
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Linkedin size={18} /></a>
@@ -476,15 +476,15 @@ export default function AboutPage() {
           </div>
 
           {/* Card 3 */}
-          <div className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8]">
+          <div tabIndex={0} className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8] focus:outline-none">
             <img 
               src="https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
               alt="Rizky Aditya" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
             {/* Social Icons Hover */}
-            <div className="absolute right-4 bottom-[7.5rem] flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-20">
+            <div className="absolute right-4 bottom-[7.5rem] flex flex-col gap-3 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 group-focus:translate-x-0 z-20">
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Facebook size={18} /></a>
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Twitter size={18} /></a>
               <a href="#" className="w-10 h-10 bg-[#f47721] text-white rounded-lg flex items-center justify-center hover:bg-[#d8651a] transition-colors"><Linkedin size={18} /></a>
