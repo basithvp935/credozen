@@ -25,6 +25,8 @@ export default function Navbar() {
       setActiveLink("SERVICE");
     } else if (pathname?.includes("/clients")) {
       setActiveLink("CLIENTS");
+    } else if (pathname?.includes("/works")) {
+      setActiveLink("WORKS");
     } else if (pathname?.includes("/blog")) {
       setActiveLink("BLOG");
     } else if (pathname?.includes("/career")) {
@@ -41,6 +43,7 @@ export default function Navbar() {
     { name: "SERVICE", href: "/services" },
     { name: "CAREERS", href: "/career" },
     { name: "CLIENTS", href: "/clients" },
+    { name: "WORKS", href: "/works" },
     { name: "BLOG", href: "/blog" },
     { name: "CONTACT", href: "/contact" },
   ];
@@ -48,30 +51,25 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Navbar (Pill style) */}
-      <nav className="fixed top-6 left-0 right-0 z-[100] hidden xl:flex justify-center items-center gap-6 px-4 w-full">
+      <nav className="fixed top-6 left-0 right-0 z-[100] hidden xl:flex justify-center items-center gap-2 2xl:gap-6 px-4 w-full">
         
         {/* Left Pill - Logo */}
-        <div className="flex items-center rounded-full px-6 py-2.5 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
+        <div className="flex items-center rounded-full px-6 h-[60px] bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Credozen Logo" className="h-8 w-auto transition-all duration-300" />
+            <img src="/logo.png" alt="Credozen Logo" className="h-10 w-auto transition-all duration-300" />
           </Link>
         </div>
 
         {/* Center Pill - Navigation */}
-        <div className="flex items-center gap-2 rounded-full p-1.5 pr-4 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
-          {/* Code Icon Circle */}
-          <div className="bg-[#f47721] text-white rounded-full w-9 h-9 flex items-center justify-center shadow-sm shrink-0 ml-0.5">
-            <Code size={16} strokeWidth={2.5} />
-          </div>
-
-          <div className="flex items-center gap-3 md:gap-4 ml-4">
+        <div className="flex items-center gap-2 rounded-full px-6 h-[60px] bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
+          <div className="flex items-center gap-1 xl:gap-2 2xl:gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setActiveLink(link.name)}
                 className={`
-                  flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold tracking-widest transition-all
+                  flex items-center gap-1.5 px-3 xl:px-4 2xl:px-6 py-2.5 rounded-full text-xs 2xl:text-[13px] font-bold tracking-wider 2xl:tracking-widest transition-all
                   ${activeLink === link.name 
                     ? "bg-[#f47721] text-white shadow-sm" 
                     : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 border border-transparent"
@@ -86,7 +84,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Pill - Socials & Theme Toggle */}
-        <div className="flex items-center gap-4 rounded-full px-5 py-2 bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 h-12 transition-colors duration-300">
+        <div className="flex items-center gap-5 rounded-full px-6 h-[60px] bg-white dark:bg-[#0a192f] shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200 dark:border-white/5 transition-colors duration-300">
           <a href="#" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           </a>
@@ -114,7 +112,7 @@ export default function Navbar() {
       {/* Mobile Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-[100] xl:hidden flex justify-between items-center px-6 py-4 bg-white dark:bg-[#0a192f] shadow-md border-b border-slate-200 dark:border-white/5 text-slate-900 dark:text-white transition-colors duration-300">
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Credozen Logo" className="h-8 w-auto transition-all duration-300" />
+          <img src="/logo.png" alt="Credozen Logo" className="h-10 w-auto transition-all duration-300" />
         </Link>
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
