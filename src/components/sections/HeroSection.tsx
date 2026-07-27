@@ -435,13 +435,10 @@ export default function HeroSection() {
     return () => window.removeEventListener("mousemove", onMove);
   }, [rawX, rawY]);
 
-  const headingWords = ["Transform", "Your", "Business"];
-  const subWords = ["Through", "Strategic"];
-
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[85vh] flex items-center overflow-hidden dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 bg-gradient-to-br from-indigo-50 via-white to-purple-50 transition-colors duration-300"
+      className="relative min-h-[85vh] flex items-center overflow-hidden bg-white dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300"
       id="home"
     >
       {/* Grain */}
@@ -499,39 +496,76 @@ export default function HeroSection() {
                 transition={{ duration: 1.5, repeat: Infinity }} />
             </motion.div>
 
-            <div style={{ perspective: "1000px", overflow: "hidden" }}>
-              <motion.h1 variants={containerVariants} initial="hidden" animate="visible"
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-none mb-3">
-                {headingWords.map(w => (
-                  <motion.span key={w} variants={wordVariants} className="inline-block mr-4"
-                    style={{ transformOrigin: "bottom center" }}>{w}</motion.span>
-                ))}
-              </motion.h1>
-            </div>
+            {/* Enhanced Hero Heading */}
+            <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-2 sm:gap-3 mb-6 sm:mb-5 select-none">
+              {/* Line 1 & 2: Transform Your Business */}
+              <div style={{ perspective: "1000px", overflow: "hidden" }}>
+                <motion.h1 
+                  variants={wordVariants}
+                  className="font-sans text-[2.6rem] sm:text-5xl md:text-[3.75rem] lg:text-[4.35rem] xl:text-[5rem] font-semibold tracking-tight text-slate-900 dark:text-white leading-[1.14] block"
+                >
+                  Transform Your<br />
+                  Business
+                </motion.h1>
+              </div>
 
-            <div style={{ overflow: "hidden" }}>
-              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-wrap gap-x-4">
-                {subWords.map((w, i) => (
-                  <motion.span key={w} variants={wordVariants}
-                    className="text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-black tracking-tighter leading-none"
-                    style={{
-                      fontStyle: i === 1 ? "italic" : "normal",
-                      fontFamily: i === 1 ? "Georgia, serif" : undefined,
-                      color: i === 1 ? "#f47721" : "inherit",
-                    }}>{w}</motion.span>
-                ))}
-              </motion.div>
-            </div>
+              {/* Line 3: Through Strategic */}
+              <div style={{ perspective: "1000px", overflow: "visible", paddingTop: "0.1em" }}>
+                <motion.div 
+                  variants={wordVariants}
+                  className="font-sans text-[2.6rem] sm:text-5xl md:text-[3.75rem] lg:text-[4.35rem] xl:text-[5rem] font-semibold tracking-tight text-slate-900 dark:text-white leading-[1.14] flex flex-wrap items-center gap-x-3 sm:gap-x-4"
+                >
+                  <span>Through</span>
+                  <span className="relative inline-flex flex-col items-start mt-1 sm:mt-0">
+                    {/* Pulsing ambient aura */}
+                    <span className="absolute -inset-1 sm:-inset-2 rounded-3xl bg-[#f47721]/20 dark:bg-[#f47721]/30 blur-2xl pointer-events-none animate-pulse"></span>
+
+                    {/* Gradient Word */}
+                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#f47721] via-[#ffa24c] to-[#e65c00] font-bold pb-1 sm:pb-0">
+                      Strategic
+                    </span>
+
+                    {/* Animated curved line underneath */}
+                    <motion.svg
+                      className="w-full h-3 sm:h-4 mt-0.5 overflow-visible text-[#f47721] drop-shadow-[0_2px_10px_rgba(244,119,33,0.5)]"
+                      viewBox="0 0 240 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.7 }}
+                    >
+                      <motion.path
+                        d="M 3 13 C 75 2, 165 2, 237 13"
+                        stroke="url(#orange_grad)"
+                        strokeWidth="5"
+                        strokeLinecap="round"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 1.1, delay: 0.8, ease: "easeInOut" }}
+                      />
+                      <defs>
+                        <linearGradient id="orange_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#f47721" />
+                          <stop offset="50%" stopColor="#ffab5e" />
+                          <stop offset="100%" stopColor="#e55a00" />
+                        </linearGradient>
+                      </defs>
+                    </motion.svg>
+                  </span>
+                </motion.div>
+              </div>
+            </motion.div>
 
 
 
-            <motion.div custom={2.0} variants={fadeUp} initial="hidden" animate="visible" className="flex gap-10 mt-14">
+            <motion.div custom={2.0} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-wrap gap-8 sm:gap-12 md:gap-14 mt-12 sm:mt-14">
               {[{ to: 200, suffix: "+", label: "Projects" }, { to: 98, suffix: "%", label: "Satisfaction" }, { to: 12, suffix: "+", label: "Years" }].map(s => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="text-3xl font-black text-slate-900 dark:text-white">
+                  <span className="text-4xl sm:text-[2.75rem] lg:text-[3rem] font-light tracking-tight text-[#f47721] dark:text-[#ff8833] leading-none">
                     <AnimatedCounter to={s.to} suffix={s.suffix} />
                   </span>
-                  <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/40 mt-1">{s.label}</span>
+                  <span className="text-xs sm:text-[13.5px] uppercase tracking-[0.19em] font-medium text-slate-500 dark:text-white/50 mt-2 sm:mt-2.5">{s.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -540,14 +574,14 @@ export default function HeroSection() {
           {/* RIGHT — Diamond & Text */}
           <div className="flex-1 flex flex-col items-center justify-center relative xl:items-end">
 
-            {/* 3D Animation Section (Moved upper side via -mt-12) */}
-            <div className="relative flex justify-center items-center w-full xl:justify-end -mt-12 xl:-mt-24">
+            {/* 3D Animation Section */}
+            <div className="relative flex justify-center items-center w-full xl:justify-end -mt-8 xl:-mt-16">
               {/* Ambient halo */}
               <motion.div className="absolute rounded-full pointer-events-none"
                 style={{
-                  width: 480, height: 480,
+                  width: 420, height: 420,
                   background: "radial-gradient(circle,rgba(120,30,220,0.22) 0%,rgba(60,12,160,0.08) 55%,transparent 75%)",
-                  filter: "blur(65px)"
+                  filter: "blur(58px)"
                 }}
                 animate={{ scale: [1, 1.12, 1], opacity: [0.48, 0.92, 0.48] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -555,9 +589,9 @@ export default function HeroSection() {
               {/* Ground shadow */}
               <motion.div className="absolute pointer-events-none"
                 style={{
-                  width: 280, height: 35, bottom: "-2%", borderRadius: "50%",
+                  width: 250, height: 32, bottom: "-2%", borderRadius: "50%",
                   background: "radial-gradient(ellipse,rgba(90,0,180,0.45) 0%,transparent 70%)",
-                  filter: "blur(24px)"
+                  filter: "blur(22px)"
                 }}
                 animate={{ scaleX: [1, 0.84, 1], opacity: [0.32, 0.60, 0.32] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
@@ -570,16 +604,16 @@ export default function HeroSection() {
                 transition={{ duration: 1.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}>
                 {/* Float */}
                 <motion.div
-                  animate={{ y: [0, -15, 0] }}
+                  animate={{ y: [0, -14, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
-                  <Diamond3DCanvas size={440} />
+                  <Diamond3DCanvas size={390} />
                 </motion.div>
               </motion.div>
             </div>
 
-            {/* Text Section (Moved below the shape) */}
-            <div className="w-full max-w-md mt-4 xl:mt-8 flex flex-col items-start text-left z-10 xl:pr-12">
-              <motion.div custom={1.1} variants={fadeUp} initial="hidden" animate="visible" className="mb-6 overflow-hidden w-full">
+            {/* Text Section */}
+            <div className="w-full max-w-md mt-4 xl:mt-6 flex flex-col items-start text-left z-10 xl:pr-10">
+              <motion.div custom={1.1} variants={fadeUp} initial="hidden" animate="visible" className="mb-5 sm:mb-6 overflow-hidden w-full">
                 <motion.div className="h-px w-full"
                   style={{ background: "linear-gradient(90deg,rgba(160,50,220,0.8),transparent)" }}
                   initial={{ scaleX: 0, originX: 0 }} animate={{ scaleX: 1 }}
@@ -587,26 +621,26 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.p custom={1.4} variants={fadeUp} initial="hidden" animate="visible"
-                className="text-base md:text-lg leading-relaxed mb-10 font-light text-slate-600 dark:text-white/45">
+                className="text-base md:text-[1.05rem] leading-relaxed mb-8 sm:mb-9 font-light text-slate-600 dark:text-white/55">
                 We craft powerful digital experiences — transforming ideas into
                 intelligent, user-centric technology solutions.
               </motion.p>
 
-              <motion.div custom={1.7} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-col sm:flex-row w-full justify-start items-stretch sm:items-center gap-4">
+              <motion.div custom={1.7} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-wrap w-full justify-start items-center gap-3.5 sm:gap-4">
                 <motion.a href="#about"
-                  className="relative group inline-flex justify-center items-center gap-3 px-8 py-4 sm:py-3 font-semibold text-sm tracking-widest uppercase overflow-hidden rounded-full text-white"
+                  className="relative group inline-flex justify-center items-center gap-2.5 px-7 py-3.5 font-semibold text-xs sm:text-[13px] tracking-wider uppercase overflow-hidden rounded-full text-white whitespace-nowrap"
                   style={{ background: "#f47721" }}
                   whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                   <span className="relative z-10">Explore Work</span>
-                  <motion.span className="relative z-10 text-lg"
-                    animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
+                  <motion.span className="relative z-10 text-base leading-none"
+                    animate={{ x: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
                   <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-100"
                     style={{ background: "linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.14) 50%,transparent 60%)", backgroundSize: "200% 100%" }}
                     animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
                     transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }} />
                 </motion.a>
                 <motion.a href="#contact"
-                  className="inline-flex justify-center items-center gap-3 px-8 py-4 sm:py-3 font-semibold text-sm tracking-widest uppercase rounded-full border border-slate-300 dark:border-white/10 text-slate-700 dark:text-white/66"
+                  className="inline-flex justify-center items-center gap-2.5 px-7 py-3.5 font-semibold text-xs sm:text-[13px] tracking-wider uppercase rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-white/70 whitespace-nowrap"
                   style={{ background: "rgba(150,150,150,0.04)" }}
                   whileHover={{ scale: 1.04, borderColor: "rgba(160,50,220,0.6)" }}
                   whileTap={{ scale: 0.97 }}>

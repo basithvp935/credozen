@@ -123,7 +123,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed"
+              className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed text-justify hyphens-auto"
             >
               We provide comprehensive IT services to help your business thrive in the digital age. Explore our tailored solutions designed to drive growth and efficiency.
             </motion.p>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-bold text-[#2a2a2a] dark:text-white mb-4 group-hover:text-[#f47721] transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-8 flex-grow font-light">
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-8 flex-grow font-light text-justify hyphens-auto">
                     {service.description}
                   </p>
                   

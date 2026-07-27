@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} antialiased scroll-smooth`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col dark:bg-[#090b10] dark:text-slate-200 bg-slate-50 text-slate-900 transition-colors duration-300">
+      <body className="font-sans min-h-full flex flex-col dark:bg-[#090b10] dark:text-slate-200 bg-white text-slate-900 transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Preloader />
           <Navbar />

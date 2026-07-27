@@ -56,7 +56,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
       {project.tags.map((tag: string) => (
         <span 
           key={tag} 
-          className="px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-[10px] md:text-xs font-semibold tracking-widest text-gray-400 uppercase transition-colors duration-300 group-hover:border-white/30 group-hover:text-gray-200"
+          className="px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-slate-300 dark:border-white/10 bg-transparent text-[10px] md:text-xs font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase transition-colors duration-300 group-hover:border-slate-500 dark:group-hover:border-white/30 group-hover:text-slate-900 dark:group-hover:text-gray-200"
         >
           {tag}
         </span>
@@ -65,30 +65,30 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
     
     {/* Title & Arrow */}
     <div className="flex items-start md:items-center justify-between mb-8 gap-4">
-      <h3 className="text-2xl md:text-[28px] lg:text-[32px] font-bold text-white group-hover:text-gray-300 transition-colors duration-300 leading-tight">
+      <h3 className="text-2xl md:text-[28px] lg:text-[32px] font-bold text-slate-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-gray-300 transition-colors duration-300 leading-tight">
         {project.title}
       </h3>
-      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-white group-hover:border-white">
-        <ArrowUpRight size={20} strokeWidth={1.5} className="text-white group-hover:text-black transition-colors duration-300" />
+      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-300 dark:border-white/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:border-slate-900 dark:group-hover:border-white">
+        <ArrowUpRight size={20} strokeWidth={1.5} className="text-slate-900 dark:text-white group-hover:text-white dark:group-hover:text-black transition-colors duration-300" />
       </div>
     </div>
 
     {/* Image Container */}
-    <div className="w-full relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-[#111] aspect-[4/3] lg:aspect-[1.2/1]">
+    <div className="w-full relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-[#111] aspect-[4/3] lg:aspect-[1.2/1]">
       <Image
         src={project.image}
         alt={project.title}
         fill
         className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
       />
-      <div className="absolute inset-0 border border-white/5 rounded-[2rem] md:rounded-[2.5rem] pointer-events-none" />
+      <div className="absolute inset-0 border border-slate-200 dark:border-white/5 rounded-[2rem] md:rounded-[2.5rem] pointer-events-none" />
     </div>
   </motion.div>
 );
 
 export default function ProjectsSection() {
   return (
-    <section id="portfolio" className="py-24 md:py-32 bg-[#050505] relative overflow-hidden">
+    <section id="portfolio" className="py-24 md:py-32 bg-white dark:bg-[#050505] relative overflow-hidden transition-colors duration-300">
       
       {/* Background ambient glows */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
@@ -115,7 +115,7 @@ export default function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight"
+            className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight"
           >
             Selected Works
           </motion.h2>
@@ -149,7 +149,7 @@ export default function ProjectsSection() {
         >
           <a
             href="#projects"
-            className="px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300"
+            className="px-8 py-4 rounded-full border border-slate-300 dark:border-white/20 text-slate-900 dark:text-white font-semibold hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300"
           >
             View All Projects
           </a>

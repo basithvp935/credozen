@@ -118,7 +118,7 @@ export default function CareerPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-500 dark:text-slate-400 text-lg md:text-xl leading-relaxed"
+            className="text-slate-500 dark:text-slate-400 text-lg md:text-xl leading-relaxed text-justify hyphens-auto"
           >
             We are a team of passionate creators, engineers, and strategists. If you love solving complex problems, building beautiful digital products, and working in a collaborative environment, we'd love to hear from you.
           </motion.p>
@@ -160,7 +160,7 @@ export default function CareerPage() {
                   {job.title}
                 </h4>
 
-                <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed font-light">
+                <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed font-light text-justify hyphens-auto">
                   {job.description}
                 </p>
 
@@ -216,7 +216,7 @@ export default function CareerPage() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2a2a2a] dark:text-white mb-6 leading-tight tracking-tight">
                 Don't see a fit?
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+              <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-medium text-justify hyphens-auto">
                 We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future openings.
               </p>
               

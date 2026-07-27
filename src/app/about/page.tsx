@@ -151,7 +151,7 @@ export default function AboutPage() {
             </h2>
 
             {/* Paragraphs */}
-            <div className="space-y-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-12">
+            <div className="space-y-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-12 text-justify hyphens-auto">
               <p>
                 Our mission is crystal clear: solve your IT problems fast, so you can focus on what
                 matters — running your business. From day one, we've built our reputation on speed,
@@ -387,8 +387,9 @@ export default function AboutPage() {
       </section>
 
       {/* ──────────────────────────────────────────────
-         Our Expert Section
+         Our Expert Section (Hidden)
       ────────────────────────────────────────────── */}
+      {false && (
       <section className="py-20 lg:py-28 px-4 md:px-8 max-w-[1400px] mx-auto overflow-hidden">
         {/* Top Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start mb-16">
@@ -507,6 +508,7 @@ export default function AboutPage() {
 
         </div>
       </section>
+      )}
     </main>
   );
 }

@@ -60,7 +60,7 @@ export default function TechSolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-lg"
+              className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-lg text-justify hyphens-auto"
             >
               In today's competitive business, the demand for efficient and cost-effective IT solutions has never been more critical.
             </motion.p>
@@ -144,8 +144,18 @@ export default function TechSolutionSection() {
                       backfaceVisibility: "hidden" 
                     }}
                   >
-                    {/* Apple-like metallic logo */}
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-slate-300 to-white shadow-[inset_0_0_10px_rgba(255,255,255,0.8),0_1px_3px_rgba(0,0,0,0.1)] flex items-center justify-center opacity-80" />
+                    {/* Realistic Apple-like metallic logo */}
+                    <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
+                      <svg
+                        className="w-full h-full text-[#b0b3b8] drop-shadow-sm opacity-90 transition-opacity duration-1000"
+                        viewBox="0 0 170 170"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M117.817 90.627C117.971 67.243 136.953 55.938 137.915 55.334C126.792 39.083 109.117 36.319 102.736 35.539C88.082 34.025 73.966 44.152 66.452 44.152C58.898 44.152 47.338 35.795 35.155 35.986C19.349 36.216 4.46995 45.176 1 59.957C-7.23483 89.475 14.153 133.243 22.083 144.757C29.626 155.85 38.636 168.398 50.485 167.898C61.874 167.399 66.242 160.482 79.914 160.482C93.585 160.482 97.433 167.898 109.324 167.706C121.751 167.514 129.566 156.417 137.042 145.485C145.714 132.84 149.332 120.48 149.524 119.866C149.199 119.742 117.653 107.697 117.817 90.627Z" />
+                        <path d="M107.568 23.364C113.882 15.71 118.2 5.09325 117.045 -0.000213623C107.729 0.373243 96.671 6.20815 90.173 13.844C84.341 20.612 79.231 31.42 80.578 41.311C90.963 42.119 101.256 31.018 107.568 23.364Z" />
+                      </svg>
+                    </div>
                   </div>
 
                   {/* Screen (Front Face) */}

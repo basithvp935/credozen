@@ -79,7 +79,7 @@ export default function TestimonialSection() {
   }, [isPaused, maxIndex]);
 
   return (
-    <section className="py-24 bg-[#0c0f12] relative overflow-hidden" id="testimonials">
+    <section className="py-24 bg-white dark:bg-[#0c0f12] relative overflow-hidden transition-colors duration-300" id="testimonials">
       
       {/* Background Graphic (Orange Curve) */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-40">
@@ -116,7 +116,7 @@ export default function TestimonialSection() {
           <span className="text-[#f47721] text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
             TESTIMONIAL
           </span>
-          <h2 className="text-white text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight">
+          <h2 className="text-slate-900 dark:text-white text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight">
             Client Feedback & <span className="text-[#f47721]">Reviews</span>
           </h2>
         </div>
@@ -138,7 +138,7 @@ export default function TestimonialSection() {
                 key={review.id}
                 className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3 md:px-4"
               >
-                <div className="bg-[#14171c] rounded-2xl p-8 lg:p-10 flex flex-col items-center text-center shadow-xl border border-white/5 transition-transform duration-300 hover:-translate-y-2 h-full">
+                <div className="bg-slate-50 dark:bg-[#14171c] rounded-2xl p-8 lg:p-10 flex flex-col items-center text-center shadow-xl border border-slate-200 dark:border-white/5 transition-transform duration-300 hover:-translate-y-2 h-full">
                   {/* Avatar */}
                   <div className="w-[84px] h-[84px] rounded-full overflow-hidden border-[3px] border-[#e2e2e2] mb-6 relative shadow-lg flex-shrink-0">
                     <Image 
@@ -150,13 +150,13 @@ export default function TestimonialSection() {
                   </div>
 
                   {/* Quote */}
-                  <p className="text-[#9a9ea6] text-sm leading-[1.7] font-light mb-8 flex-grow">
+                  <p className="text-slate-700 dark:text-[#9a9ea6] text-sm leading-[1.7] font-light mb-8 flex-grow">
                     {review.quote}
                   </p>
 
                   {/* Author & Role */}
                   <div className="flex flex-col mt-auto">
-                    <span className="text-white font-bold italic text-base mb-1">
+                    <span className="text-slate-900 dark:text-white font-bold italic text-base mb-1">
                       {review.author}
                     </span>
                     <span className="text-[#f47721] italic text-[13px]">
@@ -176,7 +176,7 @@ export default function TestimonialSection() {
               key={idx}
               onClick={() => setActiveIndex(idx)} 
               className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                activeIndex === idx ? 'bg-[#f47721]' : 'bg-[#333]'
+                activeIndex === idx ? 'bg-[#f47721]' : 'bg-slate-300 dark:bg-[#333]'
               }`} 
               aria-label={`Go to slide ${idx + 1}`}
             />

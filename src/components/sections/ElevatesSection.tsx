@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Crown, Rocket } from "lucide-react";
 
 export default function ElevatesSection() {
@@ -10,10 +10,17 @@ export default function ElevatesSection() {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 400,
+    damping: 90,
+    mass: 0.1,
+    restDelta: 0.001
+  });
+
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[800vh] bg-slate-50 dark:bg-[#1c1c1f] transition-colors duration-300" id="tech-solution">
+    <section ref={targetRef} className="relative h-[600vh] bg-slate-50 dark:bg-[#1c1c1f] transition-colors duration-300" id="tech-solution">
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <motion.div style={{ x }} className="flex w-[400vw] h-full">
           
@@ -26,12 +33,7 @@ export default function ElevatesSection() {
               <Crown className="w-full h-full" strokeWidth={1.5} />
             </div>
 
-            {/* Red circle detail */}
-            <div className="absolute top-1/3 right-1/4 flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-[#ea612a]"></div>
-              </div>
-            </div>
+
 
             <h1 className="text-[16vw] font-black leading-none tracking-tighter text-slate-800 dark:text-[#f4f9f4]">
               ELEVATES
@@ -45,6 +47,9 @@ export default function ElevatesSection() {
             
             {/* Slanted Transition line */}
             <div className="absolute right-[-2vw] top-[-10vh] bottom-[-10vh] w-[4vw] bg-[#ea612a]/50 origin-top rotate-[5deg] z-10" style={{ clipPath: 'polygon(50% 0, 55% 0, 5% 100%, 0% 100%)' }}></div>
+            
+            {/* Subpixel gap fixer */}
+            <div className="absolute right-[-2px] top-0 bottom-0 w-[4px] bg-slate-100 dark:bg-[#28282d] z-0"></div>
           </div>
 
           {/* PANEL 2: EXPLORE. EXPERIMENT. EXCEL. */}
@@ -57,12 +62,7 @@ export default function ElevatesSection() {
               <Rocket className="w-full h-full" strokeWidth={1.5} />
             </div>
 
-            {/* Blue circle detail */}
-            <div className="absolute bottom-40 left-72 flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-[#0ea5e9]"></div>
-              </div>
-            </div>
+
 
             <div className="flex flex-col items-center justify-center text-center -ml-10">
               <h2 className="text-[9vw] font-black leading-[0.85] tracking-tight text-[#738375] uppercase italic origin-left -skew-x-[10deg]">
@@ -75,6 +75,9 @@ export default function ElevatesSection() {
                 EXCEL.
               </h2>
             </div>
+            
+            {/* Subpixel gap fixer */}
+            <div className="absolute right-[-2px] top-0 bottom-0 w-[4px] bg-white dark:bg-[#f4f9f4] z-0"></div>
           </div>
 
           {/* PANEL 3: HANDS-ON CHAOS */}
@@ -100,10 +103,7 @@ export default function ElevatesSection() {
                   <path d="M0,25 C20,0 30,50 50,25 C70,0 80,50 100,25 C120,0 130,50 150,25 C170,0 180,50 200,25" fill="none" stroke="currentColor" strokeWidth="1" />
                   <path d="M0,35 C20,10 30,60 50,35 C70,10 80,60 100,35 C120,10 130,60 150,35 C170,10 180,60 200,35" fill="none" stroke="currentColor" strokeWidth="1" />
                 </svg>
-                {/* Circle point on wave */}
-                <div className="absolute bottom-4 left-1/4 w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center z-10">
-                   <div className="w-2 h-2 rounded-full bg-[#8b2346]"></div>
-                </div>
+
               </div>
               
               <div className="mt-16 text-right z-10 relative">
@@ -115,18 +115,16 @@ export default function ElevatesSection() {
                 </p>
               </div>
             </div>
+            
+            {/* Subpixel gap fixer */}
+            <div className="absolute right-[-2px] top-0 bottom-0 w-[4px] bg-slate-50 dark:bg-[#0a192f] z-0"></div>
           </div>
 
           {/* PANEL 4: OPEN SOURCE & COLLABORATION */}
           <div className="w-[100vw] h-full flex items-center justify-center relative bg-slate-100 dark:bg-[#1c1c1f] text-slate-900 dark:text-white shrink-0 overflow-hidden transition-colors duration-300">
 
             
-            {/* Orange detail circle */}
-            <div className="absolute bottom-1/4 left-1/3 flex items-center justify-center z-10">
-              <div className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-[#ea612a]"></div>
-              </div>
-            </div>
+
 
             <div className="flex flex-col items-center z-10 w-full max-w-5xl">
               <h2 className="text-[14vw] font-black leading-[0.8] tracking-tighter text-slate-800 dark:text-[#f4f9f4] uppercase text-center w-full">

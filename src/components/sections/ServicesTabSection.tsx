@@ -65,7 +65,7 @@ export default function ServicesTabSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-black transition-colors duration-300">
+    <section className="py-16 lg:py-24 bg-white dark:bg-black transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px]">
         
         {/* Tabs */}
@@ -79,8 +79,8 @@ export default function ServicesTabSection() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`whitespace-nowrap px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${
                     isActive 
-                      ? "border-[#f47721] text-white" 
-                      : "border-[#333] text-gray-300 hover:border-gray-500 hover:text-white"
+                      ? "bg-[#f47721] border-[#f47721] text-white shadow-md" 
+                      : "border-slate-200 dark:border-[#333] text-slate-600 dark:text-gray-300 hover:border-slate-400 dark:hover:border-gray-500 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
                   {tab.title}
@@ -91,7 +91,7 @@ export default function ServicesTabSection() {
         </div>
 
         {/* Content Card */}
-        <div className="bg-black border border-[#222] rounded-[32px] overflow-hidden relative shadow-2xl">
+        <div className="bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#222] rounded-[32px] overflow-hidden relative shadow-2xl transition-colors duration-300">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -117,7 +117,7 @@ export default function ServicesTabSection() {
                   loop 
                   muted 
                   playsInline 
-                  className="w-full h-auto max-h-[280px] lg:max-h-[320px] object-contain drop-shadow-2xl brightness-110 contrast-150 invert hue-rotate-180 mix-blend-screen"
+                  className="w-full h-auto max-h-[280px] lg:max-h-[320px] object-contain drop-shadow-2xl brightness-110 contrast-150 dark:invert dark:hue-rotate-180 mix-blend-multiply dark:mix-blend-screen"
                 ></video>
               </div>
 
@@ -128,7 +128,7 @@ export default function ServicesTabSection() {
                     hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
                   }}
-                  className="text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold text-white mb-6 tracking-tight whitespace-nowrap"
+                  className="text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold text-slate-900 dark:text-white mb-6 tracking-tight whitespace-nowrap"
                 >
                   {renderTitle(currentTab.title)}
                 </motion.h2>
@@ -144,7 +144,7 @@ export default function ServicesTabSection() {
                   {currentTab.tags.map((tag, idx) => (
                     <span 
                       key={idx} 
-                      className="px-6 py-3 rounded-full border border-[#333] text-sm text-gray-300 font-medium bg-[#111] hover:border-[#f47721] hover:text-[#f47721] transition-colors duration-300"
+                      className="px-6 py-3 rounded-full border border-slate-200 dark:border-[#333] text-sm text-slate-700 dark:text-gray-300 font-medium bg-white dark:bg-[#111] hover:border-[#f47721] hover:text-[#f47721] transition-colors duration-300"
                     >
                       {tag}
                     </span>
@@ -156,7 +156,7 @@ export default function ServicesTabSection() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                   }}
-                  className="text-gray-400 leading-relaxed text-lg"
+                  className="text-slate-600 dark:text-gray-400 leading-relaxed text-lg text-justify hyphens-auto"
                 >
                   {currentTab.description}
                 </motion.p>

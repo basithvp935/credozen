@@ -87,7 +87,7 @@ export default function ContactPage() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
                 Continue Exploring — Your<br className="hidden md:block" /> <span className="text-[#f47721]">Next Section</span> Awaits
               </h2>
-              <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+              <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light text-justify hyphens-auto">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
               </p>
               
@@ -126,7 +126,7 @@ export default function ContactPage() {
               <h2 className="text-[3rem] sm:text-[3.5rem] leading-[1.1] font-bold text-[#2a2a2a] dark:text-white mb-6">
                 Have <span className="text-[#f47721]">inquiries?</span><br />Reach out to us!
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-lg mb-10 max-w-md leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-lg mb-10 max-w-md leading-relaxed text-justify hyphens-auto">
                 We are here to assist you with any questions or concerns you may have. Feel free to reach out to us anytime.
               </p>
               

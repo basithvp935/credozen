@@ -5,7 +5,7 @@ import ChromaKeyVideo from "@/components/ui/ChromaKeyVideo";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-8 lg:py-16 relative overflow-hidden bg-slate-50 dark:bg-[#1e1e1e] transition-colors duration-300">
+    <section id="contact" className="py-8 lg:py-16 relative overflow-hidden bg-white dark:bg-[#1e1e1e] transition-colors duration-300">
       
       {/* Animated Marquee */}
       <div className="w-full overflow-hidden flex whitespace-nowrap pb-16 lg:pb-24 relative z-10">
@@ -30,11 +30,11 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-black border border-[#2a2a2a] rounded-[32px] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl"
+          className="bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#2a2a2a] rounded-[32px] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl transition-colors duration-300"
         >
           {/* Form Side */}
           <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-semibold text-white leading-tight mb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-semibold text-slate-900 dark:text-white leading-tight mb-8">
               Ready to Start <br className="hidden md:block" />
               Your Project?
             </h2>
@@ -44,7 +44,7 @@ export default function ContactSection() {
                 <input 
                   type="text" 
                   placeholder="Name"
-                  className="w-full bg-[#111] border border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
+                  className="w-full bg-white dark:bg-[#111] border border-slate-200 dark:border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-slate-900 dark:text-gray-300 placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
                 />
               </div>
               
@@ -53,14 +53,14 @@ export default function ContactSection() {
                   <input 
                     type="tel" 
                     placeholder="Phone"
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
+                    className="w-full bg-white dark:bg-[#111] border border-slate-200 dark:border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-slate-900 dark:text-gray-300 placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
                   />
                 </div>
                 <div className="w-full md:w-1/2">
                   <input 
                     type="email" 
                     placeholder="Email"
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
+                    className="w-full bg-white dark:bg-[#111] border border-slate-200 dark:border-[#2a2a2a] rounded-full px-6 py-4 text-sm text-slate-900 dark:text-gray-300 placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors"
                   />
                 </div>
               </div>
@@ -69,7 +69,7 @@ export default function ContactSection() {
                 <textarea 
                   placeholder="Message"
                   rows={3}
-                  className="w-full bg-[#111] border border-[#2a2a2a] rounded-3xl px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors resize-none"
+                  className="w-full bg-white dark:bg-[#111] border border-slate-200 dark:border-[#2a2a2a] rounded-3xl px-6 py-4 text-sm text-slate-900 dark:text-gray-300 placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#f47721] transition-colors resize-none"
                 ></textarea>
               </div>
 
@@ -85,7 +85,7 @@ export default function ContactSection() {
           </div>
 
           {/* Graphic Side */}
-          <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-black flex items-center justify-center overflow-hidden">
+          <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-slate-100 dark:bg-black flex items-center justify-center overflow-hidden transition-colors duration-300">
             <ChromaKeyVideo 
               src="/images/VIDEO/3D11.mp4" 
               className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] lg:h-[80%] w-auto object-contain"

@@ -34,7 +34,7 @@ export default function WhatWeOfferingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="max-w-md text-gray-500 text-base md:text-lg leading-relaxed"
+            className="max-w-md text-gray-500 text-base md:text-lg leading-relaxed text-justify hyphens-auto"
           >
             <p>In today's competitive business, the demand for efficient and cost-effective IT solutions has never been more critical.</p>
           </motion.div>

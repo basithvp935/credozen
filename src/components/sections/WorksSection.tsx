@@ -1,172 +1,118 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView, animate } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { projectsData, ProjectCategory, ProjectData } from "@/data/projectsData";
 
-function AnimatedStat({ value }: { value: string }) {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-  const inView = useInView(nodeRef, { once: true, margin: "-50px" });
+function ProjectCard({ project }: { project: ProjectData }) {
+  return (
+    <Link href={`/works/${project.slug}`} className="block w-full">
+      {/* Shorter Height (h-[300px] sm:h-[320px]) & Wider Proportions */}
+      <div className="relative rounded-[2.2rem] sm:rounded-[2.4rem] overflow-hidden border border-white/15 group h-[300px] sm:h-[320px] shadow-[0_15px_45px_rgba(0,0,0,0.6)] hover:shadow-[0_25px_70px_rgba(244,119,33,0.3)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f47721]/55 bg-[#0c0d12] cursor-pointer font-sans">
+        
+        {/* Background Image & Ambient Theme Gradient */}
+        <div className={`absolute inset-0 ${project.gradientClass} opacity-90`} />
+        <img
+          src={project.bgImage}
+          alt={project.title}
+          className="absolute inset-0 w-full h-full object-cover opacity-55 sm:opacity-65 mix-blend-normal transition-transform duration-1000 group-hover:scale-105 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-black/85 pointer-events-none" />
 
-  useEffect(() => {
-    if (!inView || !nodeRef.current) return;
-    
-    // Parse the value: e.g. "10K+" -> numeric: 10, suffix: "K+"
-    const match = value.match(/^([\d\.]+)(.*)$/);
-    if (!match) {
-      nodeRef.current.textContent = value;
-      return;
-    }
-    
-    const target = parseFloat(match[1]);
-    const suffix = match[2];
-    const isFloat = match[1].includes('.');
+        {/* Card Content Wrapper */}
+        <div className="relative w-full h-full flex items-center justify-between px-4 sm:px-7">
+          
+          {/* Left Side: Proportional Ultra-Realistic Titanium Phone Mockup */}
+          <div className="relative z-20 w-[130px] sm:w-[150px] h-[250px] sm:h-[280px] shrink-0 transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-1.5 drop-shadow-[0_20px_45px_rgba(0,0,0,0.9)] flex flex-col justify-center my-auto">
+            
+            {/* Outer Metallic Titanium Frame */}
+            <div className="w-full h-full rounded-[2rem] sm:rounded-[2.3rem] p-[3px] sm:p-[3.5px] bg-gradient-to-b from-[#71717a] via-[#3f3f46] to-[#18181b] shadow-2xl relative overflow-hidden flex flex-col border border-white/25">
+              
+              {/* Physical Side Buttons */}
+              <div className="absolute top-[22%] -left-[2px] w-[2px] h-3.5 bg-[#71717a] rounded-l-sm" />
+              <div className="absolute top-[33%] -left-[2px] w-[2px] h-6 bg-[#71717a] rounded-l-sm" />
+              <div className="absolute top-[46%] -left-[2px] w-[2px] h-6 bg-[#71717a] rounded-l-sm" />
+              <div className="absolute top-[30%] -right-[2px] w-[2px] h-8 bg-[#71717a] rounded-r-sm" />
 
-    const controls = animate(0, target, {
-      duration: 2,
-      ease: "easeOut",
-      onUpdate(val) {
-        if (nodeRef.current) {
-          nodeRef.current.textContent = (isFloat ? val.toFixed(1) : Math.floor(val)) + suffix;
-        }
-      },
-    });
+              {/* Inner Dark Glass Bezel */}
+              <div className="w-full h-full rounded-[1.85rem] sm:rounded-[2.1rem] bg-black p-[4.5px] sm:p-[5px] relative flex flex-col overflow-hidden">
+                
+                {/* Dynamic Island Notch */}
+                <div className="absolute top-[8px] sm:top-[10px] left-1/2 -translate-x-1/2 w-13 sm:w-15 h-3.5 bg-black rounded-full z-30 flex items-center justify-between px-1.5 border border-white/15 shadow-md">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#0c141d] border border-white/20 flex items-center justify-center">
+                    <div className="w-1 h-1 rounded-full bg-blue-500/60" />
+                  </div>
+                  <div className="w-1 h-1 rounded-full bg-[#181d24]" />
+                </div>
 
-    return () => controls.stop();
-  }, [value, inView]);
+                {/* Glass Glare Reflection */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.12] pointer-events-none z-20 rounded-[1.7rem]" />
 
-  return <span ref={nodeRef}>0{value.replace(/[\d\.]/g, '')}</span>;
+                {/* Screen Content */}
+                <div className="w-full h-full rounded-[1.6rem] sm:rounded-[1.8rem] overflow-hidden relative bg-[#090b10]">
+                  <img
+                    src={project.screenImage}
+                    alt={`${project.title} app interface`}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 object-top"
+                  />
+                  
+                  {/* Top clock / status bar and bottom label */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-black/45 flex flex-col justify-between p-2 z-10 pointer-events-none">
+                    <div className="flex items-center justify-between mt-0.5 text-[7px] font-bold text-white/95 px-1">
+                      <span>9:41</span>
+                      <div className="flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+                        <span>5G</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="inline-block text-[6.5px] sm:text-[7.5px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f47721] text-white shadow-sm mb-0.5">
+                        LIVE APP
+                      </span>
+                      <p className="text-white text-[10.5px] sm:text-[11.5px] font-bold leading-tight truncate">{project.title}</p>
+                    </div>
+                  </div>
+
+                  {/* iOS Bottom Home Bar */}
+                  <div className="absolute bottom-[4px] left-1/2 -translate-x-1/2 w-10 sm:w-12 h-[2px] bg-white/85 rounded-full z-20 shadow-sm" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Wider & Compact Frosted Glass Info Box */}
+          <div className="relative z-10 w-[64%] sm:w-[67%] max-w-[440px] rounded-[1.6rem] sm:rounded-[1.9rem] p-4 sm:p-5.5 backdrop-blur-2xl bg-black/45 dark:bg-black/55 border border-white/15 shadow-[0_15px_50px_rgba(0,0,0,0.7)] group-hover:border-[#f47721]/50 group-hover:bg-black/65 transition-all duration-500 flex flex-col justify-between my-auto">
+            <div>
+              <h3 className="text-lg sm:text-[22px] font-medium text-white tracking-tight mb-2 group-hover:text-[#f47721] transition-colors duration-300 truncate font-sans">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 text-xs sm:text-[13.5px] leading-relaxed mb-3.5 font-normal line-clamp-3 text-justify hyphens-auto">
+                {project.description}
+              </p>
+            </div>
+
+            {/* App Store Icons */}
+            <div className="flex items-center gap-2.5 pt-2.5 border-t border-white/10">
+              <div className="p-1.5 sm:p-2 rounded-xl bg-white/10 hover:bg-[#f47721] transition-all duration-300 cursor-pointer text-white shadow-md">
+                <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.96 6.35c.64-.78 1.08-1.87.96-2.95-.92.04-2.04.62-2.7 1.39-.58.67-1.1 1.78-.96 2.84 1.03.08 2.07-.5 2.7-1.28"/>
+                </svg>
+              </div>
+              <div className="p-1.5 sm:p-2 rounded-xl bg-white/10 hover:bg-[#f47721] transition-all duration-300 cursor-pointer text-white shadow-md">
+                <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M3,20.5V3.5C3,2.91,3.34,2.39,3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </Link>
+  );
 }
-
-type ProjectCategory = "ALL" | "MOBILE APPLICATIONS" | "WEBSITE DEVELOPMENT" | "DIGITAL MARKETING";
-
-interface ProjectStat {
-  value: string;
-  label: string;
-}
-
-interface Project {
-  id: number;
-  category: ProjectCategory[];
-  company: string;
-  title: string;
-  subtitle: string;
-  description?: string;
-  bgColor: string;
-  cardBgColor?: string;
-  bgImage: string;
-  stats?: ProjectStat[];
-  reverseLayout?: boolean;
-  styleType?: "split" | "card";
-  deviceType?: "phone" | "tablet" | "imac" | "macbook";
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    category: ["ALL", "MOBILE APPLICATIONS"],
-    company: "anarc DEVELOPERS",
-    title: "Anarc Developers",
-    subtitle: "Creating modern digital work space for Construction and Architecture industry",
-    description: "Changing employees lives with mobile and connected technologies, With an eye to the future, Anarc has sought to transform",
-    bgColor: "#c18d36", // Gold
-    bgImage: "/images/Best Business Management Course for Future Entrepreneurs.jpg", // Provided image
-    stats: [
-      { value: "100+", label: "Employee Usage" },
-      { value: "4.9/5", label: "Avg. Rating" },
-    ],
-    styleType: "split",
-    deviceType: "phone",
-  },
-  {
-    id: 2,
-    category: ["ALL", "MOBILE APPLICATIONS", "WEBSITE DEVELOPMENT"],
-    company: "adox Solutions",
-    title: "Adoxsolutions",
-    subtitle: "An intuitive customer engagement platform",
-    description: "Innovative solution provided by Adox for their cleints which will provide real time updates of the projects, Manage every customer interaction easily and strengthen the relationship with your customers and maximize sales. 24 hours activate. 24\\7 support",
-    bgColor: "#098ad8", // Blue
-    bgImage: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80", // Coding
-    stats: [
-      { value: "10K+", label: "Downloads" },
-      { value: "999+", label: "Employee Usage" },
-      { value: "4.7/5", label: "Avg. Rating" },
-    ],
-    reverseLayout: true,
-    styleType: "split",
-    deviceType: "phone",
-  },
-  {
-    id: 3,
-    category: ["ALL", "WEBSITE DEVELOPMENT"],
-    company: "ESOM",
-    title: "Petty Cash",
-    subtitle: "Effective platform for petty cash management and providing an intuitive.",
-    description: "User-friendly experience, offering clients to access high performance and ease and submit and manage petty cash expenses",
-    bgColor: "#c61d23", // Red
-    bgImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80", // Laptop typing
-    stats: [
-      { value: "500+", label: "Employee Usage" },
-      { value: "4.9/5", label: "Avg. Rating" },
-    ],
-    styleType: "split",
-    deviceType: "phone",
-  },
-  {
-    id: 4,
-    category: ["ALL", "MOBILE APPLICATIONS"],
-    company: "motoro",
-    title: "Motoro",
-    subtitle: "Vehicle To Vehicle Communication App",
-    description: "Motoro is idea conceivbed by gruop of entrepreneurs which enable users communciate with other users in vehicles which will help in case of emergencies., vehicle parking requirements etc.",
-    bgColor: "#00a9e8", // Light Blue
-    bgImage: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80", // Hand holding phone
-    stats: [
-      { value: "10K+", label: "Downloads" },
-      { value: "999+", label: "Employee Usage" },
-      { value: "4.7/5", label: "Avg. Rating" },
-    ],
-    reverseLayout: true,
-    styleType: "split",
-    deviceType: "phone",
-  },
-  {
-    id: 5,
-    category: ["ALL", "WEBSITE DEVELOPMENT"],
-    company: "ONROAD",
-    title: "ONROAD",
-    subtitle: "India's First Organized Multi Brand Automobile Bodyshop Chain.",
-    bgColor: "#ffcc00", // Yellow background
-    cardBgColor: "#d9a123", // Darker yellow inner card
-    bgImage: "/images/Food Ordering App UI.jpg", // Provided UI image
-    styleType: "card",
-    deviceType: "tablet",
-  },
-  {
-    id: 6,
-    category: ["ALL", "WEBSITE DEVELOPMENT", "DIGITAL MARKETING"],
-    company: "exa",
-    title: "exa",
-    subtitle: "Leading Electrical & Telecommunication Engineering In Cochin , Kerala",
-    bgColor: "#e91e63", // Pink background
-    cardBgColor: "#b01246", // Darker pink inner card
-    bgImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80", // Industrial sunset
-    styleType: "card",
-    deviceType: "imac",
-  },
-  {
-    id: 7,
-    category: ["ALL", "WEBSITE DEVELOPMENT", "DIGITAL MARKETING"],
-    company: "Zamil",
-    title: "Zamil Architectural Industries",
-    subtitle: "Leading Architects Company In Saudi Arabia , Member Of The Zamil Group",
-    bgColor: "#128f41", // Green background
-    cardBgColor: "#0b662d", // Darker green inner card
-    bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80", // Architecture
-    styleType: "card",
-    deviceType: "macbook",
-  }
-];
 
 export default function WorksSection() {
   const [activeTab, setActiveTab] = useState<ProjectCategory>("ALL");
@@ -178,31 +124,31 @@ export default function WorksSection() {
     "DIGITAL MARKETING"
   ];
 
-  const filteredProjects = projects.filter(project => project.category.includes(activeTab));
+  const filteredProjects = projectsData.filter(project => project.category.includes(activeTab));
 
   return (
-    <section className="bg-[#090b10] w-full text-white pt-10">
+    <section className="bg-[#090b10] font-sans w-full text-white py-16 lg:py-24 overflow-hidden" id="works">
       
       {/* Section Heading */}
-      <div className="container mx-auto px-4 max-w-[1200px] pt-12 pb-4">
+      <div className="container mx-auto px-4 max-w-[1440px] pb-4">
         <div className="flex flex-col items-center text-center">
-          <h2 className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-bold tracking-tight mb-2 text-white">
+          <h2 className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-medium tracking-tight mb-3 text-white font-sans">
             Our Recent <span className="text-[#f47721]">Works</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mt-4">
+          <p className="text-gray-300 max-w-2xl mt-3 text-base sm:text-lg leading-relaxed">
             Explore our latest projects and see how we've helped businesses achieve their digital goals.
           </p>
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="container mx-auto px-4 max-w-[1200px] py-8 md:py-12">
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 border-b border-gray-800">
+      <div className="container mx-auto px-4 max-w-[1440px] py-8 md:py-12">
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 border-b border-gray-800/80 pb-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveTab(category)}
-              className={`pb-4 px-2 text-xs md:text-sm tracking-wider uppercase font-medium transition-colors relative whitespace-nowrap
+              className={`pb-4 px-2 text-xs md:text-sm tracking-wider uppercase font-semibold transition-colors relative whitespace-nowrap
                 ${activeTab === category 
                   ? "text-[#f47721]" 
                   : "text-gray-400 hover:text-white"
@@ -212,7 +158,7 @@ export default function WorksSection() {
               {category}
               {activeTab === category && (
                 <motion.div
-                  layoutId="active-tab"
+                  layoutId="active-works-tab"
                   className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#f47721]"
                   initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -223,152 +169,24 @@ export default function WorksSection() {
         </div>
       </div>
 
-      {/* Projects List */}
-      <div className="w-full flex flex-col">
-        <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`w-full ${project.styleType === 'card' ? 'p-4 md:p-12 lg:p-20' : ''}`}
-            >
-              {project.styleType === "card" ? (
-                /* Card Layout */
-                <div 
-                  className="w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl"
-                  style={{ backgroundColor: project.bgColor }}
-                >
-                  {/* Left Side (Text) */}
-                  <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-24 flex flex-col justify-center items-center relative z-10">
-                    <div 
-                      className="rounded-[2rem] p-10 md:p-14 shadow-xl w-full max-w-md"
-                      style={{ backgroundColor: project.cardBgColor || 'rgba(0,0,0,0.1)' }}
-                    >
-                      <div className="flex flex-col items-center text-center text-white">
-                        {/* Logo placeholder */}
-                        <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-6">
-                          <span className="text-2xl font-bold italic">{project.company.charAt(0)}</span>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold mb-4 font-serif">{project.company}</h3>
-                        <p className="text-base md:text-lg font-medium mb-10 leading-relaxed opacity-90">
-                          {project.subtitle}
-                        </p>
-                        
-                        <button className="flex items-center gap-2 border border-white hover:bg-white hover:text-black transition-colors px-6 py-3 rounded-full text-sm font-medium w-fit">
-                          View Project <ArrowRight size={16} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Side (Device Mockup) */}
-                  <div className="w-full lg:w-1/2 p-8 md:p-16 flex flex-col items-center justify-center relative z-10">
-                    {/* Device frame (Tablet/Laptop) based on deviceType */}
-                    <div className={`relative bg-black rounded-[2rem] p-3 md:p-5 shadow-2xl border-4 border-gray-800 ${project.deviceType === 'tablet' ? 'w-full max-w-[360px] aspect-[3/4]' : 'w-full max-w-[600px] aspect-[16/10] mb-8'}`}>
-                      {/* Screen */}
-                      <div className="w-full h-full bg-gray-900 rounded-[1rem] overflow-hidden relative">
-                         <img src={project.bgImage} alt={`${project.title} Interface`} className="w-full h-full object-cover" />
-                      </div>
-                      
-                      {/* Base for Laptop/Macbook */}
-                      {project.deviceType === 'macbook' && (
-                        <div className="absolute top-[98%] left-1/2 -translate-x-1/2 w-[120%] h-5 bg-gray-300 rounded-b-xl border-t-2 border-gray-400 flex justify-center">
-                           <div className="w-32 h-2 bg-gray-400 rounded-b-md"></div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Base for iMac (drawn below the screen frame) */}
-                    {project.deviceType === 'imac' && (
-                      <div className="flex flex-col items-center mt-0 relative z-0">
-                        {/* Stand */}
-                        <div className="w-32 h-24 bg-gray-300 border-x-4 border-gray-400 shadow-inner" style={{ clipPath: 'polygon(20% 0, 80% 0, 100% 100%, 0 100%)', marginTop: '-10px' }}></div>
-                        {/* Base plate */}
-                        <div className="w-48 h-3 bg-gray-400 rounded-t-xl -mt-2"></div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                /* Split Layout (Original) */
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[600px] overflow-hidden">
-                  {/* Text Side */}
-                  <div 
-                    className={`flex flex-col justify-center p-12 lg:p-24 2xl:p-32 text-white ${project.reverseLayout ? 'lg:order-2' : 'lg:order-1'}`}
-                    style={{ backgroundColor: project.bgColor }}
-                  >
-                    <div className="max-w-xl mx-auto w-full">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 font-serif tracking-wide">{project.company}</h3>
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">{project.title}</h2>
-                      <p className="text-lg md:text-xl font-medium mb-6 leading-relaxed opacity-90">
-                        {project.subtitle}
-                      </p>
-                      {project.description && (
-                        <p className="text-base md:text-lg mb-10 leading-relaxed opacity-80">
-                          {project.description}
-                        </p>
-                      )}
-                      
-                      {project.stats && project.stats.length > 0 && (
-                        <>
-                          <div className="flex items-center gap-2 mb-12">
-                            <span className="text-sm font-medium">Available on</span>
-                            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M2.38 2.05L16.29 10l-4.14 4.14L2.38 4.38V2.05z" fill="#00e676"/>
-                              <path d="M16.29 10l5.33 3.08c1.39.81.93 2.58-.59 3.08L2.38 21.95v-7.81L16.29 10z" fill="#29b6f6"/>
-                              <path d="M2.38 4.38l9.77 9.76-9.77 9.77V4.38z" fill="#ffca28"/>
-                            </svg>
-                          </div>
-
-                          <div className="flex flex-wrap gap-8 md:gap-16 mb-12">
-                            {project.stats.map((stat, i) => (
-                              <div key={i} className="flex flex-col">
-                                <span className="text-3xl md:text-4xl lg:text-5xl font-light mb-2"><AnimatedStat value={stat.value} /></span>
-                                <span className="text-xs md:text-sm opacity-80 uppercase tracking-wider">{stat.label}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </>
-                      )}
-
-                      <button className="flex items-center gap-2 border border-white/40 hover:border-white hover:bg-white/10 transition-colors px-6 py-3 rounded-md text-sm font-medium w-fit">
-                        View Project <ArrowRight size={16} />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Image Side */}
-                  <div className={`relative flex items-center justify-center min-h-[500px] lg:min-h-full overflow-hidden ${project.reverseLayout ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="absolute inset-0 z-0">
-                      <img src={project.bgImage} alt={`${project.title} Background`} className="w-full h-full object-cover" />
-                      <div className={`absolute inset-0 mix-blend-multiply opacity-40`} style={{ backgroundColor: project.bgColor }}></div>
-                      <div className="absolute inset-0 bg-black/20"></div>
-                    </div>
-
-                    <div className="relative z-10 flex items-center justify-center w-full py-16 px-8">
-                      <div className="relative w-full max-w-[280px] aspect-[9/19] bg-white rounded-[3rem] p-4 shadow-2xl">
-                        <div className="w-full h-full rounded-[2.2rem] bg-[#f4f5f7] overflow-hidden relative flex flex-col items-center justify-center text-center px-6">
-                           <h3 className="text-2xl font-bold mb-3 tracking-wide" style={{ color: project.bgColor }}>{project.company}</h3>
-                           <p className="text-[13px] text-slate-500 mb-10 font-medium">Demo Application Interface</p>
-                           
-                           <div className="w-full space-y-4">
-                             <div className="w-full h-12 bg-white rounded-xl shadow-sm border border-gray-100"></div>
-                             <div className="w-full h-12 bg-white rounded-xl shadow-sm border border-gray-100"></div>
-                             <div className="w-full h-14 mt-2 rounded-xl shadow-md flex items-center justify-center text-white font-bold text-[15px]" style={{ backgroundColor: project.bgColor }}>Login</div>
-                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </AnimatePresence>
+      {/* Increased Width Grid (max-w-[1440px]) & Shorter Card Heights */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-[1440px]">
+        <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
 
     </section>

@@ -168,7 +168,7 @@ export default function BlogPage() {
                         <span>0 Comments</span>
                       </div>
 
-                      <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed line-clamp-3 font-light">
+                      <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed line-clamp-3 font-light text-justify hyphens-auto">
                         {blog.excerpt}
                       </p>
                     </div>
@@ -313,7 +313,7 @@ export default function BlogPage() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2a2a2a] dark:text-white mb-6 leading-tight tracking-tight">
                 Subscribe to Our <br className="hidden md:block" /> <span className="text-[#f47721]">Newsletter</span>
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+              <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-medium text-justify hyphens-auto">
                 Get the latest news, updates, and articles directly into your inbox.
               </p>
               

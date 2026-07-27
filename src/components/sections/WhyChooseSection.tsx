@@ -101,7 +101,7 @@ export default function WhyChooseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-600 dark:text-slate-300 max-w-3xl mx-auto text-[17px] leading-relaxed transition-colors duration-300"
+            className="text-slate-600 dark:text-slate-300 max-w-3xl mx-auto text-[17px] leading-relaxed transition-colors duration-300 text-justify hyphens-auto"
           >
             We begin by conducting a comprehensive needs assessment to understand your specific requirements, challenges, and goals.
           </motion.p>

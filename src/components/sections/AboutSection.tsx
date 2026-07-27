@@ -40,7 +40,7 @@ export default function AboutSection() {
   return (
     <section 
       id="about" 
-      className="py-24 bg-cover bg-center bg-no-repeat overflow-hidden text-white transition-colors duration-300 relative bg-[#0a192f]/95 bg-blend-overlay"
+      className="py-24 bg-cover bg-center bg-no-repeat overflow-hidden text-slate-900 dark:text-white transition-colors duration-300 relative bg-white/95 dark:bg-[#0a192f]/95 bg-blend-overlay"
       style={{ backgroundImage: "url('/images/about.jpg')" }}
     >
       
@@ -54,10 +54,10 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-[2rem] overflow-hidden shadow-2xl h-[300px] md:h-[450px] w-[95%] md:w-[85%] mx-auto lg:mr-auto lg:ml-0"
+            className="relative rounded-[2rem] overflow-hidden shadow-2xl h-[350px] md:h-[520px] w-[95%] md:w-[85%] mx-auto lg:mr-auto lg:ml-0"
           >
             <img 
-              src="/about-image.jpg" 
+              src="/images/download (16).jpg" 
               alt="About Credozen" 
               className="w-full h-full object-cover"
             />
@@ -74,12 +74,12 @@ export default function AboutSection() {
             className="flex flex-col items-start lg:pl-10"
           >
             {/* About Us Badge */}
-            <div className="bg-white/10 backdrop-blur-md shadow-sm text-white font-bold px-6 py-2.5 rounded-full mb-8 text-sm border border-white/20">
+            <div className="bg-slate-100 dark:bg-white/10 backdrop-blur-md shadow-sm text-slate-900 dark:text-white font-bold px-6 py-2.5 rounded-full mb-8 text-sm border border-slate-200 dark:border-white/20">
               About Us
             </div>
             
             {/* Main Heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-white mb-10 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-slate-900 dark:text-white mb-10 tracking-tight">
               <span className="font-bold">Comprehensive </span>
               <span className="font-light text-[#f47721]">IT </span>
               <span className="font-bold">Solution</span><br className="hidden md:block" />
@@ -88,7 +88,7 @@ export default function AboutSection() {
             </h2>
 
             {/* Paragraph Text */}
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl font-medium">
+            <p className="text-slate-700 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl font-medium text-justify hyphens-auto">
               Welcome to our company, a leading provider of website development, mobile app development, branding and digital marketing services, e-commerce expertise, and LMS solutions. At CREDOZEN LLP we specialize in empowering businesses with cutting-edge technology solutions to enhance their online presence and drive growth. With a team of highly skilled professionals, we bring together creativity, technical expertise, and industry knowledge to deliver exceptional results for our clients.
             </p>
 
@@ -106,10 +106,10 @@ export default function AboutSection() {
                 { to: 12, suffix: "+", label: "Years" }
               ].map(s => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="text-3xl md:text-4xl font-black text-white">
+                  <span className="text-4xl sm:text-[2.75rem] lg:text-[3rem] font-light tracking-tight text-[#f47721] leading-none">
                     <AnimatedCounter to={s.to} suffix={s.suffix} />
                   </span>
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 mt-1">{s.label}</span>
+                  <span className="text-xs sm:text-[13.5px] uppercase tracking-[0.19em] font-medium text-slate-500 dark:text-white/60 mt-2 sm:mt-2.5">{s.label}</span>
                 </div>
               ))}
             </motion.div>
