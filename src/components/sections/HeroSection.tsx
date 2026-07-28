@@ -19,7 +19,7 @@ export default function CyberCrestHero() {
       <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none" />
 
       {/* Hero Section Container */}
-      <section className="relative z-10 max-w-7xl mx-auto pt-16 pb-16 min-h-[calc(100vh-60px)] flex flex-col justify-center">
+      <section className="relative z-10 max-w-7xl mx-auto pt-16  min-h-[calc(100vh-60px)] flex flex-col justify-center">
         {/* Glassmorphic Main Card Frame */}
         <div className="relative p-8  rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center overflow-hidden">
 
