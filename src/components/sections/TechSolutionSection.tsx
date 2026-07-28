@@ -52,7 +52,14 @@ export default function TechSolutionSection() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-8"
             >
-              The Complete <span className="font-light text-slate-500 dark:text-slate-400">Platform</span> <br className="hidden md:block"/><span className="font-bold">To Power Your <span className="text-[#f47721]">Operations</span></span>
+              The Complete <span className="font-light text-slate-500 dark:text-slate-400">Platform</span> <br className="hidden md:block"/><span className="font-bold">To Power Your <span
+                style={{
+                  background:
+                    "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >Operations</span></span>
             </motion.h2>
 
             <motion.p 

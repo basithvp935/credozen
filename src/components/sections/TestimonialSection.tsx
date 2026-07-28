@@ -113,11 +113,29 @@ export default function TestimonialSection() {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-[#f47721] text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
+          <span
+            style={{
+              background:
+                "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            className="text-xs md:text-sm font-bold tracking-widest uppercase mb-4"
+          >
             TESTIMONIAL
           </span>
           <h2 className="text-slate-900 dark:text-white text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight">
-            Client Feedback & <span className="text-[#f47721]">Reviews</span>
+            Client Feedback &{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Reviews
+            </span>
           </h2>
         </div>
 
@@ -159,7 +177,15 @@ export default function TestimonialSection() {
                     <span className="text-slate-900 dark:text-white font-bold italic text-base mb-1">
                       {review.author}
                     </span>
-                    <span className="text-[#f47721] italic text-[13px]">
+                    <span
+                      style={{
+                        background:
+                          "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                      className="italic text-[13px] font-bold"
+                    >
                       {review.company}
                     </span>
                   </div>
@@ -175,8 +201,16 @@ export default function TestimonialSection() {
             <button 
               key={idx}
               onClick={() => setActiveIndex(idx)} 
+              style={
+                activeIndex === idx
+                  ? {
+                      background:
+                        "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                    }
+                  : undefined
+              }
               className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                activeIndex === idx ? 'bg-[#f47721]' : 'bg-slate-300 dark:bg-[#333]'
+                activeIndex === idx ? '' : 'bg-slate-300 dark:bg-[#333]'
               }`} 
               aria-label={`Go to slide ${idx + 1}`}
             />

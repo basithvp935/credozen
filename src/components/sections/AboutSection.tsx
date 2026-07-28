@@ -81,9 +81,29 @@ export default function AboutSection() {
             {/* Main Heading */}
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-slate-900 dark:text-white mb-10 tracking-tight">
               <span className="font-bold">Comprehensive </span>
-              <span className="font-light text-[#f47721]">IT </span>
+              <span
+                style={{
+                  background:
+                    "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+                className="font-light"
+              >
+                IT{" "}
+              </span>
               <span className="font-bold">Solution</span><br className="hidden md:block" />
-              <span className="font-light text-[#f47721]">Growth </span>
+              <span
+                style={{
+                  background:
+                    "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+                className="font-light"
+              >
+                Growth{" "}
+              </span>
               <span className="font-bold">& Efficiency</span>
             </h2>
 
@@ -106,7 +126,15 @@ export default function AboutSection() {
                 { to: 12, suffix: "+", label: "Years" }
               ].map(s => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="text-4xl sm:text-[2.75rem] lg:text-[3rem] font-light tracking-tight text-[#f47721] leading-none">
+                  <span
+                    style={{
+                      background:
+                        "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                    className="text-4xl sm:text-[2.75rem] lg:text-[3rem] font-light tracking-tight leading-none"
+                  >
                     <AnimatedCounter to={s.to} suffix={s.suffix} />
                   </span>
                   <span className="text-xs sm:text-[13.5px] uppercase tracking-[0.19em] font-medium text-slate-500 dark:text-white/60 mt-2 sm:mt-2.5">{s.label}</span>

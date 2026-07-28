@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 const works = [
   {
     id: 1,
-    title: <>Frontend Engineering <br className="hidden lg:block" /><span className="text-[#f47721]">& UI</span></>,
+    title: <>Frontend Engineering <br className="hidden lg:block" /><span style={{ background: "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>& UI</span></>,
     description: "Crafting pixel-perfect, highly responsive interfaces that deliver exceptional digital experiences across all devices.",
     image: "/images/download (16).jpg",
   },
@@ -44,19 +44,19 @@ const works = [
 const featuredSlides = [
   {
     id: 1,
-    title: <>Frontend Engineering <br className="hidden lg:block" /><span className="text-[#f47721]">& UI</span></>,
+    title: <>Frontend Engineering <br className="hidden lg:block" /><span style={{ background: "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>& UI</span></>,
     description: "Crafting pixel-perfect, highly responsive interfaces that deliver exceptional digital experiences across all devices.",
     image: "/images/download (16).jpg",
   },
   {
     id: 2,
-    title: <>Full-Stack Solutions <br className="hidden lg:block" /><span className="text-[#f47721]">& Apps</span></>,
+    title: <>Full-Stack Solutions <br className="hidden lg:block" /><span style={{ background: "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>& Apps</span></>,
     description: "Architecting resilient, high-performance web applications engineered to scale effortlessly with your growing business.",
     image: "/images/ecommerce_solutions.png",
   },
   {
     id: 3,
-    title: <>Digital Commerce <br className="hidden lg:block" /><span className="text-[#f47721]">& SaaS</span></>,
+    title: <>Digital Commerce <br className="hidden lg:block" /><span style={{ background: "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>& SaaS</span></>,
     description: "Integrating intuitive workflows and modern eCommerce infrastructures that accelerate customer engagement and revenue.",
     image: "/images/UI Design - Maxim Nilov.jpg",
   },
@@ -259,7 +259,16 @@ export default function WorkShowcaseSection() {
               <span className="text-slate-900 dark:text-white">We develop & create</span>
               <br />
               <span className="text-slate-900 dark:text-white">digital </span>
-              <span className="text-[#f47721]">future</span>
+              <span
+                style={{
+                  background:
+                    "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                future
+              </span>
             </motion.h2>
           </div>
 
@@ -285,7 +294,15 @@ export default function WorkShowcaseSection() {
             >
               {stats.map((s, i) => (
                 <div key={i} className="text-left">
-                  <p className="text-4xl sm:text-[2.5rem] lg:text-[2.75rem] font-light tracking-tight text-[#f47721] mb-2 leading-none">
+                  <p
+                    style={{
+                      background:
+                        "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                    className="text-4xl sm:text-[2.5rem] lg:text-[2.75rem] font-light tracking-tight mb-2 leading-none"
+                  >
                     <CountUp to={s.value} suffix={s.suffix} />
                   </p>
                   <p className="text-slate-500 dark:text-white/60 text-xs sm:text-[13px] font-medium tracking-[0.18em] uppercase">{s.label}</p>
@@ -322,9 +339,10 @@ export default function WorkShowcaseSection() {
       >
         <Link
           href="/works"
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(244,119,33,0.5)]"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(245,134,25,0.5)] shadow-lg"
           style={{
-            background: "#f47721",
+            background:
+              "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
           }}
         >
           View All Projects

@@ -16,7 +16,16 @@ export default function ContactSection() {
         >
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex items-center gap-8 md:gap-12 text-[60px] md:text-[90px] lg:text-[140px] font-bold tracking-tight leading-none">
-              <span className="text-[#f47721]">Contact Us</span>
+              <span
+                style={{
+                  background:
+                    "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Contact Us
+              </span>
               <span className="text-slate-900 dark:text-white transition-colors duration-300">Get In Touch</span>
             </div>
           ))}
@@ -76,7 +85,11 @@ export default function ContactSection() {
               <div className="mt-2">
                 <button 
                   type="submit" 
-                  className="bg-[#f47721] hover:bg-[#e06616] text-white font-semibold py-3.5 px-8 rounded-full shadow-lg transition-all duration-300"
+                  style={{
+                    background:
+                      "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  }}
+                  className="text-white font-semibold py-3.5 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(245,134,25,0.4)]"
                 >
                   Send Message
                 </button>

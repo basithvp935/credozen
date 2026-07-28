@@ -94,7 +94,17 @@ export default function WhyChooseSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-[54px] font-medium mb-4 tracking-tight"
           >
-            Magic Behind Our <span className="text-[#f47721]">IT Solutions</span>
+            Magic Behind Our{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              IT Solutions
+            </span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

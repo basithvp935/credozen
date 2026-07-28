@@ -34,13 +34,13 @@ export default function GlobalClientsSection() {
       }}></div>
 
       <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-cyan-500 rounded-full blur-[2px] animate-pulse"></div>
-      <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-purple-500 rounded-full blur-[2px] animate-pulse" style={{ animationDelay: '1s'}}></div>
-      <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-blue-500 rounded-full blur-[2px] animate-pulse" style={{ animationDelay: '2s'}}></div>
+      <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-purple-500 rounded-full blur-[2px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-blue-500 rounded-full blur-[2px] animate-pulse" style={{ animationDelay: '2s' }}></div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -48,7 +48,7 @@ export default function GlobalClientsSection() {
           >
             <MapPin className="w-4 h-4" /> Global Reach
           </motion.h2>
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

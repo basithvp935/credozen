@@ -59,7 +59,17 @@ export default function ServicesTabSection() {
     const lastWord = words.pop();
     return (
       <>
-        {words.join(" ")} <span className="text-[#f47721]">{lastWord}</span>
+        {words.join(" ")}{" "}
+        <span
+          style={{
+            background:
+              "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          {lastWord}
+        </span>
       </>
     );
   };
@@ -77,9 +87,17 @@ export default function ServicesTabSection() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
+                  style={
+                    isActive
+                      ? {
+                          background:
+                            "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                        }
+                      : undefined
+                  }
                   className={`whitespace-nowrap px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${
                     isActive 
-                      ? "bg-[#f47721] border-[#f47721] text-white shadow-md" 
+                      ? "border-transparent text-white shadow-md scale-105" 
                       : "border-slate-200 dark:border-[#333] text-slate-600 dark:text-gray-300 hover:border-slate-400 dark:hover:border-gray-500 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
