@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 export default function RootLayout({
   children,
@@ -27,13 +28,15 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} antialiased scroll-smooth`} suppressHydrationWarning>
       <body className="font-sans min-h-full flex flex-col dark:bg-[#090b10] dark:text-slate-200 bg-white text-slate-900 transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <Preloader />
-          <Navbar />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-          <ChatWidget />
+          <SmoothScrollProvider>
+            <Preloader />
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <ChatWidget />
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

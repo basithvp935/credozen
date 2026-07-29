@@ -2,7 +2,35 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Crown, Rocket } from "lucide-react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+
+const panels = [
+  {
+    id: "tns",
+    title: "TNS",
+    description:
+      "A comprehensive platform delivering seamless digital wallet, contactless payment and financial technology management.",
+    src: "/images/products/tns.jpg",
+    tags: ["Mobile App", "FinTech"],
+  },
+  {
+    id: "educapilot",
+    title: "EducaPilot",
+    description:
+      "An intelligent education platform empowering students and institutions with AI-driven learning tools and progress analytics.",
+    src: "/images/products/educa.jpg",
+    tags: ["EdTech", "AI"],
+  },
+  {
+    id: "e-commerce",
+    title: "E-Commerce",
+    description:
+      "A feature-rich marketplace solution with modern storefront design, inventory management, and secure payment integration.",
+    src: "/images/dummy_ecommerce.png",
+    tags: ["Marketplace", "Payments"],
+  },
+];
 
 export default function ElevatesSection() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -14,135 +42,102 @@ export default function ElevatesSection() {
     stiffness: 400,
     damping: 90,
     mass: 0.1,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
-  const x = useTransform(smoothProgress, [0, 1], ["0%", "-75%"]);
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-66.66666666666667%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[600vh] bg-slate-50 dark:bg-[#1c1c1f] transition-colors duration-300" id="tech-solution">
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex w-[400vw] h-full">
-          
-          {/* PANEL 1: ELEVATES */}
-          <div className="w-[100vw] h-full flex items-center justify-center relative bg-slate-100 dark:bg-[#28282d] text-slate-900 dark:text-white overflow-hidden shrink-0 transition-colors duration-300">
-            <div className="absolute right-10 top-10 font-mono text-sm tracking-widest text-slate-500 dark:text-white/50 bg-black/5 dark:bg-white/10 px-4 py-2">INDEX &rarr;</div>
-            
-            {/* Crown Icon */}
-            <div className="absolute top-24 right-32 w-32 h-32 text-[#ea612a]">
-              <Crown className="w-full h-full" strokeWidth={1.5} />
-            </div>
+    <section
+      ref={targetRef}
+      className="relative h-[450vh] bg-[#f7f5f0] transition-colors duration-300 rounded-4xl pb-12"
+      id="our-products"
+    >
+      <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+        {/* Section Header */}
+        <div className="flex items-center justify-between px-6 md:px-12 lg:px-16 pt-8 pb-6 relative z-20">
+          <div>
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15] text-slate-900 mb-4 tracking-tight">
+              <span className="font-bold">Our </span>
+              <span
+                style={{
+                  background:
+                    "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
 
+              >
+                Products
+              </span>
+            </h2>
 
-
-            <h1 className="text-[16vw] font-black leading-none tracking-tighter text-slate-800 dark:text-[#f4f9f4]">
-              ELEVATES
-            </h1>
-            
-            <div className="absolute bottom-20 left-10 md:left-20 font-mono text-sm tracking-widest space-y-2 opacity-90">
-              <p>// MULTI-DISCIPLINARY.</p>
-              <p>// STUDENT-DRIVEN.</p>
-              <p>// CHAOS & CODE.</p>
-            </div>
-            
-            {/* Slanted Transition line */}
-            <div className="absolute right-[-2vw] top-[-10vh] bottom-[-10vh] w-[4vw] bg-[#ea612a]/50 origin-top rotate-[5deg] z-10" style={{ clipPath: 'polygon(50% 0, 55% 0, 5% 100%, 0% 100%)' }}></div>
-            
-            {/* Subpixel gap fixer */}
-            <div className="absolute right-[-2px] top-0 bottom-0 w-[4px] bg-slate-100 dark:bg-[#28282d] z-0"></div>
           </div>
-
-          {/* PANEL 2: EXPLORE. EXPERIMENT. EXCEL. */}
-          <div className="w-[100vw] h-full flex items-center justify-center relative bg-white dark:bg-[#f4f9f4] text-slate-800 dark:text-[#28282d] overflow-hidden shrink-0 transition-colors duration-300">
-            {/* Left dark slanted slice */}
-            <div className="absolute left-[-5vw] top-[-10vh] bottom-[-10vh] w-[15vw] bg-slate-100 dark:bg-[#28282d] origin-top rotate-[5deg] transition-colors duration-300"></div>
-
-            {/* Rocket Icon */}
-            <div className="absolute bottom-32 left-32 w-24 h-24 text-[#464655]">
-              <Rocket className="w-full h-full" strokeWidth={1.5} />
-            </div>
-
-
-
-            <div className="flex flex-col items-center justify-center text-center -ml-10">
-              <h2 className="text-[9vw] font-black leading-[0.85] tracking-tight text-[#738375] uppercase italic origin-left -skew-x-[10deg]">
-                EXPLORE.
-              </h2>
-              <h2 className="text-[9vw] font-black leading-[0.85] tracking-tight text-[#ea612a] uppercase italic origin-left -skew-x-[10deg] -ml-8">
-                EXPERIMENT.
-              </h2>
-              <h2 className="text-[9vw] font-black leading-[0.85] tracking-tight text-[#2b2b35] uppercase italic origin-left -skew-x-[10deg] ml-16">
-                EXCEL.
-              </h2>
-            </div>
-            
-            {/* Subpixel gap fixer */}
-            <div className="absolute right-[-2px] top-0 bottom-0 w-[4px] bg-white dark:bg-[#f4f9f4] z-0"></div>
+          <div className="flex items-center gap-3">
+            <span className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-[#1a1a2e]/70 mr-2">
+              See all / {panels.length}{" "}
+              <ExternalLink size={14} className="inline" />
+            </span>
+            <button className="w-10 h-10 rounded-full border border-[#1a1a2e]/15 bg-white flex items-center justify-center text-[#1a1a2e]/60 hover:bg-[#1a1a2e] hover:text-white hover:border-transparent transition-all duration-300">
+              <ChevronLeft size={18} />
+            </button>
+            <button className="w-10 h-10 rounded-full border border-[#1a1a2e]/15 bg-white flex items-center justify-center text-[#1a1a2e]/60 hover:bg-[#1a1a2e] hover:text-white hover:border-transparent transition-all duration-300">
+              <ChevronRight size={18} />
+            </button>
           </div>
+        </div>
 
-          {/* PANEL 3: HANDS-ON CHAOS */}
-          <div className="w-[100vw] h-full flex items-center justify-center relative bg-slate-50 dark:bg-[#0a192f] overflow-hidden shrink-0 transition-colors duration-300">
-            {/* Left light slanted slice */}
-            <div className="absolute left-[-5vw] top-[-10vh] bottom-[-10vh] w-[12vw] bg-white dark:bg-[#f4f9f4] origin-top rotate-[5deg] z-10 transition-colors duration-300"></div>
+        {/* Scrolling Panels */}
+        <div className="flex-1 overflow-hidden px-6 md:px-12 lg:px-16 pb-8">
+          <motion.div style={{ x }} className="flex w-[300vw] h-full gap-6">
+            {panels.map((panel, index) => (
+              <div
+                key={panel.id}
+                className="w-[calc(100vw-3rem)] md:w-[calc(100vw-6rem)] lg:w-[calc(100vw-8rem)] h-full relative shrink-0 rounded-3xl overflow-hidden group"
+              >
+                {/* Full-bleed Product Image */}
+                <Image
+                  src={panel.src}
+                  alt={panel.title}
+                  fill
+                  priority={index === 0}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  sizes="100vw"
+                />
 
-            {/* Grid background */}
-            <div className="absolute inset-0 opacity-20 mix-blend-overlay" 
-              style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
-            </div>
-            
-            <div className="flex flex-col items-end w-full pr-20 lg:pr-32 z-10">
-              <h2 className="text-[11vw] font-black leading-[0.85] tracking-tighter text-slate-800 dark:text-[#f4f9f4] uppercase">
-                HANDS-ON
-              </h2>
-              <div className="relative">
-                <h2 className="text-[13vw] font-black leading-[0.85] tracking-tighter text-[#ea612a] uppercase relative z-10">
-                  CHAOS
-                </h2>
-                {/* Sine wave decoration */}
-                <svg className="absolute -bottom-16 -right-16 w-[150%] h-48 text-[#ea612a] opacity-50 z-0 pointer-events-none" viewBox="0 0 200 50" preserveAspectRatio="none">
-                  <path d="M0,25 C20,0 30,50 50,25 C70,0 80,50 100,25 C120,0 130,50 150,25 C170,0 180,50 200,25" fill="none" stroke="currentColor" strokeWidth="1" />
-                  <path d="M0,35 C20,10 30,60 50,35 C70,10 80,60 100,35 C120,10 130,60 150,35 C170,10 180,60 200,35" fill="none" stroke="currentColor" strokeWidth="1" />
-                </svg>
+                {/* Subtle gradient overlay at bottom for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
+                {/* Light Glassmorphic Info Card — bottom right */}
+                <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 max-w-[340px] bg-white/70 backdrop-blur-2xl border border-white/60 rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
+                  {/* Tags */}
+                  <div className="flex gap-2 mb-3">
+                    {panel.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-[#1a1a2e]/8 text-[#1a1a2e]/70 border border-[#1a1a2e]/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-[#1a1a2e] mb-2 tracking-tight">
+                    {panel.title}
+                  </h3>
+                  <p className="text-[#1a1a2e]/70 text-sm leading-relaxed">
+                    {panel.description}
+                  </p>
+                </div>
+
+                {/* Panel index indicator — top left */}
+                <div className="absolute top-6 left-6 md:top-10 md:left-10 bg-white/15 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 text-white text-xs font-mono tracking-widest">
+                  {String(index + 1).padStart(2, "0")} / {String(panels.length).padStart(2, "0")}
+                </div>
               </div>
-              
-              <div className="mt-16 text-right z-10 relative">
-                <p className="font-mono text-slate-700 dark:text-[#f4f9f4] text-xl mb-1">
-                  Bridging the gap between theory and reality.
-                </p>
-                <p className="font-mono text-slate-800 dark:text-[#f4f9f4] text-xl font-bold">
-                  Our Goal: Getting Jobs <span className="font-normal text-slate-500 dark:text-white/80">or</span> Creating Entrepreneurs.
-                </p>
-              </div>
-            </div>
-            
-            {/* Subpixel gap fixer */}
-            <div className="absolute right-[-2px] top-0 bottom-0 w-[4px] bg-slate-50 dark:bg-[#0a192f] z-0"></div>
-          </div>
-
-          {/* PANEL 4: OPEN SOURCE & COLLABORATION */}
-          <div className="w-[100vw] h-full flex items-center justify-center relative bg-slate-100 dark:bg-[#1c1c1f] text-slate-900 dark:text-white shrink-0 overflow-hidden transition-colors duration-300">
-
-            
-
-
-            <div className="flex flex-col items-center z-10 w-full max-w-5xl">
-              <h2 className="text-[14vw] font-black leading-[0.8] tracking-tighter text-slate-800 dark:text-[#f4f9f4] uppercase text-center w-full">
-                OPEN
-              </h2>
-              <h2 className="text-[14vw] font-black leading-[0.8] tracking-tighter text-slate-800 dark:text-[#f4f9f4] uppercase text-center w-full">
-                SOURCE
-              </h2>
-              <h3 className="text-[4.5vw] font-bold leading-none tracking-tight text-[#ea612a] uppercase mt-6 text-center">
-                & COLLABORATION
-              </h3>
-              <p className="text-[#ea612a] text-2xl mt-4 tracking-wider -rotate-2 ml-32" style={{ fontFamily: "cursive" }}>
-                Cross-Department. Introvert Friendly.
-              </p>
-            </div>
-          </div>
-
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -56,7 +56,7 @@ export default function FooterBadges() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[100px] bg-gradient-to-r from-[#f58619]/10 via-[#c33594]/10 to-[#7b51a1]/10 blur-3xl pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 ">
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 items-center border-t border-white/10 pt-8 pb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 items-center border-t border-white/10 pt-8 pb-12">
                     {badges.map((b, idx) => {
                         const Icon = b.icon;
                         return (

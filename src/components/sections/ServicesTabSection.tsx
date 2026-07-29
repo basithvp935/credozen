@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   Compass,
   Code2,
@@ -67,7 +67,7 @@ const servicesData = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -76,33 +76,36 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 18,
+      duration: 0.5,
+      ease: "easeOut",
     },
   },
 };
 
 export default function ServicesTabSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white dark:bg-[#0b0615] transition-colors duration-300 relative overflow-hidden">
-      {/* Ambient Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(195,53,148,0.08),_rgba(123,81,161,0.05),_transparent_70%)] blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(245,134,25,0.06),_transparent_70%)] blur-[100px] pointer-events-none" />
+    <section className="py-20 lg:py-28 bg-[#130b1c] text-white relative overflow-hidden transition-colors duration-300">
+      {/* Hero-matched Background Gradients & Mesh Accent Orbs */}
+      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(circle_at_center,_rgba(145,33,108,0.18),_rgba(195,84,15,0.12),_transparent_70%)] blur-[140px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-[#5b3181]/20 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[5%] right-[-5%] w-[700px] h-[700px] bg-[#932574]/15 blur-[160px] rounded-full pointer-events-none" />
+
+      {/* Hero-matched Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-14 lg:mb-16">
+        <div className="text-center mb-14 lg:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             style={{
               background:
                 "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
@@ -116,11 +119,11 @@ export default function ServicesTabSection() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15] text-slate-900 dark:text-white mb-4 tracking-tight"
+            className="text-3xl md:text-5xl lg:text-[3rem] leading-[1.15] text-white mb-5 tracking-tight font-extrabold"
           >
-            <span className="font-bold">What We </span>
+            What We{" "}
             <span
               style={{
                 background:
@@ -128,7 +131,7 @@ export default function ServicesTabSection() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
-              className="font-light"
+              className="font-light drop-shadow-[0_0_20px_rgba(245,134,25,0.3)]"
             >
               Offer
             </span>
@@ -136,9 +139,9 @@ export default function ServicesTabSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ delay: 0.2 }}
-            className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-[17px] leading-relaxed transition-colors duration-300"
+            className="text-gray-300 max-w-2xl mx-auto text-[17px] leading-relaxed font-normal"
           >
             End-to-end digital solutions designed to transform your ideas into
             powerful, scalable products.
@@ -150,52 +153,49 @@ export default function ServicesTabSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7"
+          viewport={{ once: false, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {servicesData.map((service) => (
             <motion.div
               key={service.id}
               variants={cardVariants}
-              className="group relative rounded-2xl bg-slate-50 dark:bg-[#110a1f] border border-purple-200/60 dark:border-purple-800/50 p-[1px] transition-all duration-500 hover:border-transparent hover:shadow-[0_0_40px_rgba(195,53,148,0.15)]"
+              className="group relative rounded-3xl bg-[#1b1028]/60 backdrop-blur-xl border border-purple-900/40 p-7 lg:p-8 flex flex-col transition-all duration-500 hover:bg-[#231534]/70 hover:border-purple-500/50 hover:shadow-[0_10px_35px_rgba(195,53,148,0.25)] hover:-translate-y-1.5"
             >
-              {/* Gradient border on hover */}
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#f58619] via-[#c33594] to-[#7b51a1] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              <div className="absolute -inset-[0px] rounded-2xl bg-slate-50 dark:bg-[#110a1f] -z-[5]" />
+              {/* Top Accent Highlight */}
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#f58619]/40 to-transparent rounded-t-3xl" />
 
-              <div className="relative rounded-2xl bg-slate-50 dark:bg-[#110a1f] p-6 lg:p-7 h-full flex flex-col transition-colors duration-300">
-                {/* Icon */}
-                <div
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:shadow-[0_8px_30px_rgba(195,53,148,0.3)] transition-all duration-500`}
-                >
-                  <service.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-[#c33594] dark:group-hover:text-[#f58619] transition-colors duration-300">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-600 dark:text-slate-400 text-[15px] leading-relaxed mb-5 flex-1 transition-colors duration-300">
-                  {service.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {service.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 dark:border-purple-900/60 text-slate-600 dark:text-slate-400 bg-white dark:bg-[#160d24] group-hover:border-[#c33594]/40 group-hover:text-[#c33594] dark:group-hover:text-[#f58619] dark:group-hover:border-[#f58619]/30 transition-all duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Bottom gradient line accent */}
-                <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#c33594]/0 to-transparent group-hover:via-[#c33594]/60 transition-all duration-500 rounded-full" />
+              {/* Icon Container */}
+              <div
+                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-[0_10px_30px_rgba(195,53,148,0.4)] transition-all duration-500`}
+              >
+                <service.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
               </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-[#f58619] transition-colors duration-300">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-300 text-[15px] leading-relaxed mb-6 flex-1">
+                {service.description}
+              </p>
+
+              {/* Tag Badges */}
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {service.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 rounded-full text-xs font-medium border border-white/10 bg-white/5 text-gray-300 group-hover:border-[#f58619]/40 group-hover:text-white group-hover:bg-white/10 transition-all duration-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom Glowing Accent Line on Hover */}
+              <div className="absolute bottom-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-[#f58619]/0 to-transparent group-hover:via-[#f58619]/70 transition-all duration-500 rounded-full" />
             </motion.div>
           ))}
         </motion.div>

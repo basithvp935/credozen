@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Floating Glass Navbar */}
-      <nav className="fixed top-5 left-0 right-0 z-[100] hidden mx-auto xl:flex justify-between max-w-7xl items-center gap-4 px-4 w-full">
+      <nav className="absolute top-5 left-0 right-0 z-[100] hidden mx-auto xl:flex justify-between max-w-7xl items-center gap-4 px-4 w-full">
         {/* Left Pill - Logo */}
         <div className="flex items-center rounded-full transition-all duration-300">
           <Link href="/" className="flex items-center gap-2">

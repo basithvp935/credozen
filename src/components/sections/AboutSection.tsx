@@ -102,7 +102,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-12 md:py-16 overflow-hidden text-slate-900 transition-colors duration-300 relative bg-[#F4EBE1] backdrop-blur-xl"
+      className="py-20 lg:py-28 rounded-4xl overflow-hidden text-slate-900 transition-colors duration-300 relative bg-[#F4EBE1] backdrop-blur-xl"
     >
       {/* Soft Glassy Ambient Glow Orbs */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#f58619]/10 blur-[130px] rounded-full pointer-events-none" />
@@ -115,7 +115,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.7 }}
             className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
@@ -154,7 +154,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.7 }}
             className="lg:col-span-6 flex flex-col items-start"
           >
@@ -225,9 +225,8 @@ export default function AboutSection() {
               return (
                 <div
                   key={s.label}
-                  className={`flex flex-col items-center text-center ${
-                    idx !== 0 ? "md:pl-6" : ""
-                  }`}
+                  className={`flex flex-col items-center text-center ${idx !== 0 ? "md:pl-6" : ""
+                    }`}
                 >
                   <div className="p-3 rounded-2xl bg-slate-900/5 mb-3">
                     <StatIcon size={24} style={{ color: s.color }} />

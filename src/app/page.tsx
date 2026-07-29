@@ -18,9 +18,11 @@ export default function Home() {
       {/* <TechSolutionSection /> */}
       <ElevatesSection />
       {/* <WorkShowcaseSection /> */}
-      <ClientsLogoSection />
-      <TestimonialSection />
       <WhyChooseSection />
+      <ClientsLogoSection />
+
+      <TestimonialSection />
+
       <ContactSection />
     </>
   );
