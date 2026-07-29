@@ -53,7 +53,7 @@ export default function MotionShield() {
           className="w-full h-full object-contain pointer-events-none mix-blend-screen bg-transparent"
           style={{ mixBlendMode: "screen" }}
         >
-          <source src="/BrandAnimation.mp4" type='video/mp4; codecs="hvc1"' />
+          <source src="/BrandAnimation.mov" type='video/mp4; codecs="hvc1"' />
           <source src="/BrandAnimation.webm" type="video/webm" />
           <source src="/BrandAnimation.mp4" type="video/mp4" />
         </video>
