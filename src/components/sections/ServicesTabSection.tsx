@@ -90,7 +90,7 @@ const cardVariants: Variants = {
 
 export default function ServicesTabSection() {
   return (
-    <section className="py-20 lg:py-28 bg-[#130b1c] text-white relative overflow-hidden transition-colors duration-300">
+    <section className="py-16 sm:py-20 lg:py-28 bg-[#130b1c] text-white relative overflow-hidden transition-colors duration-300">
       {/* Hero-matched Background Gradients & Mesh Accent Orbs */}
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(circle_at_center,_rgba(145,33,108,0.18),_rgba(195,84,15,0.12),_transparent_70%)] blur-[140px] pointer-events-none" />
       <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-[#5b3181]/20 blur-[150px] rounded-full pointer-events-none" />
@@ -99,9 +99,9 @@ export default function ServicesTabSection() {
       {/* Hero-matched Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-14 lg:mb-20">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ export default function ServicesTabSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-[3rem] leading-[1.15] text-white mb-5 tracking-tight font-extrabold"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-[3rem] leading-[1.15] text-white mb-4 sm:mb-5 tracking-tight font-extrabold"
           >
             What We{" "}
             <span
@@ -141,7 +141,7 @@ export default function ServicesTabSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-300 max-w-2xl mx-auto text-[17px] leading-relaxed font-normal"
+            className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-[17px] leading-relaxed font-normal"
           >
             End-to-end digital solutions designed to transform your ideas into
             powerful, scalable products.
@@ -154,40 +154,40 @@ export default function ServicesTabSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
         >
           {servicesData.map((service) => (
             <motion.div
               key={service.id}
               variants={cardVariants}
-              className="group relative rounded-3xl bg-[#1b1028]/60 backdrop-blur-xl border border-purple-900/40 p-7 lg:p-8 flex flex-col transition-all duration-500 hover:bg-[#231534]/70 hover:border-purple-500/50 hover:shadow-[0_10px_35px_rgba(195,53,148,0.25)] hover:-translate-y-1.5"
+              className="group relative rounded-3xl bg-[#1b1028]/60 backdrop-blur-xl border border-purple-900/40 p-6 sm:p-7 lg:p-8 flex flex-col transition-all duration-500 hover:bg-[#231534]/70 hover:border-purple-500/50 hover:shadow-[0_10px_35px_rgba(195,53,148,0.25)] hover:-translate-y-1.5"
             >
               {/* Top Accent Highlight */}
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#f58619]/40 to-transparent rounded-t-3xl" />
 
               {/* Icon Container */}
               <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-[0_10px_30px_rgba(195,53,148,0.4)] transition-all duration-500`}
+                className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 sm:mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-[0_10px_30px_rgba(195,53,148,0.4)] transition-all duration-500`}
               >
-                <service.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" strokeWidth={1.5} />
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-[#f58619] transition-colors duration-300">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 sm:mb-3 tracking-tight group-hover:text-[#f58619] transition-colors duration-300">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-300 text-[15px] leading-relaxed mb-6 flex-1">
+              <p className="text-gray-300 text-xs sm:text-[15px] leading-relaxed mb-5 sm:mb-6 flex-1">
                 {service.description}
               </p>
 
               {/* Tag Badges */}
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
                 {service.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 rounded-full text-xs font-medium border border-white/10 bg-white/5 text-gray-300 group-hover:border-[#f58619]/40 group-hover:text-white group-hover:bg-white/10 transition-all duration-300"
+                    className="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium border border-white/10 bg-white/5 text-gray-300 group-hover:border-[#f58619]/40 group-hover:text-white group-hover:bg-white/10 transition-all duration-300"
                   >
                     {tag}
                   </span>

@@ -43,10 +43,10 @@ const REVIEWS = [
 
 function TestimonialCard({ review }: { review: typeof REVIEWS[number] }) {
   return (
-    <div className="w-[360px] md:w-[400px] flex-shrink-0 px-3">
-      <div className="bg-slate-50 dark:bg-[#14171c] rounded-2xl p-8 lg:p-10 flex flex-col items-center text-center shadow-xl border border-slate-200 dark:border-white/5 transition-transform duration-300 hover:-translate-y-2 h-full">
+    <div className="w-[290px] sm:w-[360px] md:w-[400px] flex-shrink-0 px-2 sm:px-3">
+      <div className="bg-slate-50 dark:bg-[#14171c] rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col items-center text-center shadow-xl border border-slate-200 dark:border-white/5 transition-transform duration-300 hover:-translate-y-2 h-full">
         {/* Avatar */}
-        <div className="w-[84px] h-[84px] rounded-full overflow-hidden border-[3px] border-[#e2e2e2] mb-6 relative shadow-lg flex-shrink-0">
+        <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] rounded-full overflow-hidden border-[3px] border-[#e2e2e2] mb-5 sm:mb-6 relative shadow-lg flex-shrink-0">
           <Image
             src={review.avatar}
             alt={review.author}
@@ -56,13 +56,13 @@ function TestimonialCard({ review }: { review: typeof REVIEWS[number] }) {
         </div>
 
         {/* Quote */}
-        <p className="text-slate-700 dark:text-[#9a9ea6] text-sm leading-[1.7] font-light mb-8 flex-grow">
+        <p className="text-slate-700 dark:text-[#9a9ea6] text-xs sm:text-sm leading-[1.7] font-light mb-6 sm:mb-8 flex-grow">
           {review.quote}
         </p>
 
         {/* Author & Role */}
         <div className="flex flex-col mt-auto">
-          <span className="text-slate-900 dark:text-white font-bold italic text-base mb-1">
+          <span className="text-slate-900 dark:text-white font-bold italic text-sm sm:text-base mb-1">
             {review.author}
           </span>
           <span
@@ -72,7 +72,7 @@ function TestimonialCard({ review }: { review: typeof REVIEWS[number] }) {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            className="italic text-[13px] font-bold"
+            className="italic text-xs sm:text-[13px] font-bold"
           >
             {review.company}
           </span>
@@ -89,7 +89,7 @@ export default function TestimonialSection() {
   const duplicatedReviews = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="py-24 bg-white dark:bg-[#0c0f12] relative overflow-hidden transition-colors duration-300" id="testimonials">
+    <section className="py-16 sm:py-24 bg-white dark:bg-[#0c0f12] relative overflow-hidden transition-colors duration-300" id="testimonials">
 
       {/* Background Graphic (Orange Curve) */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-40">
@@ -119,10 +119,10 @@ export default function TestimonialSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
           <span
             style={{
               background:
@@ -130,11 +130,11 @@ export default function TestimonialSection() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            className="text-xs md:text-sm font-bold tracking-widest uppercase mb-4"
+            className="text-xs md:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4"
           >
             TESTIMONIAL
           </span>
-          <h2 className="text-slate-900 dark:text-white text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight">
+          <h2 className="text-slate-900 dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight">
             Client Feedback &{" "}
             <span
               style={{
@@ -158,9 +158,9 @@ export default function TestimonialSection() {
           onTouchEnd={() => setIsPaused(false)}
         >
           {/* Left fade mask */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-[#0c0f12] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-32 bg-gradient-to-r from-white dark:from-[#0c0f12] to-transparent z-10 pointer-events-none" />
           {/* Right fade mask */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-[#0c0f12] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-32 bg-gradient-to-l from-white dark:from-[#0c0f12] to-transparent z-10 pointer-events-none" />
 
           <div
             className="flex w-max"

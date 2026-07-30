@@ -19,9 +19,9 @@ export default function CyberCrestHero() {
       <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none" />
 
       {/* Hero Section Container */}
-      <section className="relative z-10 max-w-7xl mx-auto pt-16  min-h-[calc(100vh-60px)] flex flex-col justify-center">
+      <section className="relative z-10 max-w-7xl mx-auto pt-24 sm:pt-28 md:pt-32 lg:pt-20 min-h-[calc(100vh-60px)] flex flex-col justify-center px-4 sm:px-6 lg:px-8">
         {/* Glassmorphic Main Card Frame */}
-        <div className="relative p-8  rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center overflow-hidden">
+        <div className="relative p-5 sm:p-7 lg:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center overflow-hidden">
 
           {/* Subtle Top & Bottom Glowing Border Lines */}
           <div className="absolute -top-px left-12 w-48 h-px bg-gradient-to-r from-transparent via-[#f58619] to-transparent opacity-80" />
@@ -34,7 +34,7 @@ export default function CyberCrestHero() {
               Expert-Led Cybersecurity Compliance
             </div> */}
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
               Elevate Your <br />
               <span
                 style={{
@@ -57,39 +57,39 @@ export default function CyberCrestHero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
               <Link
                 href="/contact"
                 style={{
                   background:
                     "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
                 }}
-                className="relative group px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,134,25,0.5)] hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
+                className="relative group px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold text-white text-center transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,134,25,0.5)] hover:scale-[1.02] active:scale-95 cursor-pointer shadow-lg"
               >
                 Talk to an Expert
               </Link>
 
-              <Link href="/services" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:border-white/30 hover:scale-105 active:scale-95 text-gray-300 hover:text-white">
+              <Link href="/services" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:border-white/30 hover:scale-[1.02] active:scale-95 text-gray-300 hover:text-white">
                 <span>Explore Services</span>
                 <ArrowRight size={14} className="text-[#00e5ff]" />
               </Link>
             </div>
 
             {/* Quick Metrics / Authority Indicators */}
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-8 text-xs text-gray-400 font-medium">
+            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-4 sm:gap-8 text-xs text-gray-400 font-medium">
               <div className="flex items-center gap-2">
-                <ShieldCheck size={16} className="text-[#00ffa3]" />
+                <ShieldCheck size={16} className="text-[#00ffa3] shrink-0" />
                 <span>100% Audit Readiness</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award size={16} className="text-[#00e5ff]" />
+                <Award size={16} className="text-[#00e5ff] shrink-0" />
                 <span>Certified Assessors</span>
               </div>
             </div>
           </div>
 
           {/* Right Hero Visual (Auto-playing 3D Brand Icon with Outer Orbit Ring) */}
-          <div className="lg:col-span-6 flex justify-center items-center relative">
+          <div className="lg:col-span-6 flex justify-center items-center relative py-4 sm:py-6 lg:py-0">
             <MotionShield />
           </div>
 

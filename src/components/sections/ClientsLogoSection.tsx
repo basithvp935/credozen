@@ -114,7 +114,7 @@ const allLogos = [
 export default function ClientsLogoSection() {
   return (
     <section
-      className="py-16 lg:py-24 overflow-hidden bg-[#F4EBE1] relative transition-colors duration-300"
+      className="py-12 sm:py-16 lg:py-24 overflow-hidden bg-[#F4EBE1] relative transition-colors duration-300"
       id="clients"
     >
       {/* Pure CSS Animation Styles */}
@@ -135,7 +135,7 @@ export default function ClientsLogoSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[radial-gradient(circle_at_center,_rgba(195,53,148,0.06),_rgba(123,81,161,0.04),_transparent_70%)] blur-[100px] pointer-events-none" />
 
       {/* Section Header */}
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl mb-14 lg:mb-16 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl mb-10 sm:mb-14 lg:mb-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function ClientsLogoSection() {
             OUR TRUSTED PARTNERS
           </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15] text-slate-900 mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15] text-slate-900 mb-3 sm:mb-4 tracking-tight">
             <span className="font-bold">Global Partners Who </span>
             <span
               style={{
@@ -168,7 +168,7 @@ export default function ClientsLogoSection() {
             </span>
           </h2>
 
-          <p className="text-slate-700 max-w-2xl text-[17px] leading-relaxed">
+          <p className="text-slate-700 max-w-2xl text-sm sm:text-[17px] leading-relaxed">
             We partner with forward-thinking brands across the globe, delivering
             digital excellence and building lasting relationships.
           </p>
@@ -178,24 +178,24 @@ export default function ClientsLogoSection() {
       {/* Marquee Cards */}
       <div className="relative">
         {/* Fade masks */}
-        <div className="absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#F4EBE1] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#F4EBE1] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-8 sm:w-16 md:w-40 bg-gradient-to-r from-[#F4EBE1] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-8 sm:w-16 md:w-40 bg-gradient-to-l from-[#F4EBE1] to-transparent z-10 pointer-events-none" />
 
         <div className="flex w-max marquee-track">
           {/* Duplicate the set for seamless infinite scroll */}
           {[...allLogos, ...allLogos].map((logo, index) => (
-            <div key={index} className="mx-3 md:mx-4 flex-shrink-0">
-              <div className="group relative w-[200px] md:w-[240px] h-[170px] md:h-[195px] rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-xl hover:bg-white/90 hover:border-[#c33594]/30 transition-all duration-400 flex flex-col items-center justify-center cursor-pointer overflow-hidden">
+            <div key={index} className="mx-2 sm:mx-3 md:mx-4 flex-shrink-0">
+              <div className="group relative w-[160px] sm:w-[200px] md:w-[240px] h-[135px] sm:h-[170px] md:h-[195px] rounded-xl sm:rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-xl hover:bg-white/90 hover:border-[#c33594]/30 transition-all duration-400 flex flex-col items-center justify-center cursor-pointer overflow-hidden">
                 {/* Top badge */}
-                <div className="absolute top-3.5 left-4 flex items-center gap-1.5">
-                  <BadgeCheck className="w-4 h-4 text-[#c33594]" strokeWidth={2.5} />
-                  <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-[#c33594] transition-colors duration-300">
+                <div className="absolute top-2.5 sm:top-3.5 left-3 sm:left-4 flex items-center gap-1 sm:gap-1.5">
+                  <BadgeCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c33594]" strokeWidth={2.5} />
+                  <span className="text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-[#c33594] transition-colors duration-300">
                     {logo.name}
                   </span>
                 </div>
 
                 {/* Logo centered */}
-                <div className="flex items-center justify-center mt-3 group-hover:scale-110 transition-transform duration-400">
+                <div className="flex items-center justify-center mt-2 sm:mt-3 group-hover:scale-110 transition-transform duration-400">
                   <logo.icon />
                 </div>
 

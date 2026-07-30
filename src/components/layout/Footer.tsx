@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         {/* Links section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-12 sm:mb-16">
           {/* Column 1: Home */}
           <div className="flex flex-col space-y-5">
             <h4 className="text-xl font-medium mb-2 text-slate-900 dark:text-white">Home</h4>

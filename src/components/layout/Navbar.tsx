@@ -144,7 +144,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-[65px] left-0 right-0 z-[90] bg-[#0b121e]/98 backdrop-blur-2xl xl:hidden flex flex-col p-6 shadow-2xl border-b border-white/10 transition-colors duration-300"
+            className="fixed top-[65px] left-0 right-0 z-[90] bg-[#0b121e]/98 backdrop-blur-2xl xl:hidden flex flex-col p-5 sm:p-6 shadow-2xl border-b border-white/10 max-h-[calc(100vh-80px)] overflow-y-auto transition-colors duration-300"
           >
             {navLinks.map((link) => (
               <Link
@@ -163,7 +163,7 @@ export default function Navbar() {
                     : undefined
                 }
                 className={`
-                  flex items-center justify-between py-3 px-4 rounded-xl font-bold tracking-widest text-xs mb-2 transition-colors duration-300
+                  flex items-center justify-between py-3.5 px-4 rounded-xl font-bold tracking-widest text-xs mb-2 transition-colors duration-300
                   ${activeLink === link.name
                     ? "text-white font-extrabold shadow-[0_0_15px_rgba(245,134,25,0.4)]"
                     : "text-gray-300 hover:bg-white/10 hover:text-white"

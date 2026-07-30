@@ -55,14 +55,14 @@ export default function FooterBadges() {
             {/* Subtle Ambient Glow Effect */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[100px] bg-gradient-to-r from-[#f58619]/10 via-[#c33594]/10 to-[#7b51a1]/10 blur-3xl pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 ">
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 items-center border-t border-white/10 pt-8 pb-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6 items-center border-t border-white/10 pt-6 sm:pt-8 pb-10 sm:pb-12">
                     {badges.map((b, idx) => {
                         const Icon = b.icon;
                         return (
                             <div
                                 key={idx}
-                                className="group relative flex flex-col items-center justify-center p-4 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300 hover:scale-[1.03] shadow-lg cursor-pointer text-center min-h-[90px]"
+                                className="group relative flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300 hover:scale-[1.03] shadow-lg cursor-pointer text-center min-h-[85px] sm:min-h-[90px]"
                             >
                                 {/* Icon with glowing theme accent */}
                                 <div

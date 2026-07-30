@@ -7,7 +7,7 @@ export default function MotionShield() {
 
   return (
     <div
-      className="relative w-[380px] h-[380px] md:w-[600px] md:h-[600px] flex items-center justify-center"
+      className="relative w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] md:w-[480px] md:h-[480px] lg:w-[550px] lg:h-[550px] flex items-center justify-center"
       style={{ perspective: "1200px" }}
     >
       {/* Background Glow */}
