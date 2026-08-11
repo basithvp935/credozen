@@ -100,7 +100,7 @@ export default function CyberCrestHero() {
       <FooterBadges />
 
       {/* Cookie Banner */}
-      <BannerCookies />
+      {/* <BannerCookies /> */}
     </main>
   );
 }

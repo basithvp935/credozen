@@ -3,7 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ChatWidget from "@/components/ui/ChatWidget";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import Preloader from "@/components/ui/Preloader";
 
 const outfit = Outfit({
@@ -29,13 +29,13 @@ export default function RootLayout({
       <body className="font-sans min-h-full flex flex-col dark:bg-[#090b10] dark:text-slate-200 bg-white text-slate-900 transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <SmoothScrollProvider>
-            <Preloader />
+            {/* <Preloader /> */}
             <Navbar />
             <main className="flex-grow">
               {children}
             </main>
             <Footer />
-            <ChatWidget />
+            <WhatsAppButton />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { projectsData, ProjectCategory, ProjectData } from "@/data/projectsData";
 
 function ProjectCard({ project }: { project: ProjectData }) {
@@ -10,7 +11,7 @@ function ProjectCard({ project }: { project: ProjectData }) {
     <Link href={`/works/${project.slug}`} className="block w-full">
       {/* Shorter Height (h-[300px] sm:h-[320px]) & Wider Proportions */}
       <div className="relative rounded-[2.2rem] sm:rounded-[2.4rem] overflow-hidden border border-white/15 group h-[300px] sm:h-[320px] shadow-[0_15px_45px_rgba(0,0,0,0.6)] hover:shadow-[0_25px_70px_rgba(244,119,33,0.3)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f47721]/55 bg-[#0c0d12] cursor-pointer font-sans">
-        
+
         {/* Background Image & Ambient Theme Gradient */}
         <div className={`absolute inset-0 ${project.gradientClass} opacity-90`} />
         <img
@@ -22,13 +23,13 @@ function ProjectCard({ project }: { project: ProjectData }) {
 
         {/* Card Content Wrapper */}
         <div className="relative w-full h-full flex items-center justify-between px-4 sm:px-7">
-          
+
           {/* Left Side: Proportional Ultra-Realistic Titanium Phone Mockup */}
           <div className="relative z-20 w-[130px] sm:w-[150px] h-[250px] sm:h-[280px] shrink-0 transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-1.5 drop-shadow-[0_20px_45px_rgba(0,0,0,0.9)] flex flex-col justify-center my-auto">
-            
+
             {/* Outer Metallic Titanium Frame */}
             <div className="w-full h-full rounded-[2rem] sm:rounded-[2.3rem] p-[3px] sm:p-[3.5px] bg-gradient-to-b from-[#71717a] via-[#3f3f46] to-[#18181b] shadow-2xl relative overflow-hidden flex flex-col border border-white/25">
-              
+
               {/* Physical Side Buttons */}
               <div className="absolute top-[22%] -left-[2px] w-[2px] h-3.5 bg-[#71717a] rounded-l-sm" />
               <div className="absolute top-[33%] -left-[2px] w-[2px] h-6 bg-[#71717a] rounded-l-sm" />
@@ -37,7 +38,7 @@ function ProjectCard({ project }: { project: ProjectData }) {
 
               {/* Inner Dark Glass Bezel */}
               <div className="w-full h-full rounded-[1.85rem] sm:rounded-[2.1rem] bg-black p-[4.5px] sm:p-[5px] relative flex flex-col overflow-hidden">
-                
+
                 {/* Dynamic Island Notch */}
                 <div className="absolute top-[8px] sm:top-[10px] left-1/2 -translate-x-1/2 w-13 sm:w-15 h-3.5 bg-black rounded-full z-30 flex items-center justify-between px-1.5 border border-white/15 shadow-md">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#0c141d] border border-white/20 flex items-center justify-center">
@@ -56,7 +57,7 @@ function ProjectCard({ project }: { project: ProjectData }) {
                     alt={`${project.title} app interface`}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 object-top"
                   />
-                  
+
                   {/* Top clock / status bar and bottom label */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-black/45 flex flex-col justify-between p-2 z-10 pointer-events-none">
                     <div className="flex items-center justify-between mt-0.5 text-[7px] font-bold text-white/95 px-1">
@@ -97,12 +98,12 @@ function ProjectCard({ project }: { project: ProjectData }) {
             <div className="flex items-center gap-2.5 pt-2.5 border-t border-white/10">
               <div className="p-1.5 sm:p-2 rounded-xl bg-white/10 hover:bg-[#f47721] transition-all duration-300 cursor-pointer text-white shadow-md">
                 <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.96 6.35c.64-.78 1.08-1.87.96-2.95-.92.04-2.04.62-2.7 1.39-.58.67-1.1 1.78-.96 2.84 1.03.08 2.07-.5 2.7-1.28"/>
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.96 6.35c.64-.78 1.08-1.87.96-2.95-.92.04-2.04.62-2.7 1.39-.58.67-1.1 1.78-.96 2.84 1.03.08 2.07-.5 2.7-1.28" />
                 </svg>
               </div>
               <div className="p-1.5 sm:p-2 rounded-xl bg-white/10 hover:bg-[#f47721] transition-all duration-300 cursor-pointer text-white shadow-md">
                 <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M3,20.5V3.5C3,2.91,3.34,2.39,3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z"/>
+                  <path d="M3,20.5V3.5C3,2.91,3.34,2.39,3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
                 </svg>
               </div>
             </div>
@@ -127,50 +128,85 @@ export default function WorksSection() {
   const filteredProjects = projectsData.filter(project => project.category.includes(activeTab));
 
   return (
-    <section className="bg-[#090b10] font-sans w-full text-white py-16 lg:py-24 overflow-hidden" id="works">
-      
+    <section className="bg-[#130b1c] font-sans w-full text-white py-16 sm:py-20 lg:py-28 relative overflow-hidden transition-colors duration-300" id="works">
+
+      {/* Background Gradients & Mesh Accent Orbs matching Homepage theme */}
+      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(circle_at_center,_rgba(145,33,108,0.18),_rgba(195,84,15,0.12),_transparent_70%)] blur-[140px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-[#5b3181]/20 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[5%] right-[-5%] w-[700px] h-[700px] bg-[#932574]/15 blur-[160px] rounded-full pointer-events-none" />
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none" />
+
       {/* Section Heading */}
-      <div className="container mx-auto px-4 max-w-[1440px] pb-4">
-        <div className="flex flex-col items-center text-center">
-          <h2 className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] leading-[1.1] font-medium tracking-tight mb-3 text-white font-sans">
-            Our Recent <span className="text-[#f47721]">Works</span>
-          </h2>
-          <p className="text-gray-300 max-w-2xl mt-3 text-base sm:text-lg leading-relaxed">
-            Explore our latest projects and see how we've helped businesses achieve their digital goals.
-          </p>
+      <div className="container mx-auto px-4 max-w-[1440px] relative z-10">
+        <div className="text-center mb-8 sm:mb-12">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              background:
+                "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            className="font-bold tracking-widest uppercase text-xs md:text-sm mb-3 block"
+          >
+            OUR PORTFOLIO
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-[3rem] leading-[1.15] text-white mb-4 sm:mb-5 tracking-tight font-extrabold"
+          >
+            Our Recent{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+              className="font-light drop-shadow-[0_0_20px_rgba(245,134,25,0.3)]"
+            >
+              Works
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-[17px] leading-relaxed font-normal"
+          >
+            Explore our latest projects and see how we've helped businesses achieve their digital goals across platforms.
+          </motion.p>
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="container mx-auto px-4 max-w-[1440px] py-8 md:py-12">
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 border-b border-gray-800/80 pb-2">
+      <div className="container mx-auto px-4 max-w-[1440px] relative z-10">
+        <div className="flex flex-wrap justify-center items-center gap-2.5 sm:gap-4 lg:gap-6 border-b border-white/10 pb-6 mb-10 sm:mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveTab(category)}
-              className={`pb-4 px-2 text-xs md:text-sm tracking-wider uppercase font-semibold transition-colors relative whitespace-nowrap
-                ${activeTab === category 
-                  ? "text-[#f47721]" 
-                  : "text-gray-400 hover:text-white"
-                }
-              `}
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs md:text-sm tracking-wider uppercase font-semibold transition-all duration-300 relative whitespace-nowrap cursor-pointer ${activeTab === category
+                  ? "text-white bg-gradient-to-r from-[#f58619] via-[#c33594] to-[#7b51a1] shadow-[0_0_20px_rgba(245,134,25,0.4)]"
+                  : "text-gray-400 hover:text-white bg-white/5 border border-white/10 hover:border-white/20"
+                }`}
             >
               {category}
-              {activeTab === category && (
-                <motion.div
-                  layoutId="active-works-tab"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#f47721]"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Increased Width Grid (max-w-[1440px]) & Shorter Card Heights */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-[1440px]">
+      {/* Project Cards Grid */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-[1440px] relative z-10">
         <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
@@ -189,6 +225,22 @@ export default function WorksSection() {
         </motion.div>
       </div>
 
+      {/* View All Projects CTA */}
+      <div className="flex justify-center mt-12 sm:mt-16 relative z-10">
+        <Link
+          href="/works"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(245,134,25,0.5)] shadow-lg"
+          style={{
+            background:
+              "linear-gradient(310deg, rgba(245, 134, 25, 1) 0%, rgba(195, 53, 148, 1) 50%, rgba(123, 81, 161, 1) 100%)",
+          }}
+        >
+          View All Projects
+          <ArrowUpRight size={20} strokeWidth={2.5} />
+        </Link>
+      </div>
+
     </section>
   );
 }
+
