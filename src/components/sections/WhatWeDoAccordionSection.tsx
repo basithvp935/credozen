@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -37,13 +37,8 @@ const romanNumerals = ["I.", "II.", "III.", "IV."];
 export default function WhatWeDoAccordionSection() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const { theme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const isDark = mounted ? (theme === 'dark' || resolvedTheme === 'dark') : true;
+  const isDark = (theme ?? resolvedTheme ?? "dark") === "dark";
 
   return (
     <section className="bg-white dark:bg-black text-slate-900 dark:text-white pt-24 pb-0 border-y border-slate-200 dark:border-white/10 overflow-hidden transition-colors duration-300" id="services">

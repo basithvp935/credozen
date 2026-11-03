@@ -1,36 +1,33 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [activeLink, setActiveLink] = useState("HOME");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname?.includes("/about")) {
-      setActiveLink("ABOUT");
-    } else if (pathname?.includes("/contact")) {
-      setActiveLink("CONTACT");
-    } else if (pathname?.includes("/services")) {
-      setActiveLink("SERVICE");
-    } else if (pathname?.includes("/clients")) {
-      setActiveLink("CLIENTS");
-    } else if (pathname?.includes("/works")) {
-      setActiveLink("WORKS");
-    } else if (pathname?.includes("/blog")) {
-      setActiveLink("BLOG");
-    } else if (pathname?.includes("/career")) {
-      setActiveLink("CAREERS");
-    } else if (pathname === "/") {
-      setActiveLink("HOME");
-    }
-  }, [pathname]);
+  const activeLink = pathname?.includes("/about")
+    ? "ABOUT"
+    : pathname?.includes("/contact")
+      ? "CONTACT"
+      : pathname?.includes("/services")
+        ? "SERVICES"
+        : pathname?.includes("/clients")
+          ? "CLIENTS"
+          : pathname?.includes("/works")
+            ? "WORKS"
+            : pathname?.includes("/blog")
+              ? "BLOG"
+              : pathname?.includes("/career")
+                ? "CAREERS"
+                : pathname === "/"
+                  ? "HOME"
+                  : "HOME";
 
   type NavLink = { name: string; href: string; hasDropdown?: boolean };
   const navLinks: NavLink[] = [
@@ -51,8 +48,7 @@ export default function Navbar() {
         {/* Left Pill - Logo */}
         <div className="flex items-center rounded-full transition-all duration-300">
           <Link href="/" className="flex items-center gap-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Credozen Logo" className="h-14 w-auto object-contain transition-all duration-300 drop-shadow-[0_0_10px_rgba(0,229,255,0.2)]" />
+            <Image src="/logo.png" alt="Credozen Logo" width={120} height={56} className="h-14 w-auto object-contain transition-all duration-300 drop-shadow-[0_0_10px_rgba(0,229,255,0.2)]" />
           </Link>
         </div>
 
@@ -65,7 +61,6 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setActiveLink(link.name)}
                   style={
                     isActive
                       ? {
@@ -125,8 +120,7 @@ export default function Navbar() {
       {/* Mobile Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-[100] xl:hidden flex justify-between items-center px-6 py-4 bg-[#070b12]/95 backdrop-blur-md border-b border-white/10 text-white transition-colors duration-300">
         <Link href="/" className="flex items-center gap-2">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Credozen Logo" className="h-9 w-auto object-contain" />
+          <Image src="/logo.png" alt="Credozen Logo" width={120} height={36} className="h-9 w-auto object-contain" />
         </Link>
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -151,7 +145,6 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => {
-                  setActiveLink(link.name);
                   setIsMobileMenuOpen(false);
                 }}
                 style={

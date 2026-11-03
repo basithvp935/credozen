@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Play } from "lucide-react";
 
 const features = [
   { 
@@ -79,7 +78,7 @@ export default function TechSolutionSection() {
           
           {/* Left: Accordion / Tabs */}
           <div className="w-full lg:w-[45%] flex flex-col gap-2">
-            {features.map((feature, idx) => {
+            {features.map((feature) => {
               const isActive = activeFeature === feature.id;
               
               return (

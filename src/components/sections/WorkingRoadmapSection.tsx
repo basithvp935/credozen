@@ -45,7 +45,6 @@ export default function WorkingRoadmapSection() {
           {steps.map((step, i) => {
             // Create a slight negative margin layout to make circles touch/overlap slightly
             // We use 4 columns on large screens
-            const isTopRow = i < 4;
             const delay = i * 0.1;
             
             return (

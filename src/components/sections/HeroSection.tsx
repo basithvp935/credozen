@@ -2,21 +2,20 @@
 
 import React from "react";
 import MotionShield from "@/components/herosection/MotionShield";
-import BannerCookies from "@/components/herosection/BannerCookies";
 import FooterBadges from "@/components/herosection/FooterBadges";
 import { ArrowRight, ShieldCheck, Award } from "lucide-react";
 import Link from "next/link";
 
 export default function CyberCrestHero() {
   return (
-    <main className="relative min-h-screen bg-[#130b1c] text-white font-sans overflow-x-hidden selection:bg-[#f58619] selection:text-white">
+    <main className="relative min-h-screen bg-[#23102b] text-white font-sans overflow-x-hidden selection:bg-[#190e24] selection:text-white">
       {/* Darker Purple/Magenta/Orange Glassy Background Gradients & Mesh Accent Orbs */}
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(circle_at_center,_rgba(145,33,108,0.18),_rgba(195,84,15,0.12),_transparent_70%)] blur-[140px] pointer-events-none" />
-      <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-[#5b3181]/20 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[5%] right-[-5%] w-[700px] h-[700px] bg-[#932574]/15 blur-[160px] rounded-full pointer-events-none" />
+      {/* <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(circle_at_center,_rgba(145,33,108,0.12),_rgba(195,84,15,0.08),_transparent_70%)] blur-[140px] pointer-events-none" /> */}
+      {/* <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-[#5b3181]/15 blur-[150px] rounded-full pointer-events-none" /> */}
+      {/* <div className="absolute bottom-[5%] right-[-5%] w-[700px] h-[700px] bg-[#932574]/10 blur-[160px] rounded-full pointer-events-none" /> */}
 
       {/* Cyber Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#2b1638_1px,transparent_1px)] [background-size:32px_32px] opacity-30 pointer-events-none" />
 
       {/* Hero Section Container */}
       <section className="relative z-10 max-w-7xl mx-auto pt-24 sm:pt-28 md:pt-32 lg:pt-20 min-h-[calc(100vh-60px)] flex flex-col justify-center px-4 sm:px-6 lg:px-8">

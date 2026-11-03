@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -14,10 +15,12 @@ function ProjectCard({ project }: { project: ProjectData }) {
 
         {/* Background Image & Ambient Theme Gradient */}
         <div className={`absolute inset-0 ${project.gradientClass} opacity-90`} />
-        <img
+        <Image
           src={project.bgImage}
           alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-55 sm:opacity-65 mix-blend-normal transition-transform duration-1000 group-hover:scale-105 pointer-events-none"
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-cover opacity-55 sm:opacity-65 mix-blend-normal transition-transform duration-1000 group-hover:scale-105 pointer-events-none"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-black/85 pointer-events-none" />
 
@@ -52,10 +55,12 @@ function ProjectCard({ project }: { project: ProjectData }) {
 
                 {/* Screen Content */}
                 <div className="w-full h-full rounded-[1.6rem] sm:rounded-[1.8rem] overflow-hidden relative bg-[#090b10]">
-                  <img
+                  <Image
                     src={project.screenImage}
                     alt={`${project.title} app interface`}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 object-top"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110 object-top"
                   />
 
                   {/* Top clock / status bar and bottom label */}

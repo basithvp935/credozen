@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Monitor, Smartphone, PenTool, TrendingUp, Search, ShieldCheck, ArrowRight } from "lucide-react";
@@ -141,10 +142,12 @@ export default function ServicesPage() {
                 {/* Image Header */}
                 <div className="relative h-60 w-full overflow-hidden bg-slate-900">
                   <div className="absolute inset-0 bg-[#050505]/30 mix-blend-multiply group-hover:bg-[#f47721]/10 transition-colors duration-500 z-10"></div>
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
                   />
                 </div>
 

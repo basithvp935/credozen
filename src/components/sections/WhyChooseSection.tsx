@@ -1,43 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Target, Lightbulb, UserRound, Lock } from "lucide-react";
 import Image from "next/image";
-
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (inView) {
-      const end = value;
-      const duration = 2000;
-      let startTime: number | null = null;
-
-      const step = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / duration, 1);
-        const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-
-        setCount(Math.floor(easeProgress * end));
-
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-
-      window.requestAnimationFrame(step);
-    }
-  }, [inView, value]);
-
-  return (
-    <span ref={ref}>
-      {count}{suffix}
-    </span>
-  );
-}
 
 export default function WhyChooseSection() {
   const leftFeatures = [
@@ -64,13 +29,6 @@ export default function WhyChooseSection() {
       desc: "An IT company must prioritize cybersecurity and data protection.",
       icon: Lock,
     }
-  ];
-
-  const stats = [
-    { value: 15, suffix: "+", label: "Years of Experience" },
-    { value: 120, suffix: "+", label: "Expert Team" },
-    { value: 15, suffix: "K", label: "Client" },
-    { value: 20, suffix: "+", label: "Branch Office" },
   ];
 
   return (

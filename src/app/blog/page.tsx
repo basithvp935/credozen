@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function BlogPage() {
   const blogs = [
@@ -146,10 +147,12 @@ export default function BlogPage() {
                   >
                     {/* Image Wrapper */}
                     <Link href={`#`} className="block relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden mb-6 bg-[#11131c]">
-                      <img 
-                        src={blog.image} 
-                        alt={blog.title} 
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                      <Image
+                        src={blog.image}
+                        alt={blog.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
                       />
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
                     </Link>
@@ -262,10 +265,12 @@ export default function BlogPage() {
                   {blogs.slice(0, 3).map((post) => (
                     <div key={`recent-${post.id}`} className="flex gap-4 group cursor-pointer">
                       <div className="w-20 h-20 shrink-0 rounded-xl overflow-hidden bg-[#11131c]">
-                        <img 
-                          src={post.image} 
-                          alt={post.title} 
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                       <div className="flex flex-col justify-center flex-grow">
@@ -286,10 +291,12 @@ export default function BlogPage() {
 
               {/* Promotional Ad Widget */}
               <div className="relative w-full max-w-[280px] h-48 rounded-[1.5rem] overflow-hidden group cursor-pointer shadow-lg shadow-black/5 border border-slate-200 dark:border-white/5">
-                <img 
-                  src="/images/Un Site Web qui reflète votre image.jpg" 
-                  alt="Promotional Ad" 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                <Image
+                  src="/images/Un Site Web qui reflète votre image.jpg"
+                  alt="Promotional Ad"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 280px"
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 

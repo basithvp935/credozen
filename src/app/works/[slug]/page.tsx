@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -36,10 +37,13 @@ export default function ProjectDetailPage() {
         <div className={`absolute inset-0 ${project.gradientClass} opacity-95`} />
         
         {/* Full-Screen Project Showcase Banner Image */}
-        <img
+        <Image
           src={project.bgImage}
           alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-95 transition-transform duration-1000 pointer-events-none"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-95 transition-transform duration-1000 pointer-events-none"
         />
 
         {/* Cinematic High-Contrast Overlay Gradients */}
@@ -229,10 +233,12 @@ export default function ProjectDetailPage() {
                     
                     {/* Upper App Screenshot (73% Height) */}
                     <div className="relative w-full h-[73%] overflow-hidden bg-neutral-900">
-                      <img
+                      <Image
                         src={screen.image}
                         alt={screen.title}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                        fill
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute top-0 inset-x-0 h-9 bg-gradient-to-b from-black/85 to-transparent flex items-start justify-between px-3.5 pt-2 text-[8px] font-extrabold text-white/95 z-10">
                         <span>9:41</span>
@@ -281,10 +287,12 @@ export default function ProjectDetailPage() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-4 relative rounded-[2.4rem] sm:rounded-[2.7rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-white/15 h-[360px] sm:h-[410px] group hover:border-[#f47721]/40 transition-colors duration-500"
           >
-            <img
+            <Image
               src={project.highlight.leftImage}
               alt="Technology Implementation"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-neutral-800"
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-700 bg-neutral-800"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent pointer-events-none" />
             <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white text-xs font-semibold bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-md">
@@ -327,10 +335,12 @@ export default function ProjectDetailPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-4 relative rounded-[2.4rem] sm:rounded-[2.7rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-white/15 h-[360px] sm:h-[410px] group hover:border-[#f47721]/40 transition-colors duration-500"
           >
-            <img
+            <Image
               src={project.highlight.rightImage}
               alt="Client Collaboration & Success"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-neutral-800"
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-700 bg-neutral-800"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent pointer-events-none" />
             <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white text-xs font-semibold bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-md">
@@ -441,7 +451,7 @@ export default function ProjectDetailPage() {
                 {/* Top Brand Box */}
                 <div>
                   <div className="mb-4 pt-0.5">
-                    <img src="/logo.png" alt="Credozen Logo" className="h-9 sm:h-10 w-auto object-contain mb-1.5" />
+                    <Image src="/logo.png" alt="Credozen Logo" width={120} height={36} className="h-9 sm:h-10 w-auto object-contain mb-1.5" />
                     <p className="text-xs text-[#f47721] font-bold font-sans tracking-wide">Business Development Team</p>
                   </div>
 

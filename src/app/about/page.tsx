@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Globe, Asterisk, CheckCircle2, User } from "lucide-react";
+import { Asterisk, CheckCircle2, User } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
@@ -119,9 +120,11 @@ export default function AboutPage() {
           >
             {/* The Image Wrapper with Custom Border Radius */}
             <div className="relative rounded-t-[2.5rem] rounded-bl-[2.5rem] rounded-br-[6rem] overflow-hidden aspect-[4/4.5] shadow-2xl shadow-blue-900/5 dark:shadow-black/40 ring-1 ring-slate-200 dark:ring-white/5 bg-slate-100 dark:bg-slate-800">
-              <img 
-                src="/images/about it.jpg" 
-                alt="IT Specialist working" 
+              <Image
+                src="/images/about it.jpg"
+                alt="IT Specialist working"
+                width={800}
+                height={900}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-[#f47721]/20 mix-blend-multiply"></div>
@@ -266,10 +269,12 @@ export default function AboutPage() {
           >
             {/* Main Image */}
             <div className="absolute top-0 right-0 w-[85%] h-[85%] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-[#f47721]/10 dark:shadow-black/40 ring-1 ring-slate-200 dark:ring-white/10 group z-10">
-              <img 
-                src="/images/who we are.jpg" 
-                alt="Our Team" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              <Image
+                src="/images/who we are.jpg"
+                alt="Our Team"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-[#f47721]/20 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-70"></div>
             </div>
@@ -282,10 +287,13 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-slate-50 dark:border-[#090b10] z-20 group"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Working together" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              <Image
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Working together"
+                fill
+                unoptimized
+                sizes="(max-width: 1024px) 100vw, 35vw"
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-[#f47721]/20 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-70"></div>
             </motion.div>
@@ -417,10 +425,12 @@ export default function AboutPage() {
           
           {/* Card 1 */}
           <div tabIndex={0} className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8] focus:outline-none">
-            <img 
-              src="/images/employee.jpg" 
-              alt="Arif Nugroho" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
+            <Image
+              src="/images/employee.jpg"
+              alt="Arif Nugroho"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
             {/* Social Icons Hover */}
@@ -447,10 +457,13 @@ export default function AboutPage() {
 
           {/* Card 2 */}
           <div tabIndex={0} className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8] focus:outline-none">
-            <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-              alt="Dina Maharani" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
+            <Image
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Dina Maharani"
+              fill
+              unoptimized
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
             {/* Social Icons Hover */}
@@ -477,10 +490,13 @@ export default function AboutPage() {
 
           {/* Card 3 */}
           <div tabIndex={0} className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#110905] group shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-100 dark:border-white/5 aspect-[4/4.8] focus:outline-none">
-            <img 
-              src="https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-              alt="Rizky Aditya" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
+            <Image
+              src="https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Rizky Aditya"
+              fill
+              unoptimized
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105 group-focus:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></div>
             {/* Social Icons Hover */}

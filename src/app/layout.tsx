@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import Preloader from "@/components/ui/Preloader";
 
 const outfit = Outfit({
   variable: "--font-sans",

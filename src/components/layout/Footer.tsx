@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
         {/* Top section: Logo & Description */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="Credozen Logo" className="h-10 w-auto object-contain" />
+            <Image src="/logo.png" alt="Credozen Logo" width={160} height={40} className="h-10 w-auto object-contain" />
           </Link>
           {/* <p className="text-slate-600 dark:text-gray-300 text-sm max-w-md text-left md:text-right leading-relaxed">
             Elevating businesses with cutting-edge IT solutions. <br className="hidden md:block" />

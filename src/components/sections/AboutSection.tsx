@@ -111,47 +111,8 @@ export default function AboutSection() {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-[1300px] relative z-10">
         {/* Top Content Grid: Left Vector Cards & Right Copy */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Vector Icon Cards Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4"
-          >
-            {featureVectorCards.map((card, idx) => {
-              const Icon = card.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-md hover:shadow-xl hover:bg-white/90 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div
-                      className="p-2.5 sm:p-3 rounded-xl bg-slate-900/5 group-hover:scale-110 transition-transform duration-300"
-                      style={{ color: card.color }}
-                    >
-                      <Icon size={22} className="sm:w-6 sm:h-6" />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      0{idx + 1}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {card.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* Right Column: About Content */}
-          <motion.div
+          {/* Left Column: About Content */}
+            <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.2 }}
@@ -181,7 +142,7 @@ export default function AboutSection() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
-                className="font-light"
+                className=""
               >
                 IT{" "}
               </span>
@@ -194,7 +155,7 @@ export default function AboutSection() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
-                className="font-light"
+                className=""
               >
                 Growth{" "}
               </span>
@@ -208,6 +169,46 @@ export default function AboutSection() {
               development to branding, LMS, and e-commerce expertise—bringing
               together creativity, technical precision, and proven results.
             </p>
+          </motion.div>
+         
+
+          {/* Right Column:  Vector Icon Cards Grid */}
+         <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4"
+          >
+            {featureVectorCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-md hover:shadow-xl hover:bg-white/90 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div
+                      className="p-2.5 sm:p-3 rounded-xl bg-slate-900/5 group-hover:scale-110 transition-transform duration-300"
+                      style={{ color: card.color }}
+                    >
+                      <Icon size={22} className="sm:w-6 sm:h-6" />
+                    </div>
+                    {/* <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      0{idx + 1}
+                    </span> */}
+                  </div>
+                  <div>
+                    <h3 className="text-lg  font-bold text-slate-900 mb-1">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </motion.div>
         </div>
 

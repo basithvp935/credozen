@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X, Send } from "lucide-react";
+import { X, Send } from "lucide-react";
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ export default function ChatWidget() {
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-[100] w-16 h-16 md:w-20 md:h-20 flex items-center justify-center group"
           >
-            <img src="/chat-icon.png" alt="Chat Icon" className="w-full h-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform" />
+            <Image src="/chat-icon.png" alt="Chat Icon" width={72} height={72} className="w-full h-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -52,7 +53,7 @@ export default function ChatWidget() {
             {/* Header */}
             <div className="bg-[#1f1427] p-4 text-white flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <img src="/chat-icon.png" alt="Chat Icon" className="w-6 h-6 object-contain drop-shadow-md" />
+                <Image src="/chat-icon.png" alt="Chat Icon" width={24} height={24} className="w-6 h-6 object-contain drop-shadow-md" />
                 <span className="font-bold">Credozen</span>
               </div>
               <button 
